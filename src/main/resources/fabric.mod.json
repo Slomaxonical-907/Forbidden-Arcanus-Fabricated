@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "malum",
+  "version": "${version}",
+
+  "name": "Malum Fabric",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Slomaxonical and me"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources":""
+  },
+
+  "license": "ARR",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.slomaxonical.malum.MalumMod"
+    ]
+  },
+  "mixins": [
+    "malum.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
