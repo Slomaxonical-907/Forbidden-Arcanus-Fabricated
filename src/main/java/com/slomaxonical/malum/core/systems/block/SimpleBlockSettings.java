@@ -1,6 +1,7 @@
 package com.slomaxonical.malum.core.systems.block;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.mixin.object.builder.AbstractBlockAccessor;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.sound.BlockSoundGroup;
@@ -23,6 +24,9 @@ public class SimpleBlockSettings extends FabricBlockSettings {
 
     public SimpleBlockSettings(Material material, MapColor mapColor) {
         super(material, mapColor);
+    }
+    public SimpleBlockSettings(AbstractBlock.Settings settings) {
+        super(settings);
     }
     public SimpleBlockSettings ignoreLootDatagen()
     {
@@ -138,6 +142,7 @@ public class SimpleBlockSettings extends FabricBlockSettings {
 
     @Override
     public SimpleBlockSettings dropsLike(Block p_60917_) {
+        ignoreLootDatagen();
         return (SimpleBlockSettings)super.dropsLike(p_60917_);
     }
 
