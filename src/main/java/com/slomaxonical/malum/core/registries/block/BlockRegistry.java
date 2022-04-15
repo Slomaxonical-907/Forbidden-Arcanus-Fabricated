@@ -110,10 +110,10 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block SOUL_VIAL = new SoulVialBlock(SOUL_VIAL_PROPERTIES().ignoreBlockStateDatagen().nonOpaque());
 
     public static final Block RUNEWOOD_OBELISK = new RunewoodObeliskCoreBlock(RUNEWOOD_PROPERTIES().ignoreBlockStateDatagen().nonOpaque());
-    public static final Block RUNEWOOD_OBELISK_COMPONENT = new ObeliskComponentBlock(RUNEWOOD_PROPERTIES().ignoreBlockStateDatagen().dropsLike(RUNEWOOD_OBELISK).nonOpaque(), ItemRegistry.RUNEWOOD_OBELISK));
+    public static final Block RUNEWOOD_OBELISK_COMPONENT = new ObeliskComponentBlock(RUNEWOOD_PROPERTIES().ignoreBlockStateDatagen().dropsLike(RUNEWOOD_OBELISK).nonOpaque(), ItemRegistry.RUNEWOOD_OBELISK);
 
     public static final Block BRILLIANT_OBELISK = new BrillianceObeliskCoreBlock(RUNEWOOD_PROPERTIES().ignoreBlockStateDatagen().nonOpaque());
-    public static final Block BRILLIANT_OBELISK_COMPONENT = new ObeliskComponentBlock(RUNEWOOD_PROPERTIES().ignoreBlockStateDatagen().dropsLike(BRILLIANT_OBELISK).nonOpaque(), ItemRegistry.BRILLIANT_OBELISK));
+    public static final Block BRILLIANT_OBELISK_COMPONENT = new ObeliskComponentBlock(RUNEWOOD_PROPERTIES().ignoreBlockStateDatagen().dropsLike(BRILLIANT_OBELISK).nonOpaque(), ItemRegistry.BRILLIANT_OBELISK);
 
     public static final Block SPIRIT_CRUCIBLE = new SpiritCrucibleCoreBlock(TAINTED_ROCK_PROPERTIES().ignoreBlockStateDatagen().nonOpaque());
     public static final Block SPIRIT_CRUCIBLE_COMPONENT = new SpiritCrucibleComponentBlock(TAINTED_ROCK_PROPERTIES().ignoreBlockStateDatagen().dropsLike(SPIRIT_CRUCIBLE).nonOpaque());
