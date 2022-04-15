@@ -1,8 +1,25 @@
 package com.slomaxonical.malum.core.registries.block;
 
-import com.slomaxonical.malum.common.block.SpiritJarBlock;
+
+import com.slomaxonical.malum.common.block.ether.EtherBlock;
+import com.slomaxonical.malum.common.block.ether.EtherBrazierBlock;
+import com.slomaxonical.malum.common.block.ether.EtherTorchBlock;
+import com.slomaxonical.malum.common.block.ether.WallEtherTorchBlock;
+import com.slomaxonical.malum.common.block.fusion_plate.FusionPlateComponentBlock;
+import com.slomaxonical.malum.common.block.fusion_plate.FusionPlateCoreBlock;
+import com.slomaxonical.malum.common.block.item_storage.*;
+import com.slomaxonical.malum.common.block.misc.*;
+import com.slomaxonical.malum.common.block.misc.extended.*;
+import com.slomaxonical.malum.common.block.obelisk.BrillianceObeliskCoreBlock;
+import com.slomaxonical.malum.common.block.obelisk.ObeliskComponentBlock;
+import com.slomaxonical.malum.common.block.obelisk.RunewoodObeliskCoreBlock;
 import com.slomaxonical.malum.common.block.spirit_altar.SpiritAltarBlock;
+import com.slomaxonical.malum.common.block.spirit_crucible.SpiritCrucibleComponentBlock;
+import com.slomaxonical.malum.common.block.spirit_crucible.SpiritCrucibleCoreBlock;
+import com.slomaxonical.malum.common.block.totem.TotemBaseBlock;
+import com.slomaxonical.malum.common.block.totem.TotemPoleBlock;
 import com.slomaxonical.malum.core.registries.SoundRegistry;
+import com.slomaxonical.malum.core.registries.item.ItemRegistry;
 import com.slomaxonical.malum.core.systems.block.SimpleBlockSettings;
 import io.wispforest.owo.registration.reflect.BlockRegistryContainer;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -10,6 +27,9 @@ import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
 
 import java.awt.*;
+
+import static net.minecraft.block.PressurePlateBlock.ActivationRule.EVERYTHING;
+import static net.minecraft.block.PressurePlateBlock.ActivationRule.MOBS;
 
 public class BlockRegistry implements BlockRegistryContainer {
     public static SimpleBlockSettings TAINTED_ROCK_PROPERTIES() {
@@ -124,9 +144,9 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block CRACKED_TAINTED_ROCK_TILES = new Block(TAINTED_ROCK_PROPERTIES());
     public static final Block CRACKED_SMALL_TAINTED_ROCK_BRICKS = new Block(TAINTED_ROCK_PROPERTIES());
 
-    public static final Block TAINTED_ROCK_PILLAR = new RotatedPillarBlock(TAINTED_ROCK_PROPERTIES());
+    public static final Block TAINTED_ROCK_PILLAR = new PillarBlock(TAINTED_ROCK_PROPERTIES());
     public static final Block TAINTED_ROCK_PILLAR_CAP = new MalumDirectionalBlock(TAINTED_ROCK_PROPERTIES());
-    public static final Block TAINTED_ROCK_COLUMN = new RotatedPillarBlock(TAINTED_ROCK_PROPERTIES());
+    public static final Block TAINTED_ROCK_COLUMN = new PillarBlock(TAINTED_ROCK_PROPERTIES());
     public static final Block TAINTED_ROCK_COLUMN_CAP = new MalumDirectionalBlock(TAINTED_ROCK_PROPERTIES());
 
     public static final Block CUT_TAINTED_ROCK = new Block(TAINTED_ROCK_PROPERTIES());
@@ -142,17 +162,17 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block CRACKED_TAINTED_ROCK_TILES_SLAB = new SlabBlock(TAINTED_ROCK_PROPERTIES());
     public static final Block CRACKED_SMALL_TAINTED_ROCK_BRICKS_SLAB = new SlabBlock(TAINTED_ROCK_PROPERTIES());
 
-    public static final Block TAINTED_ROCK_STAIRS = new StairBlock(() -> TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
-    public static final Block SMOOTH_TAINTED_ROCK_STAIRS = new StairBlock(() -> TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
-    public static final Block POLISHED_TAINTED_ROCK_STAIRS = new StairBlock(() -> TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
-    public static final Block TAINTED_ROCK_BRICKS_STAIRS = new StairBlock(() -> TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
-    public static final Block CRACKED_TAINTED_ROCK_BRICKS_STAIRS = new StairBlock(() -> TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
-    public static final Block SMALL_TAINTED_ROCK_BRICKS_STAIRS = new StairBlock(() -> TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
-    public static final Block TAINTED_ROCK_TILES_STAIRS = new StairBlock(() -> TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
-    public static final Block CRACKED_TAINTED_ROCK_TILES_STAIRS = new StairBlock(() -> TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
-    public static final Block CRACKED_SMALL_TAINTED_ROCK_BRICKS_STAIRS = new StairBlock(() -> TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
+    public static final Block TAINTED_ROCK_STAIRS = new MalumStairsBlock(TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
+    public static final Block SMOOTH_TAINTED_ROCK_STAIRS = new MalumStairsBlock(TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
+    public static final Block POLISHED_TAINTED_ROCK_STAIRS = new MalumStairsBlock(TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
+    public static final Block TAINTED_ROCK_BRICKS_STAIRS = new MalumStairsBlock(TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
+    public static final Block CRACKED_TAINTED_ROCK_BRICKS_STAIRS = new MalumStairsBlock(TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
+    public static final Block SMALL_TAINTED_ROCK_BRICKS_STAIRS = new MalumStairsBlock(TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
+    public static final Block TAINTED_ROCK_TILES_STAIRS = new MalumStairsBlock(TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
+    public static final Block CRACKED_TAINTED_ROCK_TILES_STAIRS = new MalumStairsBlock(TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
+    public static final Block CRACKED_SMALL_TAINTED_ROCK_BRICKS_STAIRS = new MalumStairsBlock(TAINTED_ROCK.getDefaultState(), TAINTED_ROCK_PROPERTIES());
 
-    public static final Block TAINTED_ROCK_PRESSURE_PLATE = new PressurePlateBlock(MOBS, TAINTED_ROCK_PROPERTIES());
+    public static final Block TAINTED_ROCK_PRESSURE_PLATE = new MalumPressurePlateBlock(MOBS, TAINTED_ROCK_PROPERTIES());
 
     public static final Block TAINTED_ROCK_WALL = new WallBlock(TAINTED_ROCK_PROPERTIES());
     public static final Block TAINTED_ROCK_BRICKS_WALL = new WallBlock(TAINTED_ROCK_PROPERTIES());
@@ -179,9 +199,9 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block CRACKED_TWISTED_ROCK_TILES = new Block(TWISTED_ROCK_PROPERTIES());
     public static final Block CRACKED_SMALL_TWISTED_ROCK_BRICKS = new Block(TWISTED_ROCK_PROPERTIES());
 
-    public static final Block TWISTED_ROCK_PILLAR = new RotatedPillarBlock(TWISTED_ROCK_PROPERTIES());
+    public static final Block TWISTED_ROCK_PILLAR = new PillarBlock(TWISTED_ROCK_PROPERTIES());
     public static final Block TWISTED_ROCK_PILLAR_CAP = new MalumDirectionalBlock(TWISTED_ROCK_PROPERTIES());
-    public static final Block TWISTED_ROCK_COLUMN = new RotatedPillarBlock(TWISTED_ROCK_PROPERTIES());
+    public static final Block TWISTED_ROCK_COLUMN = new PillarBlock(TWISTED_ROCK_PROPERTIES());
     public static final Block TWISTED_ROCK_COLUMN_CAP = new MalumDirectionalBlock(TWISTED_ROCK_PROPERTIES());
 
     public static final Block CUT_TWISTED_ROCK = new Block(TWISTED_ROCK_PROPERTIES());
@@ -197,17 +217,17 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block CRACKED_TWISTED_ROCK_TILES_SLAB = new SlabBlock(TWISTED_ROCK_PROPERTIES());
     public static final Block CRACKED_SMALL_TWISTED_ROCK_BRICKS_SLAB = new SlabBlock(TWISTED_ROCK_PROPERTIES());
 
-    public static final Block TWISTED_ROCK_STAIRS = new StairBlock(() -> TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
-    public static final Block SMOOTH_TWISTED_ROCK_STAIRS = new StairBlock(() -> TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
-    public static final Block POLISHED_TWISTED_ROCK_STAIRS = new StairBlock(() -> TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
-    public static final Block TWISTED_ROCK_BRICKS_STAIRS = new StairBlock(() -> TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
-    public static final Block CRACKED_TWISTED_ROCK_BRICKS_STAIRS = new StairBlock(() -> TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
-    public static final Block SMALL_TWISTED_ROCK_BRICKS_STAIRS = new StairBlock(() -> TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
-    public static final Block TWISTED_ROCK_TILES_STAIRS = new StairBlock(() -> TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
-    public static final Block CRACKED_TWISTED_ROCK_TILES_STAIRS = new StairBlock(() -> TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
-    public static final Block CRACKED_SMALL_TWISTED_ROCK_BRICKS_STAIRS = new StairBlock(() -> TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
+    public static final Block TWISTED_ROCK_STAIRS = new MalumStairsBlock(TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
+    public static final Block SMOOTH_TWISTED_ROCK_STAIRS = new MalumStairsBlock(TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
+    public static final Block POLISHED_TWISTED_ROCK_STAIRS = new MalumStairsBlock(TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
+    public static final Block TWISTED_ROCK_BRICKS_STAIRS = new MalumStairsBlock(TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
+    public static final Block CRACKED_TWISTED_ROCK_BRICKS_STAIRS = new MalumStairsBlock(TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
+    public static final Block SMALL_TWISTED_ROCK_BRICKS_STAIRS = new MalumStairsBlock(TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
+    public static final Block TWISTED_ROCK_TILES_STAIRS = new MalumStairsBlock(TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
+    public static final Block CRACKED_TWISTED_ROCK_TILES_STAIRS = new MalumStairsBlock(TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
+    public static final Block CRACKED_SMALL_TWISTED_ROCK_BRICKS_STAIRS = new MalumStairsBlock(TWISTED_ROCK.getDefaultState(), TWISTED_ROCK_PROPERTIES());
 
-    public static final Block TWISTED_ROCK_PRESSURE_PLATE = new PressurePlateBlock(MOBS, TWISTED_ROCK_PROPERTIES());
+    public static final Block TWISTED_ROCK_PRESSURE_PLATE = new MalumPressurePlateBlock(MOBS, TWISTED_ROCK_PROPERTIES());
 
     public static final Block TWISTED_ROCK_WALL = new WallBlock(TWISTED_ROCK_PROPERTIES());
     public static final Block TWISTED_ROCK_BRICKS_WALL = new WallBlock(TWISTED_ROCK_PROPERTIES());
@@ -222,12 +242,12 @@ public class BlockRegistry implements BlockRegistryContainer {
     //endregion
 
     //region runewood
-    public static final Block RUNEWOOD_SAPLING = new MalumSaplingBlock(RUNEWOOD_PLANTS_PROPERTIES().randomTicks(), FeatureRegistry.RUNEWOOD_TREE));
+    public static final Block RUNEWOOD_SAPLING = new MalumSaplingBlock(RUNEWOOD_PLANTS_PROPERTIES().ticksRandomly(), FeatureRegistry.RUNEWOOD_TREE));
     public static final Block RUNEWOOD_LEAVES = new MalumLeavesBlock(LEAVES_PROPERTIES().ignoreLootDatagen(), new Color(175, 65, 48), new Color(251, 193, 76));
 
-    public static final Block STRIPPED_RUNEWOOD_LOG = new RotatedPillarBlock(RUNEWOOD_PROPERTIES());
+    public static final Block STRIPPED_RUNEWOOD_LOG = new PillarBlock(RUNEWOOD_PROPERTIES());
     public static final Block RUNEWOOD_LOG = new RunewoodLogBlock(RUNEWOOD_PROPERTIES(), STRIPPED_RUNEWOOD_LOG, false);
-    public static final Block STRIPPED_RUNEWOOD = new RotatedPillarBlock(RUNEWOOD_PROPERTIES());
+    public static final Block STRIPPED_RUNEWOOD = new PillarBlock(RUNEWOOD_PROPERTIES());
     public static final Block RUNEWOOD = new MalumLogBlock(RUNEWOOD_PROPERTIES(), STRIPPED_RUNEWOOD));
 
     public static final Block REVEALED_RUNEWOOD_LOG = new SapFilledLogBlock(RUNEWOOD_PROPERTIES(), STRIPPED_RUNEWOOD_LOG, ItemRegistry.HOLY_SAP, SpiritTypeRegistry.INFERNAL_SPIRIT_COLOR));
@@ -235,29 +255,29 @@ public class BlockRegistry implements BlockRegistryContainer {
 
     public static final Block RUNEWOOD_PLANKS = new Block(RUNEWOOD_PROPERTIES());
     public static final Block RUNEWOOD_PLANKS_SLAB = new SlabBlock(RUNEWOOD_PROPERTIES());
-    public static final Block RUNEWOOD_PLANKS_STAIRS = new StairBlock(() -> RUNEWOOD_PLANKS.getDefaultState(), RUNEWOOD_PROPERTIES());
+    public static final Block RUNEWOOD_PLANKS_STAIRS = new MalumStairsBlock(RUNEWOOD_PLANKS.getDefaultState(), RUNEWOOD_PROPERTIES());
 
     public static final Block VERTICAL_RUNEWOOD_PLANKS = new Block(RUNEWOOD_PROPERTIES());
     public static final Block VERTICAL_RUNEWOOD_PLANKS_SLAB = new SlabBlock(RUNEWOOD_PROPERTIES());
-    public static final Block VERTICAL_RUNEWOOD_PLANKS_STAIRS = new StairBlock(() -> VERTICAL_RUNEWOOD_PLANKS.getDefaultState(), RUNEWOOD_PROPERTIES());
+    public static final Block VERTICAL_RUNEWOOD_PLANKS_STAIRS = new MalumStairsBlock(VERTICAL_RUNEWOOD_PLANKS.getDefaultState(), RUNEWOOD_PROPERTIES());
 
     public static final Block RUNEWOOD_PANEL = new Block(RUNEWOOD_PROPERTIES());
     public static final Block RUNEWOOD_PANEL_SLAB = new SlabBlock(RUNEWOOD_PROPERTIES());
-    public static final Block RUNEWOOD_PANEL_STAIRS = new StairBlock(() -> RUNEWOOD_PANEL.getDefaultState(), RUNEWOOD_PROPERTIES());
+    public static final Block RUNEWOOD_PANEL_STAIRS = new MalumStairsBlock(RUNEWOOD_PANEL.getDefaultState(), RUNEWOOD_PROPERTIES());
 
     public static final Block RUNEWOOD_TILES = new Block(RUNEWOOD_PROPERTIES());
     public static final Block RUNEWOOD_TILES_SLAB = new SlabBlock(RUNEWOOD_PROPERTIES());
-    public static final Block RUNEWOOD_TILES_STAIRS = new StairBlock(() -> RUNEWOOD_TILES.getDefaultState(), RUNEWOOD_PROPERTIES());
+    public static final Block RUNEWOOD_TILES_STAIRS = new MalumStairsBlock(RUNEWOOD_TILES.getDefaultState(), RUNEWOOD_PROPERTIES());
 
     public static final Block CUT_RUNEWOOD_PLANKS = new Block(RUNEWOOD_PROPERTIES());
-    public static final Block RUNEWOOD_BEAM = new RotatedPillarBlock(RUNEWOOD_PROPERTIES());
+    public static final Block RUNEWOOD_BEAM = new PillarBlock(RUNEWOOD_PROPERTIES());
 
-    public static final Block RUNEWOOD_DOOR = new DoorBlock(RUNEWOOD_PROPERTIES().nonOpaque());
-    public static final Block RUNEWOOD_TRAPDOOR = new TrapDoorBlock(RUNEWOOD_PROPERTIES().nonOpaque());
-    public static final Block SOLID_RUNEWOOD_TRAPDOOR = new TrapDoorBlock(RUNEWOOD_PROPERTIES().nonOpaque());
+    public static final Block RUNEWOOD_DOOR = new MalumDoorBlock(RUNEWOOD_PROPERTIES().nonOpaque());
+    public static final Block RUNEWOOD_TRAPDOOR = new MalumTrapDoorBlock(RUNEWOOD_PROPERTIES().nonOpaque());
+    public static final Block SOLID_RUNEWOOD_TRAPDOOR = new MalumTrapDoorBlock(RUNEWOOD_PROPERTIES().nonOpaque());
 
-    public static final Block RUNEWOOD_PLANKS_BUTTON = new WoodButtonBlock(RUNEWOOD_PROPERTIES());
-    public static final Block RUNEWOOD_PLANKS_PRESSURE_PLATE = new PressurePlateBlock(EVERYTHING, RUNEWOOD_PROPERTIES());
+    public static final Block RUNEWOOD_PLANKS_BUTTON = new MalumWoodenButtonBlock(RUNEWOOD_PROPERTIES());
+    public static final Block RUNEWOOD_PLANKS_PRESSURE_PLATE = new MalumPressurePlateBlock(EVERYTHING, RUNEWOOD_PROPERTIES());
 
     public static final Block RUNEWOOD_PLANKS_FENCE = new FenceBlock(RUNEWOOD_PROPERTIES());
     public static final Block RUNEWOOD_PLANKS_FENCE_GATE = new FenceGateBlock(RUNEWOOD_PROPERTIES());
@@ -265,17 +285,17 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block RUNEWOOD_ITEM_STAND = new ItemStandBlock(RUNEWOOD_PROPERTIES().nonOpaque());
     public static final Block RUNEWOOD_ITEM_PEDESTAL = new WoodItemPedestalBlock(RUNEWOOD_PROPERTIES().nonOpaque());
 
-    public static final Block RUNEWOOD_SIGN = new MalumStandingSignBlock(RUNEWOOD_PROPERTIES().nonOpaque().noCollission(), WoodTypeRegistry.RUNEWOOD));
-    public static final Block RUNEWOOD_WALL_SIGN = new MalumWallSignBlock(RUNEWOOD_PROPERTIES().nonOpaque().noCollission(), WoodTypeRegistry.RUNEWOOD));
+    public static final Block RUNEWOOD_SIGN = new MalumSignBlock(RUNEWOOD_PROPERTIES().nonOpaque().noCollision(), WoodTypeRegistry.RUNEWOOD);
+    public static final Block RUNEWOOD_WALL_SIGN = new MalumWallSignBlock(RUNEWOOD_PROPERTIES().nonOpaque().noCollision(), WoodTypeRegistry.RUNEWOOD);
     //endregion
 
     //region soulwood
-    public static final Block SOULWOOD_SAPLING = new MalumSaplingBlock(SOULWOOD_PLANTS_PROPERTIES().randomTicks(), FeatureRegistry.SOULWOOD_TREE));
+    public static final Block SOULWOOD_SAPLING = new MalumSaplingBlock(SOULWOOD_PLANTS_PROPERTIES().ticksRandomly(), FeatureRegistry.SOULWOOD_TREE));
     public static final Block SOULWOOD_LEAVES = new MalumLeavesBlock(LEAVES_PROPERTIES().ignoreLootDatagen(), new Color(152, 6, 45), new Color(224, 30, 214));
 
-    public static final Block STRIPPED_SOULWOOD_LOG = new RotatedPillarBlock(SOULWOOD_PROPERTIES());
+    public static final Block STRIPPED_SOULWOOD_LOG = new PillarBlock(SOULWOOD_PROPERTIES());
     public static final Block SOULWOOD_LOG = new RunewoodLogBlock(SOULWOOD_PROPERTIES(), STRIPPED_SOULWOOD_LOG, true));
-    public static final Block STRIPPED_SOULWOOD = new RotatedPillarBlock(SOULWOOD_PROPERTIES());
+    public static final Block STRIPPED_SOULWOOD = new PillarBlock(SOULWOOD_PROPERTIES());
     public static final Block SOULWOOD = new MalumLogBlock(SOULWOOD_PROPERTIES(), STRIPPED_SOULWOOD));
 
     public static final Block REVEALED_SOULWOOD_LOG = new SapFilledLogBlock(SOULWOOD_PROPERTIES(), STRIPPED_SOULWOOD_LOG, ItemRegistry.UNHOLY_SAP, new Color(214, 46, 83));
@@ -283,29 +303,29 @@ public class BlockRegistry implements BlockRegistryContainer {
 
     public static final Block SOULWOOD_PLANKS = new Block(SOULWOOD_PROPERTIES());
     public static final Block SOULWOOD_PLANKS_SLAB = new SlabBlock(SOULWOOD_PROPERTIES());
-    public static final Block SOULWOOD_PLANKS_STAIRS = new StairBlock(() -> SOULWOOD_PLANKS.getDefaultState(), SOULWOOD_PROPERTIES());
+    public static final Block SOULWOOD_PLANKS_STAIRS = new MalumStairsBlock(SOULWOOD_PLANKS.getDefaultState(), SOULWOOD_PROPERTIES());
 
     public static final Block VERTICAL_SOULWOOD_PLANKS = new Block(SOULWOOD_PROPERTIES());
     public static final Block VERTICAL_SOULWOOD_PLANKS_SLAB = new SlabBlock(SOULWOOD_PROPERTIES());
-    public static final Block VERTICAL_SOULWOOD_PLANKS_STAIRS = new StairBlock(() -> VERTICAL_SOULWOOD_PLANKS.getDefaultState(), SOULWOOD_PROPERTIES());
+    public static final Block VERTICAL_SOULWOOD_PLANKS_STAIRS = new MalumStairsBlock(VERTICAL_SOULWOOD_PLANKS.getDefaultState(), SOULWOOD_PROPERTIES());
 
     public static final Block SOULWOOD_PANEL = new Block(SOULWOOD_PROPERTIES());
     public static final Block SOULWOOD_PANEL_SLAB = new SlabBlock(SOULWOOD_PROPERTIES());
-    public static final Block SOULWOOD_PANEL_STAIRS = new StairBlock(() -> SOULWOOD_PANEL.getDefaultState(), SOULWOOD_PROPERTIES());
+    public static final Block SOULWOOD_PANEL_STAIRS = new MalumStairsBlock(SOULWOOD_PANEL.getDefaultState(), SOULWOOD_PROPERTIES());
 
     public static final Block SOULWOOD_TILES = new Block(SOULWOOD_PROPERTIES());
     public static final Block SOULWOOD_TILES_SLAB = new SlabBlock(SOULWOOD_PROPERTIES());
-    public static final Block SOULWOOD_TILES_STAIRS = new StairBlock(() -> SOULWOOD_TILES.getDefaultState(), SOULWOOD_PROPERTIES());
+    public static final Block SOULWOOD_TILES_STAIRS = new MalumStairsBlock(SOULWOOD_TILES.getDefaultState(), SOULWOOD_PROPERTIES());
 
     public static final Block CUT_SOULWOOD_PLANKS = new Block(SOULWOOD_PROPERTIES());
-    public static final Block SOULWOOD_BEAM = new RotatedPillarBlock(SOULWOOD_PROPERTIES());
+    public static final Block SOULWOOD_BEAM = new PillarBlock(SOULWOOD_PROPERTIES());
 
-    public static final Block SOULWOOD_DOOR = new DoorBlock(SOULWOOD_PROPERTIES().nonOpaque());
-    public static final Block SOULWOOD_TRAPDOOR = new TrapDoorBlock(SOULWOOD_PROPERTIES().nonOpaque());
-    public static final Block SOLID_SOULWOOD_TRAPDOOR = new TrapDoorBlock(SOULWOOD_PROPERTIES().nonOpaque());
+    public static final Block SOULWOOD_DOOR = new MalumDoorBlock(SOULWOOD_PROPERTIES().nonOpaque());
+    public static final Block SOULWOOD_TRAPDOOR = new MalumTrapDoorBlock(SOULWOOD_PROPERTIES().nonOpaque());
+    public static final Block SOLID_SOULWOOD_TRAPDOOR = new MalumTrapDoorBlock(SOULWOOD_PROPERTIES().nonOpaque());
 
-    public static final Block SOULWOOD_PLANKS_BUTTON = new WoodButtonBlock(SOULWOOD_PROPERTIES());
-    public static final Block SOULWOOD_PLANKS_PRESSURE_PLATE = new PressurePlateBlock(EVERYTHING, SOULWOOD_PROPERTIES());
+    public static final Block SOULWOOD_PLANKS_BUTTON = new MalumWoodenButtonBlock(SOULWOOD_PROPERTIES());
+    public static final Block SOULWOOD_PLANKS_PRESSURE_PLATE = new MalumPressurePlateBlock(EVERYTHING, SOULWOOD_PROPERTIES());
 
     public static final Block SOULWOOD_PLANKS_FENCE = new FenceBlock(SOULWOOD_PROPERTIES());
     public static final Block SOULWOOD_PLANKS_FENCE_GATE = new FenceGateBlock(SOULWOOD_PROPERTIES());
@@ -313,19 +333,19 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block SOULWOOD_ITEM_STAND = new ItemStandBlock(SOULWOOD_PROPERTIES().nonOpaque());
     public static final Block SOULWOOD_ITEM_PEDESTAL = new WoodItemPedestalBlock(SOULWOOD_PROPERTIES().nonOpaque());
 
-    public static final Block SOULWOOD_SIGN = new MalumStandingSignBlock(SOULWOOD_PROPERTIES().nonOpaque().noCollission(), WoodTypeRegistry.SOULWOOD));
-    public static final Block SOULWOOD_WALL_SIGN = new MalumWallSignBlock(SOULWOOD_PROPERTIES().nonOpaque().noCollission(), WoodTypeRegistry.SOULWOOD));
+    public static final Block SOULWOOD_SIGN = new MalumSignBlock(SOULWOOD_PROPERTIES().nonOpaque().noCollision(), WoodTypeRegistry.SOULWOOD));
+    public static final Block SOULWOOD_WALL_SIGN = new MalumWallSignBlock(SOULWOOD_PROPERTIES().nonOpaque().noCollision(), WoodTypeRegistry.SOULWOOD));
     //endregion
 
     //region ether
-    public static final Block ETHER_TORCH = new EtherTorchBlock(RUNEWOOD_PROPERTIES().noCollission().instabreak().lightLevel((b) -> 14));
-    public static final Block WALL_ETHER_TORCH = new WallEtherTorchBlock(RUNEWOOD_PROPERTIES().noCollission().instabreak().lightLevel((b) -> 14).dropsLike(ETHER_TORCH));
+    public static final Block ETHER_TORCH = new EtherTorchBlock(RUNEWOOD_PROPERTIES().noCollision().breakInstantly().lightLevel((b) -> 14));
+    public static final Block WALL_ETHER_TORCH = new WallEtherTorchBlock(RUNEWOOD_PROPERTIES().noCollision().breakInstantly().lightLevel((b) -> 14).dropsLike(ETHER_TORCH));
     public static final Block ETHER = new EtherBlock(ETHER_BLOCK_PROPERTIES());
     public static final Block TAINTED_ETHER_BRAZIER = new EtherBrazierBlock(TAINTED_ROCK_PROPERTIES().lightLevel((b) -> 14).nonOpaque());
     public static final Block TWISTED_ETHER_BRAZIER = new EtherBrazierBlock(TWISTED_ROCK_PROPERTIES().lightLevel((b) -> 14).nonOpaque());
 
-    public static final Block IRIDESCENT_ETHER_TORCH = new EtherTorchBlock(RUNEWOOD_PROPERTIES().noCollission().instabreak().lightLevel((b) -> 14));
-    public static final Block IRIDESCENT_WALL_ETHER_TORCH = new WallEtherTorchBlock(RUNEWOOD_PROPERTIES().noCollission().instabreak().lightLevel((b) -> 14).dropsLike(IRIDESCENT_ETHER_TORCH));
+    public static final Block IRIDESCENT_ETHER_TORCH = new EtherTorchBlock(RUNEWOOD_PROPERTIES().noCollision().breakInstantly().lightLevel((b) -> 14));
+    public static final Block IRIDESCENT_WALL_ETHER_TORCH = new WallEtherTorchBlock(RUNEWOOD_PROPERTIES().noCollision().breakInstantly().lightLevel((b) -> 14).dropsLike(IRIDESCENT_ETHER_TORCH));
     public static final Block IRIDESCENT_ETHER = new EtherBlock(ETHER_BLOCK_PROPERTIES());
     public static final Block TAINTED_IRIDESCENT_ETHER_BRAZIER = new EtherBrazierBlock(TAINTED_ROCK_PROPERTIES().lightLevel((b) -> 14).nonOpaque());
     public static final Block TWISTED_IRIDESCENT_ETHER_BRAZIER = new EtherBrazierBlock(TWISTED_ROCK_PROPERTIES().lightLevel((b) -> 14).nonOpaque());

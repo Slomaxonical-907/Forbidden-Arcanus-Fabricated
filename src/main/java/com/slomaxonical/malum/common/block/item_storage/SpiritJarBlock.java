@@ -1,4 +1,4 @@
-package com.slomaxonical.malum.common.block;
+package com.slomaxonical.malum.common.block.item_storage;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Waterloggable;
