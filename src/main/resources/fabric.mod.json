@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "malum",
+  "id": "forbidden_arcanus",
   "version": "${version}",
 
-  "name": "Malum Fabric",
+  "name": "Forbidden&Arcanus Fabric",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "Slomaxonical and me"
+    "Slomaxonical"
   ],
   "contact": {
     "homepage": "",
@@ -14,16 +14,16 @@
   },
 
   "license": "ARR",
-  "icon": "assets/modid/icon.png",
+  "icon": "icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.slomaxonical.malum.MalumMod"
+      "com.slomaxonical.forbidden_arcanus.ForbiddenArcanus"
     ]
   },
   "mixins": [
-    "malum.mixins.json"
+    "forbidden_arcanus.mixins.json"
   ],
 
   "depends": {
