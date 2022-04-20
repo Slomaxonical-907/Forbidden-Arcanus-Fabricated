@@ -1,13 +1,10 @@
 package com.slomaxonical.forbidden_arcanus.common.item;
 
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import com.slomaxonical.forbidden_arcanus.core.registries.StatusEffectsRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
@@ -17,7 +14,6 @@ import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
-import java.awt.*;
 import java.util.List;
 
 public class MysticalDaggerItem extends SwordItem {
@@ -38,7 +34,7 @@ public class MysticalDaggerItem extends SwordItem {
     @Override
     public boolean postHit(@Nonnull ItemStack stack, @Nonnull LivingEntity target, @Nonnull LivingEntity attacker) {
         if (attacker.getRandom().nextInt(5) == 0) {
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKENED.get(), 100, 0));
+            target.addStatusEffect(new StatusEffectInstance(StatusEffectsRegistry.DARKENED, 100, 0));
         }
         return super.postHit(stack, target, attacker);
     }

@@ -2,9 +2,7 @@ package com.slomaxonical.forbidden_arcanus.core.registries.item;
 
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
 import com.slomaxonical.forbidden_arcanus.common.item.*;
-import com.slomaxonical.forbidden_arcanus.common.item.extended.ForbiddenAxeItem;
-import com.slomaxonical.forbidden_arcanus.common.item.extended.ForbiddenHoeItem;
-import com.slomaxonical.forbidden_arcanus.common.item.extended.ForbiddenPickaxeItem;
+import com.slomaxonical.forbidden_arcanus.common.item.extended.FATools;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
 import io.wispforest.owo.registration.reflect.ItemRegistryContainer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -92,7 +90,7 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item EDELWOOD_SALMON_BUCKET =  new EdelwoodMobBucketItem(EntityType.SALMON, Fluids.WATER,SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_COD_BUCKET =  new EdelwoodMobBucketItem(EntityType.COD,  Fluids.WATER, SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_TROPICAL_FISH_BUCKET =  new EdelwoodMobBucketItem(EntityType.TROPICAL_FISH, Fluids.WATER,  SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
-    public static final Item EDELWOOD_BAT_BUCKET =  new EdelwoodMobBucketItem(EntityType.BAT,  Fluids.EMPTY, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
+//    public static final Item EDELWOOD_BAT_BUCKET =  new EdelwoodMobBucketItem(EntityType.BAT,  Fluids.EMPTY, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_SQUID_BUCKET =  new EdelwoodMobBucketItem(EntityType.SQUID,  Fluids.WATER,  SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_GLOW_SQUID_BUCKET =  new EdelwoodMobBucketItem(EntityType.GLOW_SQUID,  Fluids.WATER,  SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_MAGMA_CUBE_BUCKET =  new EdelwoodMobBucketItem(EntityType.MAGMA_CUBE,  Fluids.EMPTY, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
@@ -105,7 +103,7 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item EDELWOOD_BAT_SOUP_BUCKET =  new EdelwoodSoupBucketItem(BAT_SOUP, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1).food(ForbiddenFoods.BAT_SOUP));
     public static final Item BOOM_ARROW =  new ModArrowItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item DRACO_ARCANUS_ARROW =  new ModArrowItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item EDELWOOD_OIL =  new EdelwoodOilItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(16));
+    public static final Item EDELWOOD_OIL =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).recipeRemainder(Items.GLASS).maxCount(16));
     public static final Item GOLDEN_ORCHID_SEEDS =  new AliasedBlockItem(BlockRegistry.GOLDEN_ORCHID, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
 
     public static final Item SOUL_EXTRACTOR =  new SoulExtractorItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxDamage(128));
@@ -113,20 +111,20 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item DRACO_ARCANUS_STAFF =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item DRACO_ARCANUS_SWORD =  new SwordItem(ForbiddenToolMaterials.DRACO_ARCANUS, 4, -2.2F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item DRACO_ARCANUS_SHOVEL =  new ShovelItem(ForbiddenToolMaterials.DRACO_ARCANUS, 2.5F, -2.8F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item DRACO_ARCANUS_PICKAXE =  new ForbiddenAxeItem(ForbiddenToolMaterials.DRACO_ARCANUS, 2, -2.6F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item DRACO_ARCANUS_AXE =  new ForbiddenAxeItem(ForbiddenToolMaterials.DRACO_ARCANUS, 6, -2.8F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item DRACO_ARCANUS_HOE =  new ForbiddenHoeItem(ForbiddenToolMaterials.DRACO_ARCANUS, -4, 1, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item DRACO_ARCANUS_PICKAXE =  new FATools.Axe(ForbiddenToolMaterials.DRACO_ARCANUS, 2, -2.6F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item DRACO_ARCANUS_AXE =  new FATools.Axe(ForbiddenToolMaterials.DRACO_ARCANUS, 6, -2.8F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item DRACO_ARCANUS_HOE =  new FATools.Hoe(ForbiddenToolMaterials.DRACO_ARCANUS, -4, 1, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item DRACO_ARCANUS_SCEPTER =  new DracoArcanusScepterItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item ARCANE_GOLDEN_SWORD =  new SwordItem(ForbiddenToolMaterials.ARCANE_GOLDEN, 3, -2.4F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item ARCANE_GOLDEN_SHOVEL =  new ShovelItem(ForbiddenToolMaterials.ARCANE_GOLDEN, 1.5F, -3.0F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item ARCANE_GOLDEN_PICKAXE =  new ForbiddenPickaxeItem(ForbiddenToolMaterials.ARCANE_GOLDEN, 1, -2.8F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item ARCANE_GOLDEN_AXE =  new ForbiddenAxeItem(ForbiddenToolMaterials.ARCANE_GOLDEN, 5, -3.0F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item ARCANE_GOLDEN_HOE =  new ForbiddenHoeItem(ForbiddenToolMaterials.ARCANE_GOLDEN, -3, 0, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item ARCANE_GOLDEN_PICKAXE =  new FATools.Pickaxe(ForbiddenToolMaterials.ARCANE_GOLDEN, 1, -2.8F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item ARCANE_GOLDEN_AXE =  new FATools.Axe(ForbiddenToolMaterials.ARCANE_GOLDEN, 5, -3.0F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item ARCANE_GOLDEN_HOE =  new FATools.Hoe(ForbiddenToolMaterials.ARCANE_GOLDEN, -3, 0, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item REINFORCED_ARCANE_GOLDEN_SWORD =  new SwordItem(ForbiddenToolMaterials.REINFORCED_ARCANE_GOLDEN, 3, -2.4F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item REINFORCED_ARCANE_GOLDEN_SHOVEL =  new ShovelItem(ForbiddenToolMaterials.REINFORCED_ARCANE_GOLDEN, 1.5F, -3.0F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item REINFORCED_ARCANE_GOLDEN_PICKAXE =  new ForbiddenPickaxeItem(ForbiddenToolMaterials.REINFORCED_ARCANE_GOLDEN, 1, -2.8F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item REINFORCED_ARCANE_GOLDEN_AXE =  new ForbiddenAxeItem(ForbiddenToolMaterials.REINFORCED_ARCANE_GOLDEN, 5, -3.0F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item REINFORCED_ARCANE_GOLDEN_HOE =  new ForbiddenHoeItem(ForbiddenToolMaterials.REINFORCED_ARCANE_GOLDEN, -3, 0, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item REINFORCED_ARCANE_GOLDEN_PICKAXE =  new FATools.Pickaxe(ForbiddenToolMaterials.REINFORCED_ARCANE_GOLDEN, 1, -2.8F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item REINFORCED_ARCANE_GOLDEN_AXE =  new FATools.Axe(ForbiddenToolMaterials.REINFORCED_ARCANE_GOLDEN, 5, -3.0F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item REINFORCED_ARCANE_GOLDEN_HOE =  new FATools.Hoe(ForbiddenToolMaterials.REINFORCED_ARCANE_GOLDEN, -3, 0, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item MYSTICAL_DAGGER =  new MysticalDaggerItem(ForbiddenToolMaterials.MYSTICAL_DAGGER, 2.5F, -0.3F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item DRACO_ARCANUS_HELMET =  new ArmorItem(ModArmorMaterials.DRACO_ARCANUS, EquipmentSlot.HEAD, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item DRACO_ARCANUS_CHESTPLATE =  new ArmorItem(ModArmorMaterials.DRACO_ARCANUS, EquipmentSlot.CHEST, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));

@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "com.slomaxonical.forbidden_arcanus.ForbiddenArcanus"
+    ],
+    "mm:early_risers": [
+      "com.slomaxonical.forbidden_arcanus.common.enchantment.FAEnchantmentTargets"
     ]
   },
   "mixins": [

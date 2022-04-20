@@ -18,6 +18,7 @@ repositories {
 	// for more information about repositories.
 	maven{url "https://maven.shedaniel.me/"}
 	maven { url 'https://maven.wispforest.io' }
+	maven { url "https://jitpack.io"  }
 }
 
 dependencies {
@@ -34,6 +35,8 @@ dependencies {
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
 	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${project.rei_version}"
+
+	implementation 'com.github.Chocohead:Fabric-ASM:master-SNAPSHOT'
 }
 
 processResources {

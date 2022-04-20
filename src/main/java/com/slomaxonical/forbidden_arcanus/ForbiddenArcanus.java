@@ -1,5 +1,7 @@
 package com.slomaxonical.forbidden_arcanus;
 
+import com.slomaxonical.forbidden_arcanus.core.registries.EnchantmentRegistry;
+import com.slomaxonical.forbidden_arcanus.core.registries.StatusEffectsRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.SoundRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockEntityRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
@@ -23,6 +25,8 @@ public class ForbiddenArcanus implements ModInitializer {
 		// Proceed with mild caution.
 		FieldRegistrationHandler.register(ItemRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(BlockRegistry.class, MOD_ID, false);
+		FieldRegistrationHandler.register(StatusEffectsRegistry.class, MOD_ID, false);
+		FieldRegistrationHandler.register(EnchantmentRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(BlockEntityRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(SoundRegistry.class, MOD_ID, false);
 		TABBED_FORBIDDEN_GROUP.initialize();
