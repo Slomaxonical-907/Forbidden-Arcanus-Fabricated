@@ -81,16 +81,16 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item STELLARITE_PIECE =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item DARK_NETHER_STAR =  new SimpleFoiledItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).rarity(Rarity.RARE));
     public static final Item SMELTER_PRISM =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item EDELWOOD_BUCKET =  new EdelwoodBucketItem( Fluids.EMPTY, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(16));
-    public static final Item EDELWOOD_WATER_BUCKET =  new EdelwoodBucketItem(Fluids.WATER, 4, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
-    public static final Item EDELWOOD_LAVA_BUCKET =  new EdelwoodBucketItem(Fluids.LAVA, 3, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
-    public static final Item EDELWOOD_MILK_BUCKET =  new EdelwoodMilkBucketItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
+    public static final EdelwoodBucketItem EDELWOOD_BUCKET =  new EdelwoodBucketItem(Fluids.EMPTY, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(16));
+    public static final EdelwoodBucketItem EDELWOOD_WATER_BUCKET =  new EdelwoodBucketItem(Fluids.WATER, 4, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
+    public static final EdelwoodBucketItem EDELWOOD_LAVA_BUCKET =  new EdelwoodBucketItem(Fluids.LAVA, 3, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
+    public static final EdelwoodMilkBucketItem EDELWOOD_MILK_BUCKET =  new EdelwoodMilkBucketItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_POWDER_SNOW_BUCKET =  new SolidEdelwoodBucketItem(Blocks.POWDER_SNOW, SoundEvents.BLOCK_POWDER_SNOW_BREAK, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_PUFFERFISH_BUCKET =  new EdelwoodMobBucketItem(EntityType.PUFFERFISH,  Fluids.WATER,  SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_SALMON_BUCKET =  new EdelwoodMobBucketItem(EntityType.SALMON, Fluids.WATER,SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_COD_BUCKET =  new EdelwoodMobBucketItem(EntityType.COD,  Fluids.WATER, SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_TROPICAL_FISH_BUCKET =  new EdelwoodMobBucketItem(EntityType.TROPICAL_FISH, Fluids.WATER,  SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
-//    public static final Item EDELWOOD_BAT_BUCKET =  new EdelwoodMobBucketItem(EntityType.BAT,  Fluids.EMPTY, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
+    public static final Item EDELWOOD_BAT_BUCKET =  new EdelwoodMobBucketItem(EntityType.BAT,  Fluids.EMPTY, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_SQUID_BUCKET =  new EdelwoodMobBucketItem(EntityType.SQUID,  Fluids.WATER,  SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_GLOW_SQUID_BUCKET =  new EdelwoodMobBucketItem(EntityType.GLOW_SQUID,  Fluids.WATER,  SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_MAGMA_CUBE_BUCKET =  new EdelwoodMobBucketItem(EntityType.MAGMA_CUBE,  Fluids.EMPTY, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
@@ -143,15 +143,14 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item ARCANE_GOLD_LEGGINGS =  new ArmorItem(ModArmorMaterials.ARCANE_GOLD, EquipmentSlot.LEGS, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item ARCANE_GOLD_BOOTS =  new ArmorItem(ModArmorMaterials.ARCANE_GOLD, EquipmentSlot.FEET, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
 
-    public static class Stacks {
-        public static final ItemStack LENS_OF_VERITATIS = new ItemStack(ItemRegistry.LENS_OF_VERITATIS);
-        public static final ItemStack ORB_OF_TEMPORARY_FLIGHT = new ItemStack(ItemRegistry.ORB_OF_TEMPORARY_FLIGHT);
-        public static final ItemStack SANITY_METER = new ItemStack(ItemRegistry.SANITY_METER);
-        public static final ItemStack ARCANE_CRYSTAL_DUST_SPECK = new ItemStack(ItemRegistry.ARCANE_CRYSTAL_DUST_SPECK);
-        public static final ItemStack OBSIDIAN_SKULL = new ItemStack(ItemRegistry.OBSIDIAN_SKULL);
-        public static final ItemStack ETERNAL_OBSIDIAN_SKULL = new ItemStack(ItemRegistry.ETERNAL_OBSIDIAN_SKULL);
-        public static final ItemStack OBSIDIAN_SKULL_SHIELD = new ItemStack(ItemRegistry.OBSIDIAN_SKULL_SHIELD);
-    }
-    public static void init(){}
+//    public static class Stacks {
+//        public static final ItemStack LENS_OF_VERITATIS = new ItemStack(ItemRegistry.LENS_OF_VERITATIS);
+//        public static final ItemStack ORB_OF_TEMPORARY_FLIGHT = new ItemStack(ItemRegistry.ORB_OF_TEMPORARY_FLIGHT);
+//        public static final ItemStack SANITY_METER = new ItemStack(ItemRegistry.SANITY_METER);
+//        public static final ItemStack ARCANE_CRYSTAL_DUST_SPECK = new ItemStack(ItemRegistry.ARCANE_CRYSTAL_DUST_SPECK);
+//        public static final ItemStack OBSIDIAN_SKULL = new ItemStack(ItemRegistry.OBSIDIAN_SKULL);
+//        public static final ItemStack ETERNAL_OBSIDIAN_SKULL = new ItemStack(ItemRegistry.ETERNAL_OBSIDIAN_SKULL);
+//        public static final ItemStack OBSIDIAN_SKULL_SHIELD = new ItemStack(ItemRegistry.OBSIDIAN_SKULL_SHIELD);
+//    }
 
 }

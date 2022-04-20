@@ -25,8 +25,8 @@ public class ForbiddenArcanus implements ModInitializer {
 		// Proceed with mild caution.
 		FieldRegistrationHandler.register(ItemRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(BlockRegistry.class, MOD_ID, false);
-		FieldRegistrationHandler.register(StatusEffectsRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(EnchantmentRegistry.class, MOD_ID, false);
+		FieldRegistrationHandler.register(StatusEffectsRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(BlockEntityRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(SoundRegistry.class, MOD_ID, false);
 		TABBED_FORBIDDEN_GROUP.initialize();
