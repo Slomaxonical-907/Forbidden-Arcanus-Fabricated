@@ -30,14 +30,15 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class EdelwoodBucketItem extends BucketItem implements CapacityBucket{
 
-    public static final Map<Item, Item> ITEM_TO_BUCKET = new ImmutableMap.Builder<Item, Item>()
-            .put(Items.WATER_BUCKET, ItemRegistry.EDELWOOD_WATER_BUCKET)
-            .put(Items.LAVA_BUCKET, ItemRegistry.EDELWOOD_LAVA_BUCKET)
-            .put(Items.MILK_BUCKET, ItemRegistry.EDELWOOD_MILK_BUCKET)
-            .put(Items.POWDER_SNOW_BUCKET, ItemRegistry.EDELWOOD_POWDER_SNOW_BUCKET)
+    public static final Map<Item, Supplier<? extends Item>> ITEM_TO_BUCKET = new ImmutableMap.Builder<Item, Supplier<? extends Item>>()
+            .put(Items.WATER_BUCKET,()-> Items.LAVA_BUCKET)
+            .put(Items.LAVA_BUCKET, ()->ItemRegistry.EDELWOOD_LAVA_BUCKET)
+            .put(Items.MILK_BUCKET, ()->ItemRegistry.EDELWOOD_MILK_BUCKET)
+            .put(Items.POWDER_SNOW_BUCKET,()-> ItemRegistry.EDELWOOD_POWDER_SNOW_BUCKET)
             .build();
     private static final double BURN_CHANCE = 0.005;
 
@@ -127,7 +128,7 @@ public class EdelwoodBucketItem extends BucketItem implements CapacityBucket{
                     return this.cancelFluidPickup(pos, state, world, stack);
                 }
 
-                ItemStack bucket = new ItemStack(ITEM_TO_BUCKET.get(filledBucket.getItem()));
+                ItemStack bucket = new ItemStack(ITEM_TO_BUCKET.get(filledBucket.getItem()).get());
                 filledBucket = stack.isOf(bucket.getItem()) ? stack.copy() : FAUtils.transferEnchantments(stack, bucket);
 
 

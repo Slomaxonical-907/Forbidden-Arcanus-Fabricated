@@ -12,7 +12,9 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry implements ItemRegistryContainer {
 
@@ -81,10 +83,10 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item STELLARITE_PIECE =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item DARK_NETHER_STAR =  new SimpleFoiledItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).rarity(Rarity.RARE));
     public static final Item SMELTER_PRISM =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final EdelwoodBucketItem EDELWOOD_BUCKET =  new EdelwoodBucketItem(Fluids.EMPTY, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(16));
-    public static final EdelwoodBucketItem EDELWOOD_WATER_BUCKET =  new EdelwoodBucketItem(Fluids.WATER, 4, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
-    public static final EdelwoodBucketItem EDELWOOD_LAVA_BUCKET =  new EdelwoodBucketItem(Fluids.LAVA, 3, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
-    public static final EdelwoodMilkBucketItem EDELWOOD_MILK_BUCKET =  new EdelwoodMilkBucketItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
+    public static Item EDELWOOD_BUCKET = new EdelwoodBucketItem(Fluids.EMPTY, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(16));
+    public static final Item EDELWOOD_WATER_BUCKET =  new EdelwoodBucketItem(Fluids.WATER, 4, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
+    public static final Item EDELWOOD_LAVA_BUCKET =  new EdelwoodBucketItem(Fluids.LAVA, 3, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
+    public static final Item EDELWOOD_MILK_BUCKET =  new EdelwoodMilkBucketItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_POWDER_SNOW_BUCKET =  new SolidEdelwoodBucketItem(Blocks.POWDER_SNOW, SoundEvents.BLOCK_POWDER_SNOW_BREAK, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_PUFFERFISH_BUCKET =  new EdelwoodMobBucketItem(EntityType.PUFFERFISH,  Fluids.WATER,  SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item EDELWOOD_SALMON_BUCKET =  new EdelwoodMobBucketItem(EntityType.SALMON, Fluids.WATER,SoundEvents.ITEM_BUCKET_EMPTY_FISH, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));

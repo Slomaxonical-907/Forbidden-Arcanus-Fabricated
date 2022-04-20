@@ -16,6 +16,7 @@
   "license": "ARR",
   "icon": "icon.png",
 
+  "accessWidener": "forbidden_arcanus.accesswidener",
   "environment": "*",
   "entrypoints": {
     "main": [
