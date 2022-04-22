@@ -26,5 +26,4 @@ public class BlockEntityRegistry implements AutoRegistryContainer<BlockEntityTyp
     public Class<BlockEntityType<?>> getTargetFieldType() {
         return (Class<BlockEntityType<?>>) (Object) BlockEntityType.class;
     }
-    public static void init(){}
 }

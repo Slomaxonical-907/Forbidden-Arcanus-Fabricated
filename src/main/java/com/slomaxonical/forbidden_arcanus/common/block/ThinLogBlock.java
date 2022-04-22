@@ -1,6 +1,6 @@
 package com.slomaxonical.forbidden_arcanus.common.block;
 
-import com.slomaxonical.forbidden_arcanus.core.helper.FAUtils;
+import com.slomaxonical.forbidden_arcanus.core.helper.FAHelper;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -15,6 +15,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
+import net.valhelsia.valhelsia_core.common.helper.VoxelShapeHelper;
 
 import java.util.*;
 
@@ -26,7 +27,7 @@ public class ThinLogBlock extends PillarBlock implements Waterloggable {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
-    private static final EnumMap<Direction.Axis, VoxelShape> SHAPES = FAUtils.rotateAxis(Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D));
+    private static final EnumMap<Direction.Axis, VoxelShape> SHAPES = VoxelShapeHelper.rotateAxis(Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D));
 
     private static final VoxelShape CONNECT_SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 2.0D, 14.0D);
 
@@ -56,7 +57,7 @@ public class ThinLogBlock extends PillarBlock implements Waterloggable {
             }
 
             if (state.get(PROPERTY_BY_DIRECTION.get(getRotatedDirection(direction, axis)))) {
-                connectedSides.add(FAUtils.rotateShape(CONNECT_SHAPE, direction));
+                connectedSides.add(VoxelShapeHelper.rotateShape(CONNECT_SHAPE, direction));
             }
         }
 

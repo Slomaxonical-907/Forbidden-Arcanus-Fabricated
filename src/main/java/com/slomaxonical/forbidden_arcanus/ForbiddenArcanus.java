@@ -1,5 +1,6 @@
 package com.slomaxonical.forbidden_arcanus;
 
+import com.slomaxonical.forbidden_arcanus.core.config.Config;
 import com.slomaxonical.forbidden_arcanus.core.registries.EnchantmentRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.StatusEffectsRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.SoundRegistry;
@@ -23,6 +24,7 @@ public class ForbiddenArcanus implements ModInitializer {
 	public void onInitialize() {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+		Config.init();
 		FieldRegistrationHandler.register(ItemRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(BlockRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(EnchantmentRegistry.class, MOD_ID, false);

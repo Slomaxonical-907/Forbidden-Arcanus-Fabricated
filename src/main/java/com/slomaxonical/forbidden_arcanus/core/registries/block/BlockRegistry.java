@@ -3,6 +3,7 @@ package com.slomaxonical.forbidden_arcanus.core.registries.block;
 
 import com.slomaxonical.forbidden_arcanus.common.block.*;
 import com.slomaxonical.forbidden_arcanus.common.block.extended.*;
+import com.slomaxonical.forbidden_arcanus.common.block.extended.RodBlock;
 import com.slomaxonical.forbidden_arcanus.common.worldGen.CherrywoodTreeGrower;
 import com.slomaxonical.forbidden_arcanus.common.worldGen.MysterywoodTreeGrower;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
@@ -44,7 +45,7 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block ARCANE_POLISHED_DARKSTONE_WALL =  new WallBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block CHISELED_ARCANE_POLISHED_DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block ARCANE_POLISHED_DARKSTONE_PILLAR =  new PillarBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
-    public static final Block ARCANE_POLISHED_DARKSTONE_ROD =  new FARodBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
+    public static final Block ARCANE_POLISHED_DARKSTONE_ROD =  new RodBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block DARKSTONE_PEDESTAL =  new PedestalBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F).nonOpaque());
     public static final Block ARCANE_DARKSTONE_PEDESTAL =  new PedestalBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F).nonOpaque());
 

@@ -1,6 +1,6 @@
 package com.slomaxonical.forbidden_arcanus.common.effect;
 
-import com.slomaxonical.forbidden_arcanus.core.helper.FAUtils;
+import com.slomaxonical.forbidden_arcanus.core.helper.FAHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
@@ -42,9 +42,9 @@ public class SpectralEyeEffect extends StatusEffect {
         int i = entity.getStatusEffect(this).getDuration();
         if (!entity.getEntityWorld().isClient()) {
             Scoreboard scoreboard = entity.getEntityWorld().getServer().getScoreboard();
-            Team teamPassiveOrNeutral = FAUtils.createTeam(scoreboard, "PassiveOrNeutral", Formatting.GREEN);
-            Team teamHostile = FAUtils.createTeam(scoreboard, "Hostile",Formatting.RED);
-            Team teamWater = FAUtils.createTeam(scoreboard, "Water", Formatting.BLUE);
+            Team teamPassiveOrNeutral = FAHelper.createTeam(scoreboard, "PassiveOrNeutral", Formatting.GREEN);
+            Team teamHostile = FAHelper.createTeam(scoreboard, "Hostile",Formatting.RED);
+            Team teamWater = FAHelper.createTeam(scoreboard, "Water", Formatting.BLUE);
 
             double k = entity.getX();
             double l = entity.getY();
@@ -65,9 +65,9 @@ public class SpectralEyeEffect extends StatusEffect {
             }
 
             if (i <= 5) {
-                FAUtils.removeTeam(scoreboard, teamPassiveOrNeutral);
-                FAUtils.removeTeam(scoreboard, teamHostile);
-                FAUtils.removeTeam(scoreboard, teamWater);
+                FAHelper.removeTeam(scoreboard, teamPassiveOrNeutral);
+                FAHelper.removeTeam(scoreboard, teamHostile);
+                FAHelper.removeTeam(scoreboard, teamWater);
             }
         }
     }

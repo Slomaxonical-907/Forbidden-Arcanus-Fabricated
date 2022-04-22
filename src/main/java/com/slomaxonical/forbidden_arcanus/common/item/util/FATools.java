@@ -1,4 +1,4 @@
-package com.slomaxonical.forbidden_arcanus.common.item.extended;
+package com.slomaxonical.forbidden_arcanus.common.item.util;
 
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.HoeItem;

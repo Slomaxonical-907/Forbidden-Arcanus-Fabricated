@@ -1,5 +1,9 @@
 package com.slomaxonical.forbidden_arcanus.core.helper;
 
+import net.minecraft.scoreboard.Scoreboard;
+import net.minecraft.scoreboard.Team;
+import net.minecraft.text.LiteralText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
@@ -12,14 +16,6 @@ import java.util.stream.Collectors;
 import static com.slomaxonical.forbidden_arcanus.ForbiddenArcanus.MOD_ID;
 
 public class DataHelper {
-    public static Vec3d fromBlockPos(BlockPos pos) {
-        return new Vec3d(pos.getX(), pos.getY(), pos.getZ());
-    }
-
-    public static Vec3f fromBlockPosVec3f(BlockPos pos) {
-        return new Vec3f(pos.getX(), pos.getY(), pos.getZ());
-    }
-
     public static Vec3d randPos(BlockPos pos, Random rand, double min, double max) {
         double x = MathHelper.nextDouble(rand, min, max) + pos.getX();
         double y = MathHelper.nextDouble(rand, min, max) + pos.getY();

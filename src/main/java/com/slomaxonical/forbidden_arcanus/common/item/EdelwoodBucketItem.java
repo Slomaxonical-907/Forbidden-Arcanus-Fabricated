@@ -1,7 +1,8 @@
 package com.slomaxonical.forbidden_arcanus.common.item;
 
 import com.google.common.collect.ImmutableMap;
-import com.slomaxonical.forbidden_arcanus.core.helper.FAUtils;
+import com.slomaxonical.forbidden_arcanus.common.item.util.CapacityBucket;
+import com.slomaxonical.forbidden_arcanus.core.helper.FAHelper;
 import com.slomaxonical.forbidden_arcanus.core.registries.EnchantmentRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
 import net.minecraft.advancement.criterion.Criteria;
@@ -20,7 +21,6 @@ import net.minecraft.stat.Stats;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.Util;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
@@ -28,14 +28,15 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
+import net.valhelsia.valhelsia_core.common.util.ItemStackUtils;
 
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class EdelwoodBucketItem extends BucketItem implements CapacityBucket{
+public class EdelwoodBucketItem extends BucketItem implements CapacityBucket {
 
     public static final Map<Item, Supplier<? extends Item>> ITEM_TO_BUCKET = new ImmutableMap.Builder<Item, Supplier<? extends Item>>()
-            .put(Items.WATER_BUCKET,()-> Items.LAVA_BUCKET)
+            .put(Items.WATER_BUCKET,()-> ItemRegistry.EDELWOOD_WATER_BUCKET)
             .put(Items.LAVA_BUCKET, ()->ItemRegistry.EDELWOOD_LAVA_BUCKET)
             .put(Items.MILK_BUCKET, ()->ItemRegistry.EDELWOOD_MILK_BUCKET)
             .put(Items.POWDER_SNOW_BUCKET,()-> ItemRegistry.EDELWOOD_POWDER_SNOW_BUCKET)
@@ -129,7 +130,7 @@ public class EdelwoodBucketItem extends BucketItem implements CapacityBucket{
                 }
 
                 ItemStack bucket = new ItemStack(ITEM_TO_BUCKET.get(filledBucket.getItem()).get());
-                filledBucket = stack.isOf(bucket.getItem()) ? stack.copy() : FAUtils.transferEnchantments(stack, bucket);
+                filledBucket = stack.isOf(bucket.getItem()) ? stack.copy() : ItemStackUtils.transferEnchantments(stack, bucket);
 
 
                 if (!isEmptyFluid && !this.tryFill(filledBucket).getFirst()) {

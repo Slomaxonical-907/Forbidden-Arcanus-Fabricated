@@ -1,8 +1,9 @@
-package com.slomaxonical.forbidden_arcanus.common.item;
+package com.slomaxonical.forbidden_arcanus.common.item.util;
 
 import com.mojang.datafixers.util.Pair;
-import com.slomaxonical.forbidden_arcanus.core.helper.FAUtils;
+import com.slomaxonical.forbidden_arcanus.core.helper.FAHelper;
 import net.minecraft.item.ItemStack;
+import net.valhelsia.valhelsia_core.common.util.ItemStackUtils;
 
 import java.util.Objects;
 
@@ -54,7 +55,7 @@ public interface CapacityBucket {
 
     default ItemStack tryDrain(ItemStack stack) {
         if (this.getFullness(stack) - 1 <= 0) {
-            return FAUtils.transferEnchantments(stack, this.getEmptyBucket());
+            return ItemStackUtils.transferEnchantments(stack, this.getEmptyBucket());
         }
         return this.setFullness(stack, this.getFullness(stack) - 1);
     }

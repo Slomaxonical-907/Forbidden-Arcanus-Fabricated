@@ -2,7 +2,7 @@ package com.slomaxonical.forbidden_arcanus.core.registries.item;
 
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
 import com.slomaxonical.forbidden_arcanus.common.item.*;
-import com.slomaxonical.forbidden_arcanus.common.item.extended.FATools;
+import com.slomaxonical.forbidden_arcanus.common.item.util.FATools;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
 import io.wispforest.owo.registration.reflect.ItemRegistryContainer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -12,9 +12,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
-import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry implements ItemRegistryContainer {
 
@@ -46,7 +44,7 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item ROTTEN_LEATHER =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item SPECTRAL_EYE_AMULET =  new SpectralEyeAmuletItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).rarity(Rarity.RARE).maxCount(1));
     public static final Item BAT_WING =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).food(ForbiddenFoods.BAT_WING));
-    public static final Item BAT_SOUP =  new BowlFoodItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1).food(ForbiddenFoods.BAT_SOUP));
+    public static final Item BAT_SOUP =  new StewItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1).food(ForbiddenFoods.BAT_SOUP));
     public static final Item TENTACLE =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).food(ForbiddenFoods.TENTACLE));
     public static final Item COOKED_TENTACLE =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).food(ForbiddenFoods.COOKED_TENTACLE));
     public static final Item STRANGE_ROOT =  new StrangeRootItem(BlockRegistry.STRANGE_ROOT, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).food(ForbiddenFoods.STRANGE_ROOT));

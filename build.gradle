@@ -22,7 +22,14 @@ repositories {
 	// for more information about repositories.
 	maven{url "https://maven.shedaniel.me/"}
 	maven { url 'https://maven.wispforest.io' }
-	maven { url "https://jitpack.io"  }
+	maven {
+		url "https://cursemaven.com"
+		content {
+			includeGroup "curse.maven"
+		}
+	}
+	maven { url "https://jitpack.io" }
+	mavenCentral()
 }
 
 dependencies {
@@ -40,6 +47,9 @@ dependencies {
 	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${project.rei_version}"
 
+	modImplementation "curse.maven:valhelsiaCore-416935:3746993"
+	modImplementation "com.electronwill.night-config:core:3.6.3"
+	modImplementation "com.electronwill.night-config:toml:3.6.3"
 	implementation 'com.github.Chocohead:Fabric-ASM:master-SNAPSHOT'
 }
 
