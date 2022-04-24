@@ -9,7 +9,7 @@ public class ForbiddenArcanusClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
-//                BlockRegistry.RUNIC_CHISELED_POLISHED_DARKSTONE,
+                BlockRegistry.RUNIC_CHISELED_POLISHED_DARKSTONE,
                 BlockRegistry.XPETRIFIED_ORE,
                 BlockRegistry.ARCANE_CRYSTAL_ORE,
                 BlockRegistry.RUNIC_STONE,
@@ -19,13 +19,13 @@ public class ForbiddenArcanusClient implements ClientModInitializer {
                 BlockRegistry.ARCANE_GOLDEN_GLASS_PANE,
                 BlockRegistry.RUNIC_GLASS_PANE,
                 BlockRegistry.DARK_RUNIC_GLASS_PANE,
-//                BlockRegistry.FUNGYSS,
-//                BlockRegistry.CHERRYWOOD_SAPLING,
-//                BlockRegistry.MYSTERYWOOD_SAPLING,
-//                BlockRegistry.GROWING_EDELWOOD,
-//                BlockRegistry.EDELWOOD_LOG,
-//                BlockRegistry.CARVED_EDELWOOD_LOG,
-//                BlockRegistry.EDELWOOD_BRANCH,
+                BlockRegistry.FUNGYSS,
+                BlockRegistry.CHERRYWOOD_SAPLING,
+                BlockRegistry.MYSTERYWOOD_SAPLING,
+                BlockRegistry.GROWING_EDELWOOD,
+                BlockRegistry.EDELWOOD_LOG,
+                BlockRegistry.CARVED_EDELWOOD_LOG,
+                BlockRegistry.EDELWOOD_BRANCH,
                 BlockRegistry.ARCANE_GOLD_DOOR,
                 BlockRegistry.FUNGYSS_DOOR,
                 BlockRegistry.CHERRYWOOD_DOOR,
@@ -48,16 +48,24 @@ public class ForbiddenArcanusClient implements ClientModInitializer {
                 BlockRegistry.YELLOW_ORCHID,
                 BlockRegistry.GOLDEN_ORCHID,
                 BlockRegistry.STRANGE_ROOT,
-//                BlockRegistry.POTTED_CHERRYWOOD_SAPLING,
-//                BlockRegistry.POTTED_MYSTERYWOOD_SAPLING,
+                BlockRegistry.POTTED_CHERRYWOOD_SAPLING,
+                BlockRegistry.POTTED_MYSTERYWOOD_SAPLING,
                 BlockRegistry.POTTED_YELLOW_ORCHID
-                );
+        );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutoutMipped(),
                 BlockRegistry.CHERRYWOOD_LEAVES,
                 BlockRegistry.CHERRYWOOD_LEAF_CARPET,
                 BlockRegistry.MYSTERYWOOD_LEAVES,
                 BlockRegistry.NUY_MYSTERYWOOD_LEAVES,
                 BlockRegistry.ARCANE_GOLDEN_CHAIN
-                );
+        );
+//        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
+//            registry.register(new Identifier(ForbiddenArcanus.MOD_ID, "particle/green_flame"));
+//        }
+//        ParticleFactoryRegistry.getInstance().register(ParticleTypeRegistry.SOUL, SoulParticle.Factory::new);
+//        ParticleFactoryRegistry.getInstance().register(ParticleTypeRegistry.AUREAL_MOTE, SoulParticle.Factory::new);
+//        ParticleFactoryRegistry.getInstance().register(ParticleTypeRegistry.MAGIC_EXPLOSION, SoulParticle.Factory::new);
+//        ParticleFactoryRegistry.getInstance().register(ParticleTypeRegistry.HUGE_MAGIC_EXPLOSION, new HugeMagicExplosionParticle.Factory());
+
     }
 }

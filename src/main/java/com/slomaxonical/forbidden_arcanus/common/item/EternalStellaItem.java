@@ -1,5 +1,6 @@
 package com.slomaxonical.forbidden_arcanus.common.item;
 
+import com.slomaxonical.forbidden_arcanus.core.config.ItemConfig;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -41,11 +42,11 @@ public class EternalStellaItem extends Item {
     private int getRemainingUses(ItemStack stack) {
         NbtCompound tag = stack.getOrCreateNbt();
 
-//        if (!tag.contains("RemainingUses")) {
-//            return ItemConfig.ETERNAL_STELLA_USES.get();
-//        } else {
+        if (!tag.contains("RemainingUses")) {
+            return ItemConfig.ETERNAL_STELLA_USES.get();
+        } else {
             return tag.getInt("RemainingUses");
-//        }
+        }
     }
 
     private void setRemainingUses(ItemStack stack, int uses) {

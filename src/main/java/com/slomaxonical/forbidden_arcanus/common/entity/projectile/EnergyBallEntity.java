@@ -32,6 +32,10 @@ public class EnergyBallEntity extends ProjectileEntity {
     private double accelerationY;
     private double accelerationZ;
 
+    public EnergyBallEntity(EntityType<? extends EnergyBallEntity> entityType, World world) {
+        super(entityType, world);
+    }
+
     public EnergyBallEntity(World world, LivingEntity shooter, double accelX, double accelY, double accelZ) {
         super(EntityRegistry.ENERGY_BALL, world);
         this.shootingEntity = shooter;
@@ -45,11 +49,6 @@ public class EnergyBallEntity extends ProjectileEntity {
         this.accelerationY = accelY / d0 * 0.1D;
         this.accelerationZ = accelZ / d0 * 0.1D;
     }
-
-    public EnergyBallEntity(EntityType<? extends EnergyBallEntity> entityType, World world) {
-        super(entityType, world);
-    }
-
     @Override
     protected void initDataTracker() {
 

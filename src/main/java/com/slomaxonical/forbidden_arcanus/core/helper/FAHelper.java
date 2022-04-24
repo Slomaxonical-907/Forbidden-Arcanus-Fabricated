@@ -24,13 +24,13 @@ import javax.annotation.Nullable;
 import java.util.*;
 
 public class FAHelper {
-//    public static Vec3d blockPosToVector(BlockPos pos) {
-//        return blockPosToVector(pos, 0);
-//    }
-//
-//    public static Vec3d blockPosToVector(BlockPos pos, double offset) {
-//        return new Vec3d(pos.getX() + offset, pos.getY() + offset, pos.getZ() + offset);
-//    }
+    public static Vec3d blockPosToVector(BlockPos pos) {
+        return blockPosToVector(pos, 0);
+    }
+
+    public static Vec3d blockPosToVector(BlockPos pos, double offset) {
+        return new Vec3d(pos.getX() + offset, pos.getY() + offset, pos.getZ() + offset);
+    }
     public static Team createTeam(Scoreboard scoreboard, String name, Formatting color) {
         if (scoreboard.getTeamNames().contains(name)) {
             return scoreboard.getPlayerTeam(name);

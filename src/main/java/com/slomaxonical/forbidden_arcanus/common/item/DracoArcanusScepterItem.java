@@ -1,5 +1,6 @@
 package com.slomaxonical.forbidden_arcanus.common.item;
 
+import com.slomaxonical.forbidden_arcanus.common.entity.projectile.EnergyBallEntity;
 import com.slomaxonical.forbidden_arcanus.core.registries.SoundRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
@@ -27,10 +28,10 @@ public class DracoArcanusScepterItem extends Item {
             if (!world.isClient()) {
                 world.playSound(null, player.getX(), player.getY(), player.getZ(), SoundRegistry.DARK_BOLT_LAUNCH, SoundCategory.NEUTRAL, 1.0f, 1.0f);
 
-//                EnergyBall energyBall = new EnergyBall(world, player, player.getLookAngle().x * 1, player.getLookAngle().y * 1, player.getLookAngle().z * 1);
-//                energyBall.setPos(energyBall.getX(), player.getY() + player.getEyeHeight(), energyBall.getZ());
-//
-//                world.spawnEntity(energyBall);
+                EnergyBallEntity energyBall = new EnergyBallEntity(world, player, player.getRotationVector().x * 1, player.getRotationVector().y * 1, player.getRotationVector().z * 1);
+                energyBall.setPos(energyBall.getX(), player.getY() + player.getStandingEyeHeight(), energyBall.getZ());
+
+                world.spawnEntity(energyBall);
             }
             player.getItemCooldownManager().set(this, COOLDOWN_TICKS);
         }
