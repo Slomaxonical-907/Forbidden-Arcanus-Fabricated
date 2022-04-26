@@ -164,7 +164,7 @@ public class ArcaneCrystalObeliskBlock extends Block implements Waterloggable, B
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
 
         if (player != null && state.get(PART) != ObeliskPart.LOWER) {
-            if (!player.getInventory().contains(ItemRegistry.Stacks.LENS_OF_VERITATIS)) {
+            if (!player.getInventory().contains(new ItemStack(ItemRegistry.LENS_OF_VERITATIS))) {
                 return;
             }
 

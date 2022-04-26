@@ -1,11 +1,11 @@
 package com.slomaxonical.forbidden_arcanus.common.blockEntity;
 
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
+import com.slomaxonical.forbidden_arcanus.common.blockEntity.forge.HephaestusForgeBlockEntity;
 import com.slomaxonical.forbidden_arcanus.core.registries.POIRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockEntityRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

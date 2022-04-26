@@ -143,14 +143,14 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item ARCANE_GOLD_LEGGINGS =  new ArmorItem(ModArmorMaterials.ARCANE_GOLD, EquipmentSlot.LEGS, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item ARCANE_GOLD_BOOTS =  new ArmorItem(ModArmorMaterials.ARCANE_GOLD, EquipmentSlot.FEET, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
 
-    public static class Stacks {
-        public static final ItemStack LENS_OF_VERITATIS = new ItemStack(ItemRegistry.LENS_OF_VERITATIS);
-        public static final ItemStack ORB_OF_TEMPORARY_FLIGHT = new ItemStack(ItemRegistry.ORB_OF_TEMPORARY_FLIGHT);
-        public static final ItemStack SANITY_METER = new ItemStack(ItemRegistry.SANITY_METER);
-        public static final ItemStack ARCANE_CRYSTAL_DUST_SPECK = new ItemStack(ItemRegistry.ARCANE_CRYSTAL_DUST_SPECK);
-        public static final ItemStack OBSIDIAN_SKULL = new ItemStack(ItemRegistry.OBSIDIAN_SKULL);
-        public static final ItemStack ETERNAL_OBSIDIAN_SKULL = new ItemStack(ItemRegistry.ETERNAL_OBSIDIAN_SKULL);
-        public static final ItemStack OBSIDIAN_SKULL_SHIELD = new ItemStack(ItemRegistry.OBSIDIAN_SKULL_SHIELD);
-    }
+//    public static class Stacks {
+//        public static final ItemStack LENS_OF_VERITATIS = new ItemStack(ItemRegistry.LENS_OF_VERITATIS);
+//        public static final ItemStack ORB_OF_TEMPORARY_FLIGHT = new ItemStack(ItemRegistry.ORB_OF_TEMPORARY_FLIGHT);
+//        public static final ItemStack SANITY_METER = new ItemStack(ItemRegistry.SANITY_METER);
+//        public static final ItemStack ARCANE_CRYSTAL_DUST_SPECK = new ItemStack(ItemRegistry.ARCANE_CRYSTAL_DUST_SPECK);
+//        public static final ItemStack OBSIDIAN_SKULL = new ItemStack(ItemRegistry.OBSIDIAN_SKULL);
+//        public static final ItemStack ETERNAL_OBSIDIAN_SKULL = new ItemStack(ItemRegistry.ETERNAL_OBSIDIAN_SKULL);
+//        public static final ItemStack OBSIDIAN_SKULL_SHIELD = new ItemStack(ItemRegistry.OBSIDIAN_SKULL_SHIELD);
+//    }
 
 }

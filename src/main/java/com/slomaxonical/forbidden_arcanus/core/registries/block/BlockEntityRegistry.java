@@ -1,6 +1,7 @@
 package com.slomaxonical.forbidden_arcanus.core.registries.block;
 
 import com.slomaxonical.forbidden_arcanus.common.blockEntity.*;
+import com.slomaxonical.forbidden_arcanus.common.blockEntity.forge.HephaestusForgeBlockEntity;
 import io.wispforest.owo.registration.reflect.AutoRegistryContainer;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
