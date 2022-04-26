@@ -1,4 +1,4 @@
-package com.slomaxonical.forbidden_arcanus.common.entity;
+package com.slomaxonical.forbidden_arcanus.common.entity.item;
 
 import com.slomaxonical.forbidden_arcanus.common.item.DarkMatterItem;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
@@ -16,16 +16,13 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class DarkMatterItemEntity extends ItemEntity {
-
-
-
     public DarkMatterItemEntity(EntityType<? extends ItemEntity> entityType, World world) {
         super(entityType, world);
     }
-
     public DarkMatterItemEntity(final World w, final double x, final double y, final double z, final ItemStack is) {
         super(w, x, y, z, is);
     }
+
     @Override
     public void tick() {
         // Prevent the entity from despawning?could be cool Thx AE2 for this
@@ -57,7 +54,6 @@ public class DarkMatterItemEntity extends ItemEntity {
                 itemEntity.getStack().decrement(1);
 
                 world.setBlockState(pos, BlockRegistry.BLACK_HOLE.getDefaultState());
-//                world.setBlockState(pos, BlockRegistry.ARCANE_CRYSTAL_BLOCK.getDefaultState());
             }
         }
     }

@@ -2,7 +2,7 @@ package com.slomaxonical.forbidden_arcanus.mixin;
 
 import com.mojang.datafixers.util.Pair;
 import com.slomaxonical.forbidden_arcanus.client.renderer.block.ObsidianSkullRenderer;
-import com.slomaxonical.forbidden_arcanus.common.data.ForbiddenTags;
+import com.slomaxonical.forbidden_arcanus.core.helper.FATags;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.feature.HeadFeatureRenderer;
@@ -41,7 +41,7 @@ public class HeadFeatureRendererMixin<T extends LivingEntity, M extends EntityMo
             this.models = ObsidianSkullRenderer.createModels(modelSet);
         }
 
-        if (stack.getItem() instanceof BlockItem blockItem && stack.isIn(ForbiddenTags.Items.OBSIDIAN_SKULLS)) {
+        if (stack.getItem() instanceof BlockItem blockItem && stack.isIn(FATags.Items.OBSIDIAN_SKULLS)) {
             poseStack.scale(1.1875F, -1.1875F, -1.1875F);
 
             if (entity instanceof VillagerEntity || entity instanceof ZombieVillagerEntity) {

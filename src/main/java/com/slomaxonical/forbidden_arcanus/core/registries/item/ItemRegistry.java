@@ -58,10 +58,10 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item LENS_OF_VERITATIS =  new LensOfVeritatisItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item PURIFYING_SOAP =  new PurifyingSoapItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item WET_PURIFYING_SOAP =  new WetPurifyingSoapItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
-    public static final Item OBSIDIAN_SKULL =  new ObsidianSkullItem(BlockRegistry.OBSIDIAN_SKULL, BlockRegistry.OBSIDIAN_WALL_SKULL, false, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1).rarity(Rarity.UNCOMMON).fireproof());
+    public static final Item OBSIDIAN_SKULL =  new ObsidianSkullItem(()->BlockRegistry.OBSIDIAN_SKULL, ()->BlockRegistry.OBSIDIAN_WALL_SKULL, false, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1).rarity(Rarity.UNCOMMON).fireproof());
     public static final Item OBSIDIAN_SKULL_SHIELD =  new ObsidianSkullShieldItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxDamage(1008).rarity(Rarity.UNCOMMON).fireproof());
-    public static final Item ETERNAL_OBSIDIAN_SKULL =  new ObsidianSkullItem(BlockRegistry.ETERNAL_OBSIDIAN_SKULL, BlockRegistry.ETERNAL_OBSIDIAN_WALL_SKULL, true, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1).rarity(Rarity.RARE).fireproof());
-    public static final Item UTREM_JAR =  new UtremJarItem(BlockRegistry.UTREM_JAR, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item ETERNAL_OBSIDIAN_SKULL =  new ObsidianSkullItem(()->BlockRegistry.ETERNAL_OBSIDIAN_SKULL, ()->BlockRegistry.ETERNAL_OBSIDIAN_WALL_SKULL, true, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1).rarity(Rarity.RARE).fireproof());
+    public static final Item UTREM_JAR =  new UtremJarItem(()->BlockRegistry.UTREM_JAR, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item AUREAL_BOTTLE =  new AurealBottleItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(16));
     public static final Item ARCANE_CRYSTAL_DUST_SPECK =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item ARCANE_BONE_MEAL =  new ArcaneBoneMealItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
@@ -104,7 +104,7 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item BOOM_ARROW =  new ModArrowItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item DRACO_ARCANUS_ARROW =  new ModArrowItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item EDELWOOD_OIL =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).recipeRemainder(Items.GLASS).maxCount(16));
-    public static final Item GOLDEN_ORCHID_SEEDS =  new AliasedBlockItem(BlockRegistry.GOLDEN_ORCHID, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item GOLDEN_ORCHID_SEEDS = new AliasedBlockItem(BlockRegistry.GOLDEN_ORCHID, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
 
     public static final Item SOUL_EXTRACTOR =  new SoulExtractorItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxDamage(128));
     public static final Item SLIMEC_PICKAXE =  new SlimecPickaxeItem(ForbiddenToolMaterials.SLIMEC, 1, -2.5F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
@@ -143,14 +143,14 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item ARCANE_GOLD_LEGGINGS =  new ArmorItem(ModArmorMaterials.ARCANE_GOLD, EquipmentSlot.LEGS, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item ARCANE_GOLD_BOOTS =  new ArmorItem(ModArmorMaterials.ARCANE_GOLD, EquipmentSlot.FEET, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
 
-//    public static class Stacks {
-//        public static final ItemStack LENS_OF_VERITATIS = new ItemStack(ItemRegistry.LENS_OF_VERITATIS);
-//        public static final ItemStack ORB_OF_TEMPORARY_FLIGHT = new ItemStack(ItemRegistry.ORB_OF_TEMPORARY_FLIGHT);
-//        public static final ItemStack SANITY_METER = new ItemStack(ItemRegistry.SANITY_METER);
-//        public static final ItemStack ARCANE_CRYSTAL_DUST_SPECK = new ItemStack(ItemRegistry.ARCANE_CRYSTAL_DUST_SPECK);
-//        public static final ItemStack OBSIDIAN_SKULL = new ItemStack(ItemRegistry.OBSIDIAN_SKULL);
-//        public static final ItemStack ETERNAL_OBSIDIAN_SKULL = new ItemStack(ItemRegistry.ETERNAL_OBSIDIAN_SKULL);
-//        public static final ItemStack OBSIDIAN_SKULL_SHIELD = new ItemStack(ItemRegistry.OBSIDIAN_SKULL_SHIELD);
-//    }
+    public static class Stacks {
+        public static final ItemStack LENS_OF_VERITATIS = new ItemStack(ItemRegistry.LENS_OF_VERITATIS);
+        public static final ItemStack ORB_OF_TEMPORARY_FLIGHT = new ItemStack(ItemRegistry.ORB_OF_TEMPORARY_FLIGHT);
+        public static final ItemStack SANITY_METER = new ItemStack(ItemRegistry.SANITY_METER);
+        public static final ItemStack ARCANE_CRYSTAL_DUST_SPECK = new ItemStack(ItemRegistry.ARCANE_CRYSTAL_DUST_SPECK);
+        public static final ItemStack OBSIDIAN_SKULL = new ItemStack(ItemRegistry.OBSIDIAN_SKULL);
+        public static final ItemStack ETERNAL_OBSIDIAN_SKULL = new ItemStack(ItemRegistry.ETERNAL_OBSIDIAN_SKULL);
+        public static final ItemStack OBSIDIAN_SKULL_SHIELD = new ItemStack(ItemRegistry.OBSIDIAN_SKULL_SHIELD);
+    }
 
 }

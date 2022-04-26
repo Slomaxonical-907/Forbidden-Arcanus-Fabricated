@@ -22,6 +22,9 @@
     "main": [
       "com.slomaxonical.forbidden_arcanus.ForbiddenArcanus"
     ],
+    "client": [
+      "com.slomaxonical.forbidden_arcanus.ForbiddenArcanusClient"
+    ],
     "mm:early_risers": [
       "com.slomaxonical.forbidden_arcanus.common.enchantment.FAEnchantmentTargets"
     ]

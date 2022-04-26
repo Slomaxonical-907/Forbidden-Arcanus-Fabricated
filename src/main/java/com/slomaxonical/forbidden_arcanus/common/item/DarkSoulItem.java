@@ -1,6 +1,5 @@
 package com.slomaxonical.forbidden_arcanus.common.item;
 
-import com.slomaxonical.forbidden_arcanus.core.helper.FAHelper;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;

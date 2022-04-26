@@ -1,6 +1,5 @@
 package com.slomaxonical.forbidden_arcanus.common.item;
 
-import com.slomaxonical.forbidden_arcanus.core.helper.FAHelper;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

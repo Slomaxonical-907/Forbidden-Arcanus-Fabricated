@@ -23,13 +23,14 @@ public class ForbiddenArcanus implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		Config.init();
-		FieldRegistrationHandler.register(ItemRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(BlockRegistry.class, MOD_ID, false);
+		FieldRegistrationHandler.register(ItemRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(EnchantmentRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(StatusEffectsRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(BlockEntityRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(SoundRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(EntityRegistry.class, MOD_ID, false);
+		FieldRegistrationHandler.register(POIRegistry.class, MOD_ID, false);
 //		FieldRegistrationHandler.register(ParticleRegistry.class, MOD_ID,false);
 		TABBED_FORBIDDEN_GROUP.initialize();
 	}

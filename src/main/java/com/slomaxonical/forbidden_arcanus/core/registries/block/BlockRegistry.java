@@ -169,8 +169,8 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block ETERNAL_OBSIDIAN_WALL_SKULL =  new ObsidianWallSkullBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL).dropsLike(ETERNAL_OBSIDIAN_SKULL));
     @NoBlockItem
     public static final Block UTREM_JAR =  new UtremJarBlock(FabricBlockSettings.copy(Blocks.GLASS));
-    public static final Block PIXIE_UTREM_JAR =  new PixieUtremJarBlock(ItemRegistry.PIXIE, FabricBlockSettings.copy(Blocks.GLASS));
-    public static final Block CORRUPTED_PIXIE_UTREM_JAR =  new PixieUtremJarBlock(ItemRegistry.CORRUPTED_PIXIE, FabricBlockSettings.copy(Blocks.GLASS));
+    public static final Block PIXIE_UTREM_JAR =  new PixieUtremJarBlock(()->ItemRegistry.PIXIE, FabricBlockSettings.copy(Blocks.GLASS));
+    public static final Block CORRUPTED_PIXIE_UTREM_JAR =  new PixieUtremJarBlock(()->ItemRegistry.CORRUPTED_PIXIE, FabricBlockSettings.copy(Blocks.GLASS));
     public static final Block NIPA =  new NipaBlock(FabricBlockSettings.copy(Blocks.LARGE_FERN));
     public static final Block PETRIFIED_ROOT =  new NoFluidOverlayBlock(FabricBlockSettings.copy(Blocks.STONE).nonOpaque());
     @NoBlockItem
