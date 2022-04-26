@@ -86,9 +86,9 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block CHERRYWOOD_SAPLING =  new FASaplingBlock(new CherrywoodTreeGrower(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
     public static final Block MYSTERYWOOD_SAPLING =  new FASaplingBlock(new MysterywoodTreeGrower(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
     public static final Block GROWING_EDELWOOD =  new GrowingEdelwoodBlock(FabricBlockSettings.copy(Blocks.OAK_SAPLING));
-    public static final Block FUNGYSS_BLOCK =  new HugeMushroomBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BLUE).strength(0.2F).sounds(BlockSoundGroup.WOOD));
-    public static final Block CHERRYWOOD_LEAVES =  new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES));
-    public static final Block CHERRYWOOD_LEAF_CARPET =  new LeafCarpetBlock(CHERRYWOOD_LEAVES, FabricBlockSettings.copy(Blocks.OAK_LEAVES));
+    public static final Block FUNGYSS_BLOCK =  new MushroomBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BLUE).strength(0.2F).sounds(BlockSoundGroup.WOOD));
+    public static final LeavesBlock CHERRYWOOD_LEAVES =  new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES));
+    public static final Block CHERRYWOOD_LEAF_CARPET =  new LeafCarpetBlock(()->CHERRYWOOD_LEAVES, FabricBlockSettings.copy(Blocks.OAK_LEAVES));
     public static final Block MYSTERYWOOD_LEAVES =  new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES));
     public static final Block NUY_MYSTERYWOOD_LEAVES =  new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES));
 

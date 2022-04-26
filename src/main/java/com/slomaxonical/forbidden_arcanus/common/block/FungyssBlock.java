@@ -27,7 +27,7 @@ public class FungyssBlock extends PlantBlock implements Fertilizable {
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         //Changed the tag here... temporarily?
-        return world.getBlockState(pos.down()).isIn(BlockTags.MUSHROOM_GROW_BLOCK);
+        return world.getBlockState(pos.down()).isIn(BlockTags.BASE_STONE_OVERWORLD);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class FungyssBlock extends PlantBlock implements Fertilizable {
             }
         }
         world.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
-
+        //  Todo: Fungyss features
 //        Holder<ConfiguredFeature<BigFungyssFeatureConfig, ?>> configuredFeature = world.random.nextBoolean() ? ModConfiguredFeatures.BIG_FUNGYSS_0 : ModConfiguredFeatures.BIG_FUNGYSS_1;
 
 //        if (!configuredFeature.value().place(world, world.().getGenerator(), rand, pos)) {
