@@ -28,7 +28,7 @@ public class StrangeRootBlock extends CropBlock {
     };
     public StrangeRootBlock(Settings settings) {
         super(settings);
-//        this.setDefaultState(this.getStateManager().getDefaultState().with(AGE,0));
+        this.setDefaultState(this.getStateManager().getDefaultState().with(AGE,0));
     }
 
     @Override

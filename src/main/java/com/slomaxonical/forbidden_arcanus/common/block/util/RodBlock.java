@@ -1,4 +1,4 @@
-package com.slomaxonical.forbidden_arcanus.common.block.extended;
+package com.slomaxonical.forbidden_arcanus.common.block.util;
 
 import com.slomaxonical.forbidden_arcanus.common.block.util.FAPillarBlock;
 import com.slomaxonical.forbidden_arcanus.common.block.util.PillarType;

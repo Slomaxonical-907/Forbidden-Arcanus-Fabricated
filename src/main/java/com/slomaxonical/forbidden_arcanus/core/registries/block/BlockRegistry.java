@@ -3,7 +3,7 @@ package com.slomaxonical.forbidden_arcanus.core.registries.block;
 
 import com.slomaxonical.forbidden_arcanus.common.block.*;
 import com.slomaxonical.forbidden_arcanus.common.block.extended.*;
-import com.slomaxonical.forbidden_arcanus.common.block.extended.RodBlock;
+import com.slomaxonical.forbidden_arcanus.common.block.util.RodBlock;
 import com.slomaxonical.forbidden_arcanus.common.worldGen.CherrywoodTreeGrower;
 import com.slomaxonical.forbidden_arcanus.common.worldGen.MysterywoodTreeGrower;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
