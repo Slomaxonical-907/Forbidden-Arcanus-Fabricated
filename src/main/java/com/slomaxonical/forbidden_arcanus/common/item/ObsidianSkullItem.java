@@ -30,12 +30,14 @@ import net.minecraft.util.math.BlockPointer;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.BlockSource;
 import net.valhelsia.valhelsia_core.common.capability.counter.CounterCapability;
+import net.valhelsia.valhelsia_core.common.capability.counter.CounterCreator;
 import net.valhelsia.valhelsia_core.common.capability.counter.CounterImpl;
 import net.valhelsia.valhelsia_core.common.capability.counter.SimpleCounter;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ObsidianSkullItem extends WallStandingBlockItem {
@@ -53,20 +55,20 @@ public class ObsidianSkullItem extends WallStandingBlockItem {
         this.eternal = eternal;
     }
 
-//    public static DispenserBehavior getDispenseBehavior() {
-//        return new FallibleItemDispenserBehavior() {
-//            @Override
-//            protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-//                this.setSuccess(ArmorItem.dispenseArmor(pointer, stack));
-//                return stack;
-//            }
-//        };
+    public static DispenserBehavior getDispenseBehavior() {
+        return new FallibleItemDispenserBehavior() {
+            @Override
+            protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
+                this.setSuccess(ArmorItem.dispenseArmor(pointer, stack));
+                return stack;
+            }
+        };
+    }
+//    @Override
+//    public EquipmentSlot getEquipmentSlot(ItemStack stack) {
+//        return EquipmentSlot.HEAD;
 //    }
-////    @Override
-////    public EquipmentSlot getEquipmentSlot(ItemStack stack) {
-////        return EquipmentSlot.HEAD;
-////    }
-//
+
 //    @Override
 //    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 //        if (entity instanceof LivingEntity livingEntity && !this.eternal) {
@@ -125,8 +127,27 @@ public class ObsidianSkullItem extends WallStandingBlockItem {
 //        super.appendTooltip(stack, world, tooltip, context);
 //        tooltip.add(new TranslatableText("tooltip." + ForbiddenArcanus.MOD_ID + (eternal ? ".eternal_" : ".") + "obsidian_skull").formatted(Formatting.GRAY));
 //    }
+//    @Override
+//    public void initializeClient(@Nonnull Consumer<IItemRenderProperties> consumer) {
+//        consumer.accept(new IItemRenderProperties() {
+//            private final NonNullLazy<BlockEntityWithoutLevelRenderer> renderer = NonNullLazy.of(() -> new ObsidianSkullItemRenderer(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels()));
 //
-//    private SimpleCounter getCounter(CounterCapability counterCapability) {
-//        return counterCapability.getCounter(COUNTER);
+//            @Override
+//            public BlockEntityWithoutLevelRenderer getItemStackRenderer() {
+//                return this.renderer.get();
+//            }
+//        });
 //    }
+//
+//    @javax.annotation.Nullable
+//    @Override
+//    public ICapabilityProvider initCapabilities(ItemStack stack, @javax.annotation.Nullable CompoundTag tag) {
+//        if (!this.eternal) {
+//            return new CounterProvider(CounterCreator.of(ObsidianSkullCounter::new, COUNTER));
+//        }
+//        return null;
+//    }
+    private SimpleCounter getCounter(CounterCapability counterCapability) {
+        return counterCapability.getCounter(COUNTER);
+    }
 }

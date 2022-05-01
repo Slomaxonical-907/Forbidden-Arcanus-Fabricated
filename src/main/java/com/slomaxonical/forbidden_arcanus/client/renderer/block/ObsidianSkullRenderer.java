@@ -6,6 +6,8 @@ import com.slomaxonical.forbidden_arcanus.common.block.ObsidianSkullBlock;
 import com.slomaxonical.forbidden_arcanus.common.block.ObsidianWallSkullBlock;
 import com.slomaxonical.forbidden_arcanus.common.blockEntity.ObsidianSkullBlockEntity;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.model.*;
@@ -33,6 +35,7 @@ import javax.annotation.Nullable;
  * @version 1.17.1 - 2.0.0
  * @since 2021-02-11
  */
+@Environment(EnvType.CLIENT)
 public class ObsidianSkullRenderer implements BlockEntityRenderer<ObsidianSkullBlockEntity> {
 
     public static final EntityModelLayer OBSIDIAN_SKULL_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.MOD_ID, "obsidian_skull"), "main");

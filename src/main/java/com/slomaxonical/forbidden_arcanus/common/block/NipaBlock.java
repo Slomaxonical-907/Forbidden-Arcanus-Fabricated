@@ -2,6 +2,7 @@ package com.slomaxonical.forbidden_arcanus.common.block;
 
 import com.slomaxonical.forbidden_arcanus.common.block.util.FABlockProperties;
 import com.slomaxonical.forbidden_arcanus.common.blockEntity.NipaBlockEntity;
+import com.slomaxonical.forbidden_arcanus.core.registries.ParticleRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockEntityRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
 import net.minecraft.block.*;
@@ -104,8 +105,7 @@ public class NipaBlock extends PlantBlock implements BlockEntityProvider {
             double posZ = pos.getZ() + 0.5D + (rand.nextBoolean() ? k : -k);
             double ySpeed = ((double) rand.nextFloat() - 0.4D) * 0.1D;
 
-//            world.addParticle(ModParticles.AUREAL_MOTE.get(), posX, posY, posZ, 0, ySpeed, 0);
-            world.addParticle(ParticleTypes.ENCHANTED_HIT, posX, posY, posZ, 0, ySpeed, 0);
+            world.addParticle(ParticleRegistry.AUREAL_MOTE, posX, posY, posZ, 0, ySpeed, 0);
         }
     }
 

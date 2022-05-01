@@ -79,7 +79,7 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item ARCANE_GOLDEN_BLACKSMITH_GAVEL =  new BlacksmithGavelItem(ForbiddenToolMaterials.ARCANE_GOLDEN, 7, -3.25F, 15, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item REINFORCED_ARCANE_GOLDEN_BLACKSMITH_GAVEL =  new BlacksmithGavelItem(ForbiddenToolMaterials.REINFORCED_ARCANE_GOLDEN, 7, -3.25F, 80, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
     public static final Item STELLARITE_PIECE =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item DARK_NETHER_STAR =  new SimpleFoiledItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).rarity(Rarity.RARE));
+    public static final Item DARK_NETHER_STAR =  new NetherStarItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).rarity(Rarity.RARE));
     public static final Item SMELTER_PRISM =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static Item EDELWOOD_BUCKET = new EdelwoodBucketItem(Fluids.EMPTY, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(16));
     public static final Item EDELWOOD_WATER_BUCKET =  new EdelwoodBucketItem(Fluids.WATER, 4, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
@@ -101,8 +101,8 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item EDELWOOD_SUSPICIOUS_STEW_BUCKET =  new EdelwoodSuspiciousStewBucketItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1).food(FoodComponents.SUSPICIOUS_STEW));
     public static final Item EDELWOOD_BEETROOT_SOUP_BUCKET =  new EdelwoodSoupBucketItem( Items.BEETROOT_SOUP, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1).food(FoodComponents.BEETROOT_SOUP));
     public static final Item EDELWOOD_BAT_SOUP_BUCKET =  new EdelwoodSoupBucketItem(BAT_SOUP, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1).food(ForbiddenFoods.BAT_SOUP));
-    public static final Item BOOM_ARROW =  new ModArrowItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item DRACO_ARCANUS_ARROW =  new ModArrowItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item BOOM_ARROW =  new FAArrowItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item DRACO_ARCANUS_ARROW =  new FAArrowItem(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item EDELWOOD_OIL =  new Item(new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).recipeRemainder(Items.GLASS).maxCount(16));
     public static final Item GOLDEN_ORCHID_SEEDS = new AliasedBlockItem(BlockRegistry.GOLDEN_ORCHID, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
 
@@ -126,22 +126,22 @@ public class ItemRegistry implements ItemRegistryContainer {
     public static final Item REINFORCED_ARCANE_GOLDEN_AXE =  new FATools.Axe(ForbiddenToolMaterials.REINFORCED_ARCANE_GOLDEN, 5, -3.0F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item REINFORCED_ARCANE_GOLDEN_HOE =  new FATools.Hoe(ForbiddenToolMaterials.REINFORCED_ARCANE_GOLDEN, -3, 0, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
     public static final Item MYSTICAL_DAGGER =  new MysticalDaggerItem(ForbiddenToolMaterials.MYSTICAL_DAGGER, 2.5F, -0.3F, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP).maxCount(1));
-    public static final Item DRACO_ARCANUS_HELMET =  new ArmorItem(ModArmorMaterials.DRACO_ARCANUS, EquipmentSlot.HEAD, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item DRACO_ARCANUS_CHESTPLATE =  new ArmorItem(ModArmorMaterials.DRACO_ARCANUS, EquipmentSlot.CHEST, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item DRACO_ARCANUS_LEGGINGS =  new ArmorItem(ModArmorMaterials.DRACO_ARCANUS, EquipmentSlot.LEGS, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item DRACO_ARCANUS_BOOTS =  new ArmorItem(ModArmorMaterials.DRACO_ARCANUS, EquipmentSlot.FEET, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item TYR_HELMET =  new ArmorItem(ModArmorMaterials.TYR, EquipmentSlot.HEAD, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item TYR_CHESTPLATE =  new ArmorItem(ModArmorMaterials.TYR, EquipmentSlot.CHEST, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item TYR_LEGGINGS =  new ArmorItem(ModArmorMaterials.TYR, EquipmentSlot.LEGS, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item TYR_BOOTS =  new ArmorItem(ModArmorMaterials.TYR, EquipmentSlot.FEET, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item MORTEM_HELMET =  new MortemArmorItem(ModArmorMaterials.MORTEM, EquipmentSlot.HEAD, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item MORTEM_CHESTPLATE =  new MortemArmorItem(ModArmorMaterials.MORTEM, EquipmentSlot.CHEST, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item MORTEM_LEGGINGS =  new MortemArmorItem(ModArmorMaterials.MORTEM, EquipmentSlot.LEGS, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item MORTEM_BOOTS =  new MortemArmorItem(ModArmorMaterials.MORTEM, EquipmentSlot.FEET, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item ARCANE_GOLD_HELMET =  new ArmorItem(ModArmorMaterials.ARCANE_GOLD, EquipmentSlot.HEAD, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item ARCANE_GOLD_CHESTPLATE =  new ArmorItem(ModArmorMaterials.ARCANE_GOLD, EquipmentSlot.CHEST, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item ARCANE_GOLD_LEGGINGS =  new ArmorItem(ModArmorMaterials.ARCANE_GOLD, EquipmentSlot.LEGS, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
-    public static final Item ARCANE_GOLD_BOOTS =  new ArmorItem(ModArmorMaterials.ARCANE_GOLD, EquipmentSlot.FEET, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item DRACO_ARCANUS_HELMET =  new ArmorItem(FAArmorMaterials.DRACO_ARCANUS, EquipmentSlot.HEAD, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item DRACO_ARCANUS_CHESTPLATE =  new ArmorItem(FAArmorMaterials.DRACO_ARCANUS, EquipmentSlot.CHEST, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item DRACO_ARCANUS_LEGGINGS =  new ArmorItem(FAArmorMaterials.DRACO_ARCANUS, EquipmentSlot.LEGS, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item DRACO_ARCANUS_BOOTS =  new ArmorItem(FAArmorMaterials.DRACO_ARCANUS, EquipmentSlot.FEET, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item TYR_HELMET =  new ArmorItem(FAArmorMaterials.TYR, EquipmentSlot.HEAD, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item TYR_CHESTPLATE =  new ArmorItem(FAArmorMaterials.TYR, EquipmentSlot.CHEST, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item TYR_LEGGINGS =  new ArmorItem(FAArmorMaterials.TYR, EquipmentSlot.LEGS, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item TYR_BOOTS =  new ArmorItem(FAArmorMaterials.TYR, EquipmentSlot.FEET, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item MORTEM_HELMET =  new MortemArmorItem(FAArmorMaterials.MORTEM, EquipmentSlot.HEAD, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item MORTEM_CHESTPLATE =  new MortemArmorItem(FAArmorMaterials.MORTEM, EquipmentSlot.CHEST, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item MORTEM_LEGGINGS =  new MortemArmorItem(FAArmorMaterials.MORTEM, EquipmentSlot.LEGS, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item MORTEM_BOOTS =  new MortemArmorItem(FAArmorMaterials.MORTEM, EquipmentSlot.FEET, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item ARCANE_GOLD_HELMET =  new ArmorItem(FAArmorMaterials.ARCANE_GOLD, EquipmentSlot.HEAD, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item ARCANE_GOLD_CHESTPLATE =  new ArmorItem(FAArmorMaterials.ARCANE_GOLD, EquipmentSlot.CHEST, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item ARCANE_GOLD_LEGGINGS =  new ArmorItem(FAArmorMaterials.ARCANE_GOLD, EquipmentSlot.LEGS, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
+    public static final Item ARCANE_GOLD_BOOTS =  new ArmorItem(FAArmorMaterials.ARCANE_GOLD, EquipmentSlot.FEET, new FabricItemSettings().group(ForbiddenArcanus.TABBED_FORBIDDEN_GROUP));
 
 //    public static class Stacks {
 //        public static final ItemStack LENS_OF_VERITATIS = new ItemStack(ItemRegistry.LENS_OF_VERITATIS);

@@ -18,14 +18,12 @@ public class NipaBlockEntity extends BlockEntity {
 
     private int cachedPower = 0;
 
-    public NipaBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
-        super(type, pos, state);
-    }
     public NipaBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityRegistry.NIPA, pos, state);
     }
 
     public double getSpeckHeight() {
+        //this was /100.0F
         return speckHeight / 100.0F;
     }
 

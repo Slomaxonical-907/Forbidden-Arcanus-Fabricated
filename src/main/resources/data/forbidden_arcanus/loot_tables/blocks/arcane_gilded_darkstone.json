@@ -1,0 +1,69 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "forbidden_arcanus:arcane_gilded_darkstone"
+            },
+            {
+              "type": "minecraft:alternatives",
+              "children": [
+                {
+                  "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": [
+                          "forbidden_arcanus:arcane_golden_pickaxe"
+                        ]
+                      }
+                    }
+                  ],
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": {
+                        "type": "minecraft:uniform",
+                        "min": 1.0,
+                        "max": 4.0
+                      },
+                      "add": false
+                    }
+                  ],
+                  "name": "forbidden_arcanus:arcane_gold_nugget"
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "forbidden_arcanus:arcane_gilded_darkstone"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

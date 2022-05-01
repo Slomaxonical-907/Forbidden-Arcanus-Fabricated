@@ -1,7 +1,10 @@
 package com.slomaxonical.forbidden_arcanus.client.renderer.block;
 
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
+import com.slomaxonical.forbidden_arcanus.client.FARenderLayers;
 import com.slomaxonical.forbidden_arcanus.common.blockEntity.BlackHoleBlockEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -22,6 +25,7 @@ import net.minecraft.util.math.Vec3f;
  * @author stal111
  * @version 2.0.0
  */
+@Environment(EnvType.CLIENT)
 public class BlackHoleRenderer implements BlockEntityRenderer<BlackHoleBlockEntity> {
 
     public static final EntityModelLayer BLACK_HOLE_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.MOD_ID, "black_hole"), "main");
@@ -35,11 +39,11 @@ public class BlackHoleRenderer implements BlockEntityRenderer<BlackHoleBlockEnti
     };
 
     private static final RenderLayer RENDER_TYPE = RenderLayer.getEntityCutoutNoCull(BLACK_HOLE_TEXTURE);
-//    private static final RenderLayer[] AURA_RENDER_TYPE = {
-//            FARenderTypes.entityFullbrightCutout(BLACK_HOLE_AURA[0]),
-//            FARenderTypes.entityFullbrightCutout(BLACK_HOLE_AURA[1]),
-//            FARenderTypes.entityFullbrightCutout(BLACK_HOLE_AURA[2])
-//    };
+    private static final RenderLayer[] AURA_RENDER_TYPE = {
+            FARenderLayers.entityFullbrightCutout(BLACK_HOLE_AURA[0]),
+            FARenderLayers.entityFullbrightCutout(BLACK_HOLE_AURA[1]),
+            FARenderLayers.entityFullbrightCutout(BLACK_HOLE_AURA[2])
+    };
 
     private static final float SIN_45 = (float) Math.sin(Math.PI / 3D);
 
@@ -80,8 +84,8 @@ public class BlackHoleRenderer implements BlockEntityRenderer<BlackHoleBlockEnti
         this.hole.render(matrices, vertexconsumer, light, overlay);
         matrices.pop();
 
-//        vertexconsumer = vertexConsumers.getBuffer(AURA_RENDER_TYPE[blockEntity.auraTexture]);
-//        this.aura.render(matrices, vertexconsumer, light, overlay);
+        vertexconsumer = vertexConsumers.getBuffer(AURA_RENDER_TYPE[blockEntity.auraTexture]);
+        this.aura.render(matrices, vertexconsumer, light, overlay);
 
         matrices.pop();
     }

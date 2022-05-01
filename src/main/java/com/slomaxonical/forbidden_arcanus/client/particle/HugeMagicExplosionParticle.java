@@ -33,7 +33,7 @@ public class HugeMagicExplosionParticle extends NoRenderParticle {
             double y = this.y + (this.random.nextDouble() - this.random.nextDouble()) * 4.0D;
             double z = this.z + (this.random.nextDouble() - this.random.nextDouble()) * 4.0D;
 
-            this.world.addParticle(ParticleTypes.ANGRY_VILLAGER, x, y, z, (float) this.age / (float) this.maxAge, 0.0D, 0.0D);
+            this.world.addParticle(ParticleRegistry.MAGIC_EXPLOSION, x, y, z, (float) this.age / (float) this.maxAge, 0.0D, 0.0D);
         }
 
         if (this.age++ >= this.maxAge) {

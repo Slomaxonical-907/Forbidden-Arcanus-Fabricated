@@ -6,6 +6,7 @@ import com.slomaxonical.forbidden_arcanus.common.block.extended.*;
 import com.slomaxonical.forbidden_arcanus.common.block.util.RodBlock;
 import com.slomaxonical.forbidden_arcanus.common.worldGen.CherrywoodTreeGrower;
 import com.slomaxonical.forbidden_arcanus.common.worldGen.MysterywoodTreeGrower;
+import com.slomaxonical.forbidden_arcanus.core.helper.FATags;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
 import io.wispforest.owo.registration.reflect.BlockRegistryContainer;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -17,7 +18,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.BlockView;
 
+import java.lang.reflect.Field;
+
 public class BlockRegistry implements BlockRegistryContainer {
+
     public static final Block DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block ARCANE_CHISELED_DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block DARKSTONE_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));

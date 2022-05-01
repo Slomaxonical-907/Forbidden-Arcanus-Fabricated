@@ -21,6 +21,7 @@ public class StellaArcanumBlock extends Block {
     public void onBroken(WorldAccess worldAccess, BlockPos pos, BlockState state) {
         if (!worldAccess.isClient()) {
             if (explode && world != null) {
+                System.out.println(BlockConfig.STELLA_ARCANUM_EXPLOSION_RADIUS.get().toString());
                 world.createExplosion(null, pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, BlockConfig.STELLA_ARCANUM_EXPLOSION_RADIUS.get(), BlockConfig.STELLA_ARCANUM_BLOCK_DAMAGE.get() ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE);
             }
             explode = false;
