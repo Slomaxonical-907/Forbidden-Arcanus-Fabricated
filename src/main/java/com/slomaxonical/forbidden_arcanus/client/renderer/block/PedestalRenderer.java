@@ -12,23 +12,27 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.Vec3f;
 
 @Environment(EnvType.CLIENT)
 public class PedestalRenderer implements BlockEntityRenderer<PedestalBlockEntity> {
     public PedestalRenderer(BlockEntityRendererFactory.Context context) {}
     @Override
     public void render(PedestalBlockEntity blockEntity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
-        if (blockEntity.getCachedState().get(FABlockProperties.SPECK)) {
+        ItemStack stack = blockEntity.getStack();
+
+        if (!stack.isEmpty()) {
             matrices.push();
 
-            matrices.translate(0.5, blockEntity.getItemHeight(), 0.5);
-            matrices.scale(0.75F, 0.75F, 0.75F);
+            matrices.translate(0.5D, blockEntity.getItemHeight() / 100.0F, 0.5D);
+            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(blockEntity.getItemHover(tickDelta)));
 
-            matrices.multiply(MinecraftClient.getInstance().getEntityRenderDispatcher().getRotation());
+            matrices.scale(0.5F, 0.5F, 0.5F);
 
-            MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(ItemRegistry.ARCANE_CRYSTAL_DUST_SPECK), ModelTransformation.Mode.FIXED, light, overlay, matrices, vertexConsumers, 0);
+            MinecraftClient.getInstance().getItemRenderer().renderItem(stack,  ModelTransformation.Mode.FIXED, light, overlay, matrices, vertexConsumers, 0);
 
             matrices.pop();
         }
     }
+
 }

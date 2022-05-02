@@ -5,6 +5,7 @@ import com.slomaxonical.forbidden_arcanus.common.blockEntity.NipaBlockEntity;
 import com.slomaxonical.forbidden_arcanus.core.registries.ParticleRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockEntityRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
+import com.slomaxonical.forbidden_arcanus.mixin.CheckTypeInvoker;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -14,7 +15,6 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.ActionResult;
@@ -113,9 +113,9 @@ public class NipaBlock extends PlantBlock implements BlockEntityProvider {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         if (world.isClient() && state.get(SPECK)) {
-//            return BaseEntityBlock.createTickerHelper(type, BlockEntityRegistry.NIPA, NipaBlockEntity::clientTick);
+            return CheckTypeInvoker.invokeCheckType(type, BlockEntityRegistry.NIPA, NipaBlockEntity::clientTick);
         } else if (!world.isClient()) {
-//            return BaseEntityBlock.createTickerHelper(type, BlockEntityRegistry.NIPA, NipaBlockEntity::serverTick);
+            return CheckTypeInvoker.invokeCheckType(type, BlockEntityRegistry.NIPA, NipaBlockEntity::serverTick);
         }
         return null;
     }

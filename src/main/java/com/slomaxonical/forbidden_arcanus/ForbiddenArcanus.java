@@ -41,6 +41,7 @@ public class ForbiddenArcanus implements ModInitializer {
 		FieldRegistrationHandler.register(EntityRegistry.class, MOD_ID, false);
 		FieldRegistrationHandler.register(POIRegistry.class, MOD_ID, false);
 		DispenserBehaviorRegistry.registerDispenseBehaviors();
+
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "soul"), ParticleRegistry.SOUL);
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "aureal_mote"), ParticleRegistry.AUREAL_MOTE);
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "magic_explosion"), ParticleRegistry.MAGIC_EXPLOSION);

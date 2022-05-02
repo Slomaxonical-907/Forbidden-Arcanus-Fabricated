@@ -3,8 +3,8 @@ package com.slomaxonical.forbidden_arcanus.common.blockEntity;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockEntityRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.valhelsia.valhelsia_core.common.network.NetworkHandler;
@@ -64,5 +64,24 @@ public class PedestalBlockEntity extends BlockEntity {
 
     public void setItemHeight(int itemHeight) {
         this.itemHeight = itemHeight;
+    }
+
+    @Override
+    public void readNbt(NbtCompound nbt) {
+        super.readNbt(nbt);
+
+        if (nbt.contains("Stack")) {
+            this.stack = ItemStack.fromNbt(nbt.getCompound("Stack"));
+            this.itemHeight = nbt.getInt("ItemHeight");
+        }
+    }
+
+    @Override
+    protected void writeNbt(NbtCompound nbt) {
+        super.writeNbt(nbt);
+        if (this.stack != ItemStack.EMPTY) {
+            nbt.put("Stack", this.stack.writeNbt(new NbtCompound()));
+            nbt.putInt("ItemHeight", this.itemHeight);
+        }
     }
 }

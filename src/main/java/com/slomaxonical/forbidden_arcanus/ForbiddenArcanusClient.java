@@ -80,7 +80,7 @@ public class ForbiddenArcanusClient implements ClientModInitializer {
 //        BlockEntityRendererRegistry.register(BlockEntityRegistry.HEPHAESTUS_FORGE, HephaestusForgeRenderer::new);
         BlockEntityRendererRegistry.register(BlockEntityRegistry.NIPA, NipaRenderer::new);
 //        BlockEntityRendererRegistry.register(BlockEntityRegistry.OBSIDIAN_SKULL, ObsidianSkullRenderer::new);
-//        BlockEntityRendererRegistry.register(BlockEntityRegistry.PEDESTAL, PedestalRenderer::new);
+        BlockEntityRendererRegistry.register(BlockEntityRegistry.PEDESTAL, PedestalRenderer::new);
 //        BlockEntityRendererRegistry.register(BlockEntityRegistry.UTREM_JAR, UtremJarRenderer::new);
 
     }
