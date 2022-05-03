@@ -2,11 +2,9 @@ package com.slomaxonical.forbidden_arcanus.core.registries.block;
 
 
 import com.slomaxonical.forbidden_arcanus.common.block.*;
-import com.slomaxonical.forbidden_arcanus.common.block.extended.*;
 import com.slomaxonical.forbidden_arcanus.common.block.util.RodBlock;
 import com.slomaxonical.forbidden_arcanus.common.worldGen.CherrywoodTreeGrower;
 import com.slomaxonical.forbidden_arcanus.common.worldGen.MysterywoodTreeGrower;
-import com.slomaxonical.forbidden_arcanus.core.helper.FATags;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
 import io.wispforest.owo.registration.reflect.BlockRegistryContainer;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -18,34 +16,32 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.BlockView;
 
-import java.lang.reflect.Field;
-
 public class BlockRegistry implements BlockRegistryContainer {
 
     public static final Block DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block ARCANE_CHISELED_DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block DARKSTONE_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
-    public static final Block DARKSTONE_STAIRS =  new FAStairsBlock(DARKSTONE.getDefaultState(), FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
+    public static final Block DARKSTONE_STAIRS =  new StairsBlock(DARKSTONE.getDefaultState(), FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block DARKSTONE_WALL =  new WallBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block ARCANE_GILDED_DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F).sounds(BlockSoundGroup.GILDED_BLACKSTONE));
     public static final Block POLISHED_DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block POLISHED_DARKSTONE_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.STONE_SLAB).strength(4.5F, 8.0F));
-    public static final Block POLISHED_DARKSTONE_STAIRS =  new FAStairsBlock(POLISHED_DARKSTONE.getDefaultState(), FabricBlockSettings.copy(Blocks.STONE_STAIRS).strength(4.5F, 8.0F));
+    public static final Block POLISHED_DARKSTONE_STAIRS =  new StairsBlock(POLISHED_DARKSTONE.getDefaultState(), FabricBlockSettings.copy(Blocks.STONE_STAIRS).strength(4.5F, 8.0F));
     public static final Block POLISHED_DARKSTONE_WALL =  new WallBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
-    public static final Block POLISHED_DARKSTONE_PRESSURE_PLATE =  new FAPressurePlateBlock(PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.copy(Blocks.STONE_PRESSURE_PLATE).strength(0.5F));
-    public static final Block POLISHED_DARKSTONE_BUTTON =  new FAStoneButtonBlock(FabricBlockSettings.copy(Blocks.STONE_BUTTON).strength(0.5F));
+    public static final Block POLISHED_DARKSTONE_PRESSURE_PLATE =  new PressurePlateBlock(PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.copy(Blocks.STONE_PRESSURE_PLATE).strength(0.5F));
+    public static final Block POLISHED_DARKSTONE_BUTTON =  new StoneButtonBlock(FabricBlockSettings.copy(Blocks.STONE_BUTTON).strength(0.5F));
     public static final Block CHISELED_POLISHED_DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block RUNIC_CHISELED_POLISHED_DARKSTONE =  new RunicChiseledPolishedDarkstone(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block ARCANE_CHISELED_POLISHED_DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block POLISHED_DARKSTONE_BRICKS =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block POLISHED_DARKSTONE_BRICK_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.STONE_SLAB).strength(4.5F, 8.0F));
-    public static final Block POLISHED_DARKSTONE_BRICK_STAIRS =  new FAStairsBlock(POLISHED_DARKSTONE_BRICKS.getDefaultState(), FabricBlockSettings.copy(Blocks.STONE_STAIRS).strength(4.5F, 8.0F));
+    public static final Block POLISHED_DARKSTONE_BRICK_STAIRS =  new StairsBlock(POLISHED_DARKSTONE_BRICKS.getDefaultState(), FabricBlockSettings.copy(Blocks.STONE_STAIRS).strength(4.5F, 8.0F));
     public static final Block POLISHED_DARKSTONE_BRICK_WALL =  new WallBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block CRACKED_POLISHED_DARKSTONE_BRICKS =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block TILED_POLISHED_DARKSTONE_BRICKS =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block ARCANE_POLISHED_DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block ARCANE_POLISHED_DARKSTONE_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.STONE_SLAB).strength(4.5F, 8.0F));
-    public static final Block ARCANE_POLISHED_DARKSTONE_STAIRS =  new FAStairsBlock(ARCANE_POLISHED_DARKSTONE.getDefaultState(), FabricBlockSettings.copy(Blocks.STONE_STAIRS).strength(4.5F, 8.0F));
+    public static final Block ARCANE_POLISHED_DARKSTONE_STAIRS =  new StairsBlock(ARCANE_POLISHED_DARKSTONE.getDefaultState(), FabricBlockSettings.copy(Blocks.STONE_STAIRS).strength(4.5F, 8.0F));
     public static final Block ARCANE_POLISHED_DARKSTONE_WALL =  new WallBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block CHISELED_ARCANE_POLISHED_DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block ARCANE_POLISHED_DARKSTONE_PILLAR =  new PillarBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
@@ -70,10 +66,10 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block ARCANE_GOLDEN_GLASS =  new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS));
     public static final Block RUNIC_GLASS =  new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS));
     public static final Block DARK_RUNIC_GLASS =  new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS));
-    public static final Block ARCANE_GOLDEN_GLASS_PANE = new FAPaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE));
+    public static final Block ARCANE_GOLDEN_GLASS_PANE = new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE));
 
-    public static final Block RUNIC_GLASS_PANE =  new FAPaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE));
-    public static final Block DARK_RUNIC_GLASS_PANE =  new FAPaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE));
+    public static final Block RUNIC_GLASS_PANE =  new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE));
+    public static final Block DARK_RUNIC_GLASS_PANE =  new PaneBlock(FabricBlockSettings.copy(Blocks.GLASS_PANE));
 
     public static final Block SOULLESS_SAND =  new SoullessSandBlock(FabricBlockSettings.copy(Blocks.SOUL_SAND).velocityMultiplier(1.0F));
     public static final Block SOULLESS_SANDSTONE =  new Block(FabricBlockSettings.copy(Blocks.SANDSTONE));
@@ -82,13 +78,13 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block SOULLESS_SANDSTONE_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_SLAB));
     public static final Block CUT_SOULLESS_SANDSTONE_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_SLAB));
     public static final Block POLISHED_SOULLESS_SANDSTONE_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_SLAB));
-    public static final Block SOULLESS_SANDSTONE_STAIRS =  new FAStairsBlock(SOULLESS_SANDSTONE.getDefaultState(), FabricBlockSettings.copy(Blocks.SANDSTONE_STAIRS));
-    public static final Block POLISHED_SOULLESS_SANDSTONE_STAIRS =  new FAStairsBlock(POLISHED_SOULLESS_SANDSTONE.getDefaultState(), FabricBlockSettings.copy(Blocks.SANDSTONE_STAIRS));
+    public static final Block SOULLESS_SANDSTONE_STAIRS =  new StairsBlock(SOULLESS_SANDSTONE.getDefaultState(), FabricBlockSettings.copy(Blocks.SANDSTONE_STAIRS));
+    public static final Block POLISHED_SOULLESS_SANDSTONE_STAIRS =  new StairsBlock(POLISHED_SOULLESS_SANDSTONE.getDefaultState(), FabricBlockSettings.copy(Blocks.SANDSTONE_STAIRS));
     public static final Block SOULLESS_SANDSTONE_WALL =  new WallBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_WALL));
 
     public static final Block FUNGYSS =  new FungyssBlock(FabricBlockSettings.copy(Blocks.WARPED_FUNGUS).sounds(BlockSoundGroup.GRASS));
-    public static final Block CHERRYWOOD_SAPLING =  new FASaplingBlock(new CherrywoodTreeGrower(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
-    public static final Block MYSTERYWOOD_SAPLING =  new FASaplingBlock(new MysterywoodTreeGrower(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
+    public static final Block CHERRYWOOD_SAPLING =  new SaplingBlock(new CherrywoodTreeGrower(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
+    public static final Block MYSTERYWOOD_SAPLING =  new SaplingBlock(new MysterywoodTreeGrower(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
     public static final Block GROWING_EDELWOOD =  new GrowingEdelwoodBlock(FabricBlockSettings.copy(Blocks.OAK_SAPLING));
     public static final Block FUNGYSS_BLOCK =  new MushroomBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BLUE).strength(0.2F).sounds(BlockSoundGroup.WOOD));
     public static final LeavesBlock CHERRYWOOD_LEAVES =  new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES));
@@ -120,21 +116,21 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block CHERRYWOOD_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB));
     public static final Block MYSTERYWOOD_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB));
     public static final Block EDELWOOD_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.OAK_SLAB));
-    public static final Block FUNGYSS_STAIRS =  new FAStairsBlock(FUNGYSS_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
-    public static final Block CHERRYWOOD_STAIRS =  new FAStairsBlock(CHERRYWOOD_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS));
-    public static final Block MYSTERYWOOD_STAIRS =  new FAStairsBlock(MYSTERYWOOD_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS));
-    public static final Block EDELWOOD_STAIRS =  new FAStairsBlock(EDELWOOD_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS));
+    public static final Block FUNGYSS_STAIRS =  new StairsBlock(FUNGYSS_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
+    public static final Block CHERRYWOOD_STAIRS =  new StairsBlock(CHERRYWOOD_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS));
+    public static final Block MYSTERYWOOD_STAIRS =  new StairsBlock(MYSTERYWOOD_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS));
+    public static final Block EDELWOOD_STAIRS =  new StairsBlock(EDELWOOD_PLANKS.getDefaultState(), FabricBlockSettings.copy(Blocks.OAK_STAIRS));
 
-    public static final Block ARCANE_GOLD_DOOR =  new FADoorBlock(FabricBlockSettings.of(Material.METAL, MapColor.GOLD).requiresTool().strength(3.0F).sounds(BlockSoundGroup.METAL).nonOpaque());
-    public static final Block FUNGYSS_DOOR =  new FADoorBlock(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque());
-    public static final Block CHERRYWOOD_DOOR =  new FADoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque());
-    public static final Block MYSTERYWOOD_DOOR =  new FADoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque());
-    public static final Block EDELWOOD_DOOR =  new FADoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque());
-    public static final Block ARCANE_GOLD_TRAPDOOR =  new FATrapDoorBlock(FabricBlockSettings.of(Material.METAL, MapColor.GOLD).requiresTool().strength(3.0F).sounds(BlockSoundGroup.METAL).nonOpaque().allowsSpawning(BlockRegistry::never));
-    public static final Block FUNGYSS_TRAPDOOR =  new FATrapDoorBlock(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning(BlockRegistry::never));
-    public static final Block CHERRYWOOD_TRAPDOOR =  new FATrapDoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning(BlockRegistry::never));
-    public static final Block MYSTERYWOOD_TRAPDOOR =  new FATrapDoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning(BlockRegistry::never));
-    public static final Block EDELWOOD_TRAPDOOR =  new FATrapDoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning(BlockRegistry::never));
+    public static final Block ARCANE_GOLD_DOOR =  new DoorBlock(FabricBlockSettings.of(Material.METAL, MapColor.GOLD).requiresTool().strength(3.0F).sounds(BlockSoundGroup.METAL).nonOpaque());
+    public static final Block FUNGYSS_DOOR =  new DoorBlock(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque());
+    public static final Block CHERRYWOOD_DOOR =  new DoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque());
+    public static final Block MYSTERYWOOD_DOOR =  new DoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque());
+    public static final Block EDELWOOD_DOOR =  new DoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque());
+    public static final Block ARCANE_GOLD_TRAPDOOR =  new TrapdoorBlock(FabricBlockSettings.of(Material.METAL, MapColor.GOLD).requiresTool().strength(3.0F).sounds(BlockSoundGroup.METAL).nonOpaque().allowsSpawning(BlockRegistry::never));
+    public static final Block FUNGYSS_TRAPDOOR =  new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning(BlockRegistry::never));
+    public static final Block CHERRYWOOD_TRAPDOOR =  new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning(BlockRegistry::never));
+    public static final Block MYSTERYWOOD_TRAPDOOR =  new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning(BlockRegistry::never));
+    public static final Block EDELWOOD_TRAPDOOR =  new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().allowsSpawning(BlockRegistry::never));
     public static final Block FUNGYSS_FENCE =  new FenceBlock(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
     public static final Block CHERRYWOOD_FENCE =  new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE));
     public static final Block MYSTERYWOOD_FENCE =  new FenceBlock(FabricBlockSettings.copy(Blocks.OAK_FENCE));
@@ -147,16 +143,16 @@ public class BlockRegistry implements BlockRegistryContainer {
 //    public static final Pair<Block, Block> CHERRYWOOD_SIGN  = HELPER.createSignBlock("cherrywood", MapColor.PINK, ModWoodTypes.CHERRYWOOD);
 //    public static final Pair<Block, Block> MYSTERYWOOD_SIGN  = HELPER.createSignBlock("mysterywood", MapColor.BROWN, ModWoodTypes.MYSTERYWOOD);
 //    public static final Pair<Block, Block> EDELWOOD_SIGN  = HELPER.createSignBlock("edelwood", MapColor.BROWN, ModWoodTypes.EDELWOOD);
-    public static final Block EDELWOOD_LADDER =  new FALadderBlock(FabricBlockSettings.copy(Blocks.LADDER));
-    public static final Block FUNGYSS_BUTTON =  new FAWoodenButtonBlock(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
-    public static final Block CHERRYWOOD_BUTTON =  new FAWoodenButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON));
-    public static final Block MYSTERYWOOD_BUTTON =  new FAWoodenButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON));
-    public static final Block EDELWOOD_BUTTON =  new FAWoodenButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON));
-    public static final Block ARCANE_GOLD_PRESSURE_PLATE =  new FAPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(Blocks.LIGHT_WEIGHTED_PRESSURE_PLATE));
-    public static final Block FUNGYSS_PRESSURE_PLATE =  new FAPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
-    public static final Block CHERRYWOOD_PRESSURE_PLATE =  new FAPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE));
-    public static final Block MYSTERYWOOD_PRESSURE_PLATE =  new FAPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE));
-    public static final Block EDELWOOD_PRESSURE_PLATE =  new FAPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE));
+    public static final Block EDELWOOD_LADDER =  new LadderBlock(FabricBlockSettings.copy(Blocks.LADDER));
+    public static final Block FUNGYSS_BUTTON =  new WoodenButtonBlock(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
+    public static final Block CHERRYWOOD_BUTTON =  new WoodenButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON));
+    public static final Block MYSTERYWOOD_BUTTON =  new WoodenButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON));
+    public static final Block EDELWOOD_BUTTON =  new WoodenButtonBlock(FabricBlockSettings.copy(Blocks.OAK_BUTTON));
+    public static final Block ARCANE_GOLD_PRESSURE_PLATE =  new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(Blocks.LIGHT_WEIGHTED_PRESSURE_PLATE));
+    public static final Block FUNGYSS_PRESSURE_PLATE =  new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
+    public static final Block CHERRYWOOD_PRESSURE_PLATE =  new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE));
+    public static final Block MYSTERYWOOD_PRESSURE_PLATE =  new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE));
+    public static final Block EDELWOOD_PRESSURE_PLATE =  new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(Blocks.OAK_PRESSURE_PLATE));
 
     public static final Block HEPHAESTUS_FORGE =  new HephaestusForgeBlock(FabricBlockSettings.copy(Blocks.OBSIDIAN).strength(38.0F, 1200.0F).nonOpaque());
 

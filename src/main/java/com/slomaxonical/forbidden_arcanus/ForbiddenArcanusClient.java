@@ -1,5 +1,6 @@
 package com.slomaxonical.forbidden_arcanus;
 
+import com.slomaxonical.forbidden_arcanus.client.particle.AurealMoteParticle;
 import com.slomaxonical.forbidden_arcanus.client.particle.HugeMagicExplosionParticle;
 import com.slomaxonical.forbidden_arcanus.client.particle.SoulParticle;
 import com.slomaxonical.forbidden_arcanus.client.renderer.block.*;
@@ -10,6 +11,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
+import net.minecraft.client.particle.ExplosionLargeParticle;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
@@ -72,11 +74,11 @@ public class ForbiddenArcanusClient implements ClientModInitializer {
 //            registry.register(new Identifier(ForbiddenArcanus.MOD_ID, "particles/aureal_mote"));
 //        }
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.SOUL, SoulParticle.Factory::new);
-        ParticleFactoryRegistry.getInstance().register(ParticleRegistry.AUREAL_MOTE, SoulParticle.Factory::new);
-        ParticleFactoryRegistry.getInstance().register(ParticleRegistry.MAGIC_EXPLOSION, SoulParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ParticleRegistry.AUREAL_MOTE, AurealMoteParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ParticleRegistry.MAGIC_EXPLOSION, ExplosionLargeParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.HUGE_MAGIC_EXPLOSION, new HugeMagicExplosionParticle.Factory());
 
-//        BlockEntityRendererRegistry.register(BlockEntityRegistry.BLACK_HOLE, BlackHoleRenderer::new);
+        BlockEntityRendererRegistry.register(BlockEntityRegistry.BLACK_HOLE, BlackHoleRenderer::new);
 //        BlockEntityRendererRegistry.register(BlockEntityRegistry.HEPHAESTUS_FORGE, HephaestusForgeRenderer::new);
         BlockEntityRendererRegistry.register(BlockEntityRegistry.NIPA, NipaRenderer::new);
 //        BlockEntityRendererRegistry.register(BlockEntityRegistry.OBSIDIAN_SKULL, ObsidianSkullRenderer::new);
