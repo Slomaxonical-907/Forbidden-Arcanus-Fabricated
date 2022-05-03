@@ -4,6 +4,15 @@ import com.slomaxonical.forbidden_arcanus.client.particle.AurealMoteParticle;
 import com.slomaxonical.forbidden_arcanus.client.particle.HugeMagicExplosionParticle;
 import com.slomaxonical.forbidden_arcanus.client.particle.SoulParticle;
 import com.slomaxonical.forbidden_arcanus.client.renderer.block.*;
+import com.slomaxonical.forbidden_arcanus.client.renderer.entity.BoomArrowRenderer;
+import com.slomaxonical.forbidden_arcanus.client.renderer.entity.CrimsonLightningBoltRenderer;
+import com.slomaxonical.forbidden_arcanus.client.renderer.entity.DracoArcanusArrowRenderer;
+import com.slomaxonical.forbidden_arcanus.client.renderer.entity.EnergyBallRenderer;
+import com.slomaxonical.forbidden_arcanus.common.entity.CrimsonLightningBoltEntity;
+import com.slomaxonical.forbidden_arcanus.common.entity.projectile.BoomArrowEntity;
+import com.slomaxonical.forbidden_arcanus.common.entity.projectile.DracoArcanusArrowEntity;
+import com.slomaxonical.forbidden_arcanus.common.entity.projectile.EnergyBallEntity;
+import com.slomaxonical.forbidden_arcanus.core.registries.EntityRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.ParticleRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockEntityRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
@@ -11,8 +20,10 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.particle.ExplosionLargeParticle;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
 
@@ -73,17 +84,25 @@ public class ForbiddenArcanusClient implements ClientModInitializer {
 //        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
 //            registry.register(new Identifier(ForbiddenArcanus.MOD_ID, "particles/aureal_mote"));
 //        }
+        
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.SOUL, SoulParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.AUREAL_MOTE, AurealMoteParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.MAGIC_EXPLOSION, ExplosionLargeParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ParticleRegistry.HUGE_MAGIC_EXPLOSION, new HugeMagicExplosionParticle.Factory());
 
-        BlockEntityRendererRegistry.register(BlockEntityRegistry.BLACK_HOLE, BlackHoleRenderer::new);
+        //BlockEntityRenderers
+//        BlockEntityRendererRegistry.register(BlockEntityRegistry.BLACK_HOLE, BlackHoleRenderer::new);
 //        BlockEntityRendererRegistry.register(BlockEntityRegistry.HEPHAESTUS_FORGE, HephaestusForgeRenderer::new);
         BlockEntityRendererRegistry.register(BlockEntityRegistry.NIPA, NipaRenderer::new);
 //        BlockEntityRendererRegistry.register(BlockEntityRegistry.OBSIDIAN_SKULL, ObsidianSkullRenderer::new);
         BlockEntityRendererRegistry.register(BlockEntityRegistry.PEDESTAL, PedestalRenderer::new);
 //        BlockEntityRendererRegistry.register(BlockEntityRegistry.UTREM_JAR, UtremJarRenderer::new);
+
+        //EntityRenderers
+        EntityRendererRegistry.register(EntityRegistry.ENERGY_BALL, EnergyBallRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.CRIMSON_LIGHTNING_BOLT, CrimsonLightningBoltRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.BOOM_ARROW, BoomArrowRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.DRACO_ARCANUS_ARROW, DracoArcanusArrowRenderer::new);
 
     }
 }

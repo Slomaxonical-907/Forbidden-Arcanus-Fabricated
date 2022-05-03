@@ -13,6 +13,7 @@ import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3f;
+import net.minecraft.world.World;
 
 @Environment(EnvType.CLIENT)
 public class PedestalRenderer implements BlockEntityRenderer<PedestalBlockEntity> {
@@ -20,12 +21,12 @@ public class PedestalRenderer implements BlockEntityRenderer<PedestalBlockEntity
     @Override
     public void render(PedestalBlockEntity blockEntity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         ItemStack stack = blockEntity.getStack();
-
+        World world = MinecraftClient.getInstance().world;
         if (!stack.isEmpty()) {
             matrices.push();
 
             matrices.translate(0.5D, blockEntity.getItemHeight() / 100.0F, 0.5D);
-            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(blockEntity.getItemHover(tickDelta)));
+            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((world.getTime() + tickDelta) * 3));
 
             matrices.scale(0.5F, 0.5F, 0.5F);
 
