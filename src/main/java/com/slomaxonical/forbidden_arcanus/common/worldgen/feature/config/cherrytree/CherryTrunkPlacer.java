@@ -1,10 +1,9 @@
-package com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config;
+package com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.slomaxonical.forbidden_arcanus.common.block.ThinLogBlock;
-import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree.CherryTreeConfig;
-import com.slomaxonical.forbidden_arcanus.core.registries.FeatureRegistry;
+import com.slomaxonical.forbidden_arcanus.core.registries.world.ConfiguredFeatureRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.state.property.BooleanProperty;
@@ -35,7 +34,7 @@ public class CherryTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> getType() {
-        return FeatureRegistry.CHERRY_TRUNK_PLACER;
+        return ConfiguredFeatureRegistry.CHERRY_TRUNK_PLACER;
     }
 
     @Override

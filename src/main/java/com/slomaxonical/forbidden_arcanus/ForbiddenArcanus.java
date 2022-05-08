@@ -6,6 +6,9 @@ import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockEntityRegis
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ForbiddenItemGroup;
+import com.slomaxonical.forbidden_arcanus.core.registries.world.ConfiguredFeatureRegistry;
+import com.slomaxonical.forbidden_arcanus.core.registries.world.FeatureRegistry;
+import com.slomaxonical.forbidden_arcanus.core.registries.world.PlacedFeatureRegistry;
 import io.wispforest.owo.itemgroup.OwoItemGroup;
 import io.wispforest.owo.registration.reflect.FieldRegistrationHandler;
 import net.fabricmc.api.ModInitializer;
@@ -14,7 +17,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.registry.Registry;
-import net.valhelsia.valhelsia_core.core.config.ValhelsiaConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,6 +44,8 @@ public class ForbiddenArcanus implements ModInitializer {
 		FieldRegistrationHandler.register(POIRegistry.class, MOD_ID, false);
 		DispenserBehaviorRegistry.registerDispenseBehaviors();
 		FeatureRegistry.register();
+		ConfiguredFeatureRegistry.register();
+		PlacedFeatureRegistry.register();
 
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "soul"), ParticleRegistry.SOUL);
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "aureal_mote"), ParticleRegistry.AUREAL_MOTE);

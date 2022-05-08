@@ -5,7 +5,7 @@ import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.slomaxonical.forbidden_arcanus.common.block.ThinLogBlock;
-import com.slomaxonical.forbidden_arcanus.core.registries.FeatureRegistry;
+import com.slomaxonical.forbidden_arcanus.core.registries.world.ConfiguredFeatureRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -38,7 +38,7 @@ public class CherryFoliagePlacer extends FoliagePlacer {
     @Nonnull
     @Override
     protected FoliagePlacerType<?> getType() {
-        return FeatureRegistry.CHERRY_FOLIAGE_PLACER;
+        return ConfiguredFeatureRegistry.CHERRY_FOLIAGE_PLACER;
     }
 
     @Override

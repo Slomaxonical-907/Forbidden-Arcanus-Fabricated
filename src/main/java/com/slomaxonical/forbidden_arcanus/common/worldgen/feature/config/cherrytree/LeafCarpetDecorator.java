@@ -1,7 +1,7 @@
 package com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree;
 
 import com.mojang.serialization.Codec;
-import com.slomaxonical.forbidden_arcanus.core.registries.FeatureRegistry;
+import com.slomaxonical.forbidden_arcanus.core.registries.world.ConfiguredFeatureRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
@@ -28,7 +28,7 @@ public class LeafCarpetDecorator extends TreeDecorator {
 
     @Override
     protected TreeDecoratorType<?> getType() {
-        return FeatureRegistry.LEAF_CARPET_DECORATOR;
+        return ConfiguredFeatureRegistry.LEAF_CARPET_DECORATOR;
     }
 
     @Override
