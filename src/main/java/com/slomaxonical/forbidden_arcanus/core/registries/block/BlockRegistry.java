@@ -3,8 +3,8 @@ package com.slomaxonical.forbidden_arcanus.core.registries.block;
 
 import com.slomaxonical.forbidden_arcanus.common.block.*;
 import com.slomaxonical.forbidden_arcanus.common.block.util.RodBlock;
-import com.slomaxonical.forbidden_arcanus.common.worldGen.CherrywoodTreeGrower;
-import com.slomaxonical.forbidden_arcanus.common.worldGen.MysterywoodTreeGrower;
+import com.slomaxonical.forbidden_arcanus.common.block.util.saplinggenerator.CherrywoodTree;
+import com.slomaxonical.forbidden_arcanus.common.block.util.saplinggenerator.MysterywoodTree;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
 import io.wispforest.owo.registration.reflect.BlockRegistryContainer;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -83,14 +83,14 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block SOULLESS_SANDSTONE_WALL =  new WallBlock(FabricBlockSettings.copy(Blocks.SANDSTONE_WALL));
 
     public static final Block FUNGYSS =  new FungyssBlock(FabricBlockSettings.copy(Blocks.WARPED_FUNGUS).sounds(BlockSoundGroup.GRASS));
-    public static final Block CHERRYWOOD_SAPLING =  new SaplingBlock(new CherrywoodTreeGrower(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
-    public static final Block MYSTERYWOOD_SAPLING =  new SaplingBlock(new MysterywoodTreeGrower(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
+    public static final Block CHERRYWOOD_SAPLING =  new SaplingBlock(new CherrywoodTree(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
+    public static final Block MYSTERYWOOD_SAPLING =  new SaplingBlock(new MysterywoodTree(), FabricBlockSettings.copy(Blocks.OAK_SAPLING));
     public static final Block GROWING_EDELWOOD =  new GrowingEdelwoodBlock(FabricBlockSettings.copy(Blocks.OAK_SAPLING));
     public static final Block FUNGYSS_BLOCK =  new MushroomBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BLUE).strength(0.2F).sounds(BlockSoundGroup.WOOD));
     public static final LeavesBlock CHERRYWOOD_LEAVES =  new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES));
     public static final Block CHERRYWOOD_LEAF_CARPET =  new LeafCarpetBlock(()->CHERRYWOOD_LEAVES, FabricBlockSettings.copy(Blocks.OAK_LEAVES));
     public static final Block MYSTERYWOOD_LEAVES =  new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES));
-    public static final Block NUY_MYSTERYWOOD_LEAVES =  new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES));
+    public static final Block NUGGETY_MYSTERYWOOD_LEAVES =  new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES));
 
     public static final Block FUNGYSS_STEM =  new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F).sounds(BlockSoundGroup.STEM));
     public static final Block CHERRYWOOD_LOG =  new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG));
@@ -186,7 +186,7 @@ public class BlockRegistry implements BlockRegistryContainer {
 //I dont think pots are okay like dis
     @NoBlockItem
     public static final Block POTTED_CHERRYWOOD_SAPLING =  new FlowerPotBlock(CHERRYWOOD_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_OAK_SAPLING));
-    @NoBlockItem
+//    @NoBlockItem
     public static final Block POTTED_MYSTERYWOOD_SAPLING =  new FlowerPotBlock(MYSTERYWOOD_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_OAK_SAPLING));
     @NoBlockItem
     public static final Block POTTED_YELLOW_ORCHID =  new FlowerPotBlock(YELLOW_ORCHID, FabricBlockSettings.copy(Blocks.POTTED_OAK_SAPLING));

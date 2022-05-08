@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "tag": "forge:nuggets/arcane_gold"
+      "tag": "c:nuggets/arcane_gold"
     },
     "X": {
-      "tag": "forge:ingots/arcane_gold"
+      "tag": "c:ingots/arcane_gold"
     }
   },
   "result": {

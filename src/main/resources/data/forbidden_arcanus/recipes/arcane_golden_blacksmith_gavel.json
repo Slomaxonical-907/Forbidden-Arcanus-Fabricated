@@ -7,13 +7,13 @@
   ],
   "key": {
     "#": {
-      "tag": "forge:ingots/arcane_gold"
+      "tag": "c:ingots/arcane_gold"
     },
     "X": {
       "item": "forbidden_arcanus:blacksmith_gavel_head"
     },
     "S": {
-      "tag": "forge:rods/wooden"
+      "item": "minecraft:stick"
     }
   },
   "result": {
