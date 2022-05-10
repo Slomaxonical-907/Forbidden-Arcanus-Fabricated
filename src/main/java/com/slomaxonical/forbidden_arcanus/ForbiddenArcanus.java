@@ -9,6 +9,7 @@ import com.slomaxonical.forbidden_arcanus.core.registries.item.ForbiddenItemGrou
 import com.slomaxonical.forbidden_arcanus.core.registries.world.ConfiguredFeatureRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.world.FeatureRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.world.PlacedFeatureRegistry;
+import com.slomaxonical.forbidden_arcanus.core.registries.world.StructurePieceRegistry;
 import io.wispforest.owo.itemgroup.OwoItemGroup;
 import io.wispforest.owo.registration.reflect.FieldRegistrationHandler;
 import net.fabricmc.api.ModInitializer;
@@ -46,6 +47,7 @@ public class ForbiddenArcanus implements ModInitializer {
 		FeatureRegistry.register();
 		ConfiguredFeatureRegistry.register();
 		PlacedFeatureRegistry.register();
+		StructurePieceRegistry.register();
 
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "soul"), ParticleRegistry.SOUL);
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "aureal_mote"), ParticleRegistry.AUREAL_MOTE);

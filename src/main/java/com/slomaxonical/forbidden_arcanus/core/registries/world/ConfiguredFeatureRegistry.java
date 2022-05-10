@@ -2,6 +2,7 @@ package com.slomaxonical.forbidden_arcanus.core.registries.world;
 
 import com.google.common.collect.ImmutableList;
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
+import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.BigFungyssConfig;
 import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree.CherryFoliagePlacer;
 import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree.CherryTreeConfig;
 import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree.CherryTrunkPlacer;
@@ -22,6 +23,7 @@ import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 import net.minecraft.world.gen.foliage.LargeOakFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
@@ -72,6 +74,12 @@ public class ConfiguredFeatureRegistry {
     public static final TrunkPlacerType<?> CHERRY_TRUNK_PLACER = new TrunkPlacerType<>(CherryTrunkPlacer.CODEC);
     public static final TreeDecoratorType<?> LEAF_CARPET_DECORATOR = new TreeDecoratorType<>(LeafCarpetDecorator.CODEC);
 
+    //Fungus
+    public static final ConfiguredFeature<BigFungyssConfig, ?> BIG_FUNGYSS_0 = new ConfiguredFeature<>(FeatureRegistry.BIG_FUNGYSS, new BigFungyssConfig(SimpleBlockStateProvider.of(States.FUNGYSS_BLOCK), SimpleBlockStateProvider.of(States.FUNGYSS_STEM), SimpleBlockStateProvider.of(States.FUNGYSS_HYPHAE), 0));
+    public static final ConfiguredFeature<BigFungyssConfig, ?> BIG_FUNGYSS_1 =  new ConfiguredFeature<>(FeatureRegistry.BIG_FUNGYSS, new BigFungyssConfig(SimpleBlockStateProvider.of(States.FUNGYSS_BLOCK), SimpleBlockStateProvider.of(States.FUNGYSS_STEM), SimpleBlockStateProvider.of(States.FUNGYSS_HYPHAE), 1));
+    public static final ConfiguredFeature<BigFungyssConfig, ?> MEGA_FUNGYSS_0 = new ConfiguredFeature<>(FeatureRegistry.MEGA_FUNGYSS, new BigFungyssConfig(SimpleBlockStateProvider.of(States.FUNGYSS_BLOCK), SimpleBlockStateProvider.of(States.FUNGYSS_STEM), SimpleBlockStateProvider.of(States.FUNGYSS_HYPHAE), 0));
+    public static final ConfiguredFeature<BigFungyssConfig, ?> MEGA_FUNGYSS_1 = new ConfiguredFeature<>(FeatureRegistry.MEGA_FUNGYSS, new BigFungyssConfig(SimpleBlockStateProvider.of(States.FUNGYSS_BLOCK), SimpleBlockStateProvider.of(States.FUNGYSS_STEM), SimpleBlockStateProvider.of(States.FUNGYSS_HYPHAE), 1));
+
     //PLACED
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> YELLOW_ORCHID = new ConfiguredFeature<>(Feature.FLOWER, new RandomPatchFeatureConfig(64, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(BlockRegistry.YELLOW_ORCHID)))));
     public static final ConfiguredFeature<DefaultFeatureConfig, ?> EDELWOOD = new ConfiguredFeature<>(FeatureRegistry.EDELWOOD, DefaultFeatureConfig.INSTANCE);
@@ -92,6 +100,11 @@ public class ConfiguredFeatureRegistry {
         Registry.register(Registry.FOLIAGE_PLACER_TYPE, new Identifier(ForbiddenArcanus.MOD_ID, "cherry_foliage_placer"), CHERRY_FOLIAGE_PLACER);
         Registry.register(Registry.TRUNK_PLACER_TYPE, new Identifier(ForbiddenArcanus.MOD_ID, "cherry_trunk_placer"), CHERRY_TRUNK_PLACER);
         Registry.register(Registry.TREE_DECORATOR_TYPE, new Identifier(ForbiddenArcanus.MOD_ID, "leaf_carpet_decorator"), LEAF_CARPET_DECORATOR);
+
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "big_fungyss_0"), BIG_FUNGYSS_0);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "big_fungyss_1"), BIG_FUNGYSS_1);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "mega_fungyss_0"), MEGA_FUNGYSS_0);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "mega_fungyss_1"), MEGA_FUNGYSS_1);
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "flower_yellow_orchid"), YELLOW_ORCHID);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "edelwood"), EDELWOOD);
