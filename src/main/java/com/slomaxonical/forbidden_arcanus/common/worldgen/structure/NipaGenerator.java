@@ -2,7 +2,7 @@ package com.slomaxonical.forbidden_arcanus.common.worldgen.structure;
 
 
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
-import com.slomaxonical.forbidden_arcanus.core.registries.world.StructurePieceRegistry;
+import com.slomaxonical.forbidden_arcanus.core.registries.world.StructureRegistry;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.structure.SimpleStructurePiece;
 import net.minecraft.structure.StructureContext;
@@ -23,7 +23,7 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 
 import java.util.Random;
 
-public class NipaPieces {
+public class NipaGenerator {
 
     public static final Identifier NIPA = new Identifier(ForbiddenArcanus.MOD_ID, "nipa");
     public static final Identifier NIPA_FLOATING = new Identifier(ForbiddenArcanus.MOD_ID, "nipa_floating");
@@ -33,12 +33,12 @@ public class NipaPieces {
         private final boolean floating;
 
         public Piece(StructureManager structureManager, Identifier templateName, BlockPos templatePosition, BlockRotation BlockRotation, boolean floating) {
-            super(StructurePieceRegistry.NIPA, 0, structureManager, templateName, templateName.toString(), makeSettings(BlockRotation), templatePosition);
+            super(StructureRegistry.NIPA_PIECE, 0, structureManager, templateName, templateName.toString(), makeSettings(BlockRotation), templatePosition);
             this.floating = floating;
         }
 
         public Piece(StructureManager manager, NbtCompound tag) {
-            super(StructurePieceRegistry.NIPA, tag, manager, (Identifier) -> {
+            super(StructureRegistry.NIPA_PIECE, tag, manager, (Identifier) -> {
                 return makeSettings(BlockRotation.valueOf(tag.getString("Rot")));
             });
             this.floating = tag.getBoolean("Floating");
@@ -56,16 +56,16 @@ public class NipaPieces {
         }
 
         @Override
+        protected void handleMetadata(String metadata, BlockPos pos, ServerWorldAccess world, Random random, BlockBox boundingBox) {
+
+        }
+
+        @Override
         public void generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox chunkBox, ChunkPos chunkPos, BlockPos pos) {
             int i = world.getTopY(Heightmap.Type.WORLD_SURFACE_WG, pos.getX(), pos.getZ());
             this.pos = new BlockPos(this.pos.getX(), this.floating ? i + 60 : i - 3, this.pos.getZ());
 
             super.generate(world, structureAccessor, chunkGenerator, random, boundingBox, chunkPos, pos);
-        }
-
-        @Override
-        protected void handleMetadata(String metadata, BlockPos pos, ServerWorldAccess world, Random random, BlockBox boundingBox) {
-
         }
 
     }

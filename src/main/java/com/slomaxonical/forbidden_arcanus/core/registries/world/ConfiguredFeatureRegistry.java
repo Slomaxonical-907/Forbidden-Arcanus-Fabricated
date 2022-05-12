@@ -7,7 +7,9 @@ import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherryt
 import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree.CherryTreeConfig;
 import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree.CherryTrunkPlacer;
 import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree.LeafCarpetDecorator;
+import com.slomaxonical.forbidden_arcanus.common.worldgen.structure.config.NipaConfig;
 import com.slomaxonical.forbidden_arcanus.core.config.WorldGenConfig;
+import com.slomaxonical.forbidden_arcanus.core.helper.FATags;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -18,6 +20,7 @@ import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
@@ -109,6 +112,7 @@ public class ConfiguredFeatureRegistry {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "flower_yellow_orchid"), YELLOW_ORCHID);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "edelwood"), EDELWOOD);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "petrified_root"), PETRIFIED_ROOT);
+
     }
     private static final class States {
         private static final BlockState GRASS_BLOCK = Blocks.GRASS_BLOCK.getDefaultState();

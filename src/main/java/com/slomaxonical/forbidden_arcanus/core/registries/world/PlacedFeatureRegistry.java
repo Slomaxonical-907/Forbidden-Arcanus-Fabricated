@@ -13,6 +13,8 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
@@ -31,8 +33,8 @@ public class PlacedFeatureRegistry {
     public static PlacedFeature XPETRIFIED_ORE = new PlacedFeature(RegistryEntry.of(ConfiguredFeatureRegistry.XPETRIFIED_ORE), commonOrePlacement(18, HeightRangePlacementModifier.uniform(YOffset.fixed(-6), YOffset.fixed(35))));
 
     public static PlacedFeature EDELWOOD_TREES = new PlacedFeature(RegistryEntry.of(ConfiguredFeatureRegistry.EDELWOOD), List.of(SquarePlacementModifier.of(), SurfaceWaterDepthFilterPlacementModifier.of(0), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, PlacedFeatures.createCountExtraModifier(18, 0.25F, 3), BiomePlacementModifier.of()));
-    public static PlacedFeature PETRIFIED_ROOT = new PlacedFeature(RegistryEntry.of(ConfiguredFeatureRegistry.EDELWOOD), List.of(HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(50)), SquarePlacementModifier.of(), CountPlacementModifier.of(UniformIntProvider.create(173, 256)), EnvironmentScanPlacementModifier.of(Direction.UP, BlockPredicate.matchingBlockTag(BlockTags.BASE_STONE_OVERWORLD), BlockPredicate.IS_AIR, 12), RandomOffsetPlacementModifier.vertically(ConstantIntProvider.create(-1)), BiomePlacementModifier.of()));
-    public static PlacedFeature YELLOW_ORCHID = new PlacedFeature(RegistryEntry.of(ConfiguredFeatureRegistry.EDELWOOD),  List.of(RarityFilterPlacementModifier.of(12), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, SquarePlacementModifier.of(), BiomePlacementModifier.of()));
+    public static PlacedFeature PETRIFIED_ROOT = new PlacedFeature(RegistryEntry.of(ConfiguredFeatureRegistry.PETRIFIED_ROOT), List.of(HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(50)), SquarePlacementModifier.of(), CountPlacementModifier.of(UniformIntProvider.create(173, 256)), EnvironmentScanPlacementModifier.of(Direction.UP, BlockPredicate.matchingBlockTag(BlockTags.BASE_STONE_OVERWORLD), BlockPredicate.IS_AIR, 12), RandomOffsetPlacementModifier.vertically(ConstantIntProvider.create(-1)), BiomePlacementModifier.of()));
+    public static PlacedFeature YELLOW_ORCHID = new PlacedFeature(RegistryEntry.of(ConfiguredFeatureRegistry.YELLOW_ORCHID),  List.of(RarityFilterPlacementModifier.of(12), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, SquarePlacementModifier.of(), BiomePlacementModifier.of()));
 
     private static List<PlacementModifier> orePlacement(PlacementModifier countModifier, PlacementModifier placementModifier) {
         return List.of(countModifier, SquarePlacementModifier.of(), placementModifier, BiomePlacementModifier.of());
@@ -59,9 +61,10 @@ public class PlacedFeatureRegistry {
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "arcane_gilded_darkstone")));
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "stella_arcanum")));
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "xpetrified_ore")));
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "edelwood_trees")));
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "petrified_root")));
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "yellow_orchid")));
+
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.DARK_FOREST), GenerationStep.Feature.SURFACE_STRUCTURES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "edelwood_trees")));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_DECORATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "petrified_root")));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "yellow_orchid")));
 
     }
 }
