@@ -1,15 +1,13 @@
 package com.slomaxonical.forbidden_arcanus;
 
+import com.slomaxonical.forbidden_arcanus.common.block.StellaArcanumBlock;
 import com.slomaxonical.forbidden_arcanus.core.config.Config;
 import com.slomaxonical.forbidden_arcanus.core.registries.*;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockEntityRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ForbiddenItemGroup;
-import com.slomaxonical.forbidden_arcanus.core.registries.world.ConfiguredFeatureRegistry;
-import com.slomaxonical.forbidden_arcanus.core.registries.world.FeatureRegistry;
-import com.slomaxonical.forbidden_arcanus.core.registries.world.PlacedFeatureRegistry;
-import com.slomaxonical.forbidden_arcanus.core.registries.world.StructurePieceRegistry;
+import com.slomaxonical.forbidden_arcanus.core.registries.world.*;
 import io.wispforest.owo.itemgroup.OwoItemGroup;
 import io.wispforest.owo.registration.reflect.FieldRegistrationHandler;
 import net.fabricmc.api.ModInitializer;
@@ -47,7 +45,7 @@ public class ForbiddenArcanus implements ModInitializer {
 		FeatureRegistry.register();
 		ConfiguredFeatureRegistry.register();
 		PlacedFeatureRegistry.register();
-		StructurePieceRegistry.register();
+		StructureRegistry.setupStructures();
 
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "soul"), ParticleRegistry.SOUL);
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "aureal_mote"), ParticleRegistry.AUREAL_MOTE);
@@ -55,6 +53,8 @@ public class ForbiddenArcanus implements ModInitializer {
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "magic_explosion_emitter"), ParticleRegistry.HUGE_MAGIC_EXPLOSION);
 //		FieldRegistrationHandler.register(ParticleRegistry.class, MOD_ID,false);
 
+		StellaArcanumBlock.onBrokenEvent();
+		//OWOItemgroupTest
 		TABBED_FORBIDDEN_GROUP.initialize();
 		lizt.add(new ItemStack(ItemRegistry.LENS_OF_VERITATIS));
 		lizt.add(new ItemStack(BlockRegistry.ARCANE_CHISELED_DARKSTONE.asItem()));
