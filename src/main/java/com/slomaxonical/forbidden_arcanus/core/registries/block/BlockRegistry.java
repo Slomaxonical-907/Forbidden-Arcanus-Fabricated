@@ -17,7 +17,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.BlockView;
 
 public class BlockRegistry implements BlockRegistryContainer {
-
+//TODO:not use emissive lighting?
     public static final Block DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block ARCANE_CHISELED_DARKSTONE =  new Block(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
     public static final Block DARKSTONE_SLAB =  new SlabBlock(FabricBlockSettings.copy(Blocks.STONE).strength(4.5F, 8.0F));
@@ -51,8 +51,8 @@ public class BlockRegistry implements BlockRegistryContainer {
 
     public static final Block STELLA_ARCANUM =  new StellaArcanumBlock(FabricBlockSettings.copy(Blocks.OBSIDIAN).strength(38.0F, 1200.0F));
     public static final Block XPETRIFIED_ORE =  new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F));
-    public static final Block ARCANE_CRYSTAL_ORE =  new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F), UniformIntProvider.create(2, 5));
-    public static final Block DEEPSLATE_ARCANE_CRYSTAL_ORE =  new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE), UniformIntProvider.create(2, 5));
+    public static final Block ARCANE_CRYSTAL_ORE =  new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F).luminance(state -> 1).emissiveLighting(BlockRegistry::always), UniformIntProvider.create(2, 5));
+    public static final Block DEEPSLATE_ARCANE_CRYSTAL_ORE =  new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).luminance(state -> 1).emissiveLighting(BlockRegistry::always), UniformIntProvider.create(2, 5));
     public static final Block RUNIC_STONE =  new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F), UniformIntProvider.create(4, 8));
     public static final Block RUNIC_DEEPSLATE =  new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.DEEPSLATE_GRAY).requiresTool().strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE), UniformIntProvider.create(4, 8));
     public static final Block RUNIC_DARKSTONE =  new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.BLACK).requiresTool().strength(6.0F, 4.0F), UniformIntProvider.create(4, 8));
@@ -60,7 +60,7 @@ public class BlockRegistry implements BlockRegistryContainer {
     public static final Block PROCESSED_OBSIDIAN_BLOCK =  new Block(FabricBlockSettings.copy(Blocks.OBSIDIAN));
     public static final Block ARCANE_GOLD_BLOCK =  new Block(FabricBlockSettings.copy(Blocks.GOLD_BLOCK));
     public static final Block STELLARITE_BLOCK =  new Block(FabricBlockSettings.copy(Blocks.OBSIDIAN));
-    public static final Block ARCANE_CRYSTAL_BLOCK =  new Block(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_WHITE).requiresTool().strength(1.0F, 3.0F).nonOpaque());
+    public static final Block ARCANE_CRYSTAL_BLOCK =  new Block(FabricBlockSettings.of(Material.STONE, MapColor.TERRACOTTA_WHITE).requiresTool().strength(1.0F, 3.0F).nonOpaque().luminance(state -> 1).emissiveLighting(BlockRegistry::always));
     public static final Block RUNE_BLOCK =  new Block(FabricBlockSettings.of(Materials.RUNE).requiresTool().strength(5.0F, 6.0F));
     public static final Block DARK_RUNE_BLOCK =  new Block(FabricBlockSettings.of(Materials.RUNE, MapColor.GRAY).requiresTool().strength(5.0F, 6.0F));
     public static final Block ARCANE_GOLDEN_GLASS =  new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS));
@@ -158,7 +158,7 @@ public class BlockRegistry implements BlockRegistryContainer {
 
     public static final Block ARCANE_DRAGON_EGG =  new ArcaneDragonEggBlock(FabricBlockSettings.copy(Blocks.DRAGON_EGG).luminance(value -> 5));
 
-    public static final Block ARCANE_CRYSTAL_OBELISK =  new ArcaneCrystalObeliskBlock(FabricBlockSettings.of(Material.STONE).strength(1.0F, 10.0F));
+    public static final Block ARCANE_CRYSTAL_OBELISK =  new ArcaneCrystalObeliskBlock(FabricBlockSettings.of(Material.STONE).strength(1.0F, 10.0F).luminance(state -> 1).emissiveLighting(BlockRegistry::always));
     @NoBlockItem
     public static final Block OBSIDIAN_SKULL =  new ObsidianSkullBlock(FabricBlockSettings.copy(Blocks.SKELETON_SKULL));
     @NoBlockItem
@@ -193,6 +193,9 @@ public class BlockRegistry implements BlockRegistryContainer {
 
     private static boolean never(BlockState state, BlockView level, BlockPos pos, EntityType<?> entityType) {
         return false;
+    }
+    private static boolean always(BlockState state, BlockView world, BlockPos pos) {
+        return true;
     }
 
     public static class Materials {
