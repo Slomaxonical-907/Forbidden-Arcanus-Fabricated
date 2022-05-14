@@ -46,6 +46,7 @@ public class ForbiddenArcanus implements ModInitializer {
 		ConfiguredFeatureRegistry.register();
 		PlacedFeatureRegistry.register();
 		StructureRegistry.setupStructures();
+		ScreenHandlerTypeRegistry.init();
 
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "soul"), ParticleRegistry.SOUL);
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "aureal_mote"), ParticleRegistry.AUREAL_MOTE);

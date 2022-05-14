@@ -25,26 +25,26 @@ public class HephaestusForgeRenderer implements BlockEntityRenderer<HephaestusFo
 
     @Override
     public void render(HephaestusForgeBlockEntity blockEntity, float partialTicks, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
-//        blockEntity.getMagicCircle().render(matrices, partialTicks, vertexConsumers, light, this.magicCircleModel);
-//
-//        ItemStack stack = blockEntity.getStack(4);
-//
-//        if (!stack.isEmpty()) {
+        blockEntity.getMagicCircle().render(matrices, partialTicks, vertexConsumers, light, this.magicCircleModel);
+
+        ItemStack stack = blockEntity.getStack(4);
+
+        if (!stack.isEmpty()) {
             matrices.push();
-//
-//            matrices.translate(0.5D, 1.3D, 0.5D);
-//            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((blockEntity.getDisplayCounter() + partialTicks) / 20));
-//
-//            matrices.scale(0.5F, 0.5F, 0.5F);
-//
-//            MinecraftClient.getInstance().getItemRenderer().renderItem(stack, ModelTransformation.Mode.FIXED, light, overlay, matrices, vertexConsumers, 0);
-//
-//            matrices.pop();
-//        }
+
+            matrices.translate(0.5D, 1.3D, 0.5D);
+            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((blockEntity.getDisplayCounter() + partialTicks) / 20));
+
+            matrices.scale(0.5F, 0.5F, 0.5F);
+
+            MinecraftClient.getInstance().getItemRenderer().renderItem(stack, ModelTransformation.Mode.FIXED, light, overlay, matrices, vertexConsumers, 0);
+
+            matrices.pop();
+        }
     }
 
-//    @Override
-//    public boolean rendersOutsideBoundingBox(@Nonnull HephaestusForgeBlockEntity blockEntity) {
-//        return blockEntity.getRitualManager().isRitualActive();
-//    }
+    @Override
+    public boolean rendersOutsideBoundingBox(@Nonnull HephaestusForgeBlockEntity blockEntity) {
+        return blockEntity.getRitualManager().isRitualActive();
+    }
 }

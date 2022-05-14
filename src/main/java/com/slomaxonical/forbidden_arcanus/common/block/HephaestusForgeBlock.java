@@ -4,6 +4,8 @@ import com.slomaxonical.forbidden_arcanus.common.block.util.FABlockProperties;
 import com.slomaxonical.forbidden_arcanus.common.block.util.ModBlockPatterns;
 import com.slomaxonical.forbidden_arcanus.common.blockEntity.forge.HephaestusForgeBlockEntity;
 import com.slomaxonical.forbidden_arcanus.common.item.util.RitualStarterItem;
+import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockEntityRegistry;
+import com.slomaxonical.forbidden_arcanus.mixin.CheckTypeInvoker;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -52,7 +54,7 @@ public class HephaestusForgeBlock extends Block implements Waterloggable, BlockE
     );
     public HephaestusForgeBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getStateManager().getDefaultState().with(ACTIVATED, false).with(WATERLOGGED, false));
+        this.setDefaultState(this.getStateManager().getDefaultState().with(ACTIVATED, true).with(WATERLOGGED, false));
     }
 
     @Nullable
@@ -92,8 +94,7 @@ public class HephaestusForgeBlock extends Block implements Waterloggable, BlockE
                 ItemStack stack = player.getStackInHand(hand);
 
                 if (stack.getItem() instanceof RitualStarterItem) {
-                    //todo:once u get to the ForgeBE
-//                    blockEntity.getRitualManager().tryStartRitual((ServerWorld) world, stack, player);
+                    blockEntity.getRitualManager().tryStartRitual((ServerWorld) world, stack, player);
                 } else {
                     player.openHandledScreen(blockEntity);
                 }
@@ -119,7 +120,10 @@ public class HephaestusForgeBlock extends Block implements Waterloggable, BlockE
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return BlockEntityProvider.super.getTicker(world, state, type);
+        if (world.isClient()) {
+            return CheckTypeInvoker.invokeCheckType(type, BlockEntityRegistry.HEPHAESTUS_FORGE, HephaestusForgeBlockEntity::clientTick);
+        }
+        return CheckTypeInvoker.invokeCheckType(type, BlockEntityRegistry.HEPHAESTUS_FORGE, HephaestusForgeBlockEntity::serverTick);
     }
 
     @Override

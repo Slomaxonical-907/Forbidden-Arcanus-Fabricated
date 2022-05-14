@@ -3,6 +3,7 @@ package com.slomaxonical.forbidden_arcanus.common.blockEntity.forge;
 import com.slomaxonical.forbidden_arcanus.common.block.HephaestusForgeBlock;
 import com.slomaxonical.forbidden_arcanus.common.blockEntity.forge.ritual.EssenceManager;
 import com.slomaxonical.forbidden_arcanus.common.blockEntity.forge.ritual.RitualManager;
+import com.slomaxonical.forbidden_arcanus.common.inventory.HephaestusForgeMenu;
 import com.slomaxonical.forbidden_arcanus.common.inventory.InputType;
 import com.slomaxonical.forbidden_arcanus.common.inventory.input.HephaestusForgeInput;
 import com.slomaxonical.forbidden_arcanus.common.inventory.input.HephaestusForgeInputs;
@@ -246,8 +247,7 @@ public class HephaestusForgeBlockEntity extends LockableContainerBlockEntity {
 
     @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-        return null;
-//        return new HephaestusForgeMenu(containerId, this, this.getHephaestusForgeData(), inventory); todo:screen
+        return new HephaestusForgeMenu(syncId, this, this.getHephaestusForgeData(), playerInventory);
     }
 
     @Override

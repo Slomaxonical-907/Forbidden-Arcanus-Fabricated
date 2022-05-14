@@ -7,7 +7,6 @@ import com.slomaxonical.forbidden_arcanus.common.blockEntity.forge.ritual.Ritual
 import com.slomaxonical.forbidden_arcanus.common.blockEntity.forge.ritual.RitualEssences;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.StringNbtReader;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.resource.JsonDataLoader;
@@ -15,7 +14,6 @@ import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.profiler.Profiler;
-import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 
 import javax.annotation.Nonnull;
@@ -55,7 +53,7 @@ public class RitualLoader extends JsonDataLoader {
             }
         }
     }
-    public static ItemStack getItemStack(JsonObject json) //todo hope for the best
+    public static ItemStack getItemStack(JsonObject json) //todo hope for the best(forgeting)
     {
         String itemName = JsonHelper.getString(json, "item");
         Identifier itemKey = new Identifier(itemName);
