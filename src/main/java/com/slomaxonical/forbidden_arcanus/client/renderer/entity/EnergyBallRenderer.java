@@ -15,7 +15,7 @@ import net.minecraft.util.math.Matrix4f;
 import javax.annotation.Nonnull;
 public class EnergyBallRenderer extends EntityRenderer<EnergyBallEntity> {
 
-    private static final Identifier LOCATION = new Identifier(ForbiddenArcanus.MOD_ID, "textures/effect/energy_ball.png");
+    private static final Identifier LOCATION = new Identifier(ForbiddenArcanus.ID, "textures/effect/energy_ball.png");
 
     public EnergyBallRenderer(EntityRendererFactory.Context context) {
         super(context);

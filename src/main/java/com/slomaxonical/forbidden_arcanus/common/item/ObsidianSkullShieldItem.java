@@ -1,35 +1,13 @@
 package com.slomaxonical.forbidden_arcanus.common.item;
 
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
-import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
-import com.slomaxonical.forbidden_arcanus.mixin.CombinedInventoryAccessor;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
-import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.world.World;
-import net.valhelsia.valhelsia_core.common.capability.counter.CounterCapability;
-import net.valhelsia.valhelsia_core.common.capability.counter.CounterCreator;
-import net.valhelsia.valhelsia_core.common.capability.counter.CounterImpl;
 import net.valhelsia.valhelsia_core.common.capability.counter.SimpleCounter;
-import org.jetbrains.annotations.Nullable;
-
-import javax.annotation.Nonnull;
-import java.util.List;
-import java.util.function.Consumer;
 
 public class ObsidianSkullShieldItem extends Item {
-    private static final SimpleCounter COUNTER = new SimpleCounter(new Identifier(ForbiddenArcanus.MOD_ID, "tick_counter"));
+    private static final SimpleCounter COUNTER = new SimpleCounter(new Identifier(ForbiddenArcanus.ID, "tick_counter"));
     private static final int USE_DURATION = 72000;
 
     public ObsidianSkullShieldItem(Settings settings) {

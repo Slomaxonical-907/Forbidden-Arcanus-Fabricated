@@ -29,7 +29,7 @@ import javax.annotation.Nonnull;
 public class ObsidianSkullShieldItemRenderer extends BuiltinModelItemRenderer {
 
     private final ShieldEntityModel model;
-    private final Identifier texture = new Identifier(ForbiddenArcanus.MOD_ID, "entity/obsidian_skull_shield");
+    private final Identifier texture = new Identifier(ForbiddenArcanus.ID, "entity/obsidian_skull_shield");
 
     public ObsidianSkullShieldItemRenderer(BlockEntityRenderDispatcher dispatcher, EntityModelLoader modelSet) {
         super(dispatcher, modelSet);

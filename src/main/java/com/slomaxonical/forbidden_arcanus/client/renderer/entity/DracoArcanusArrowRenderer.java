@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 
 public class DracoArcanusArrowRenderer extends ProjectileEntityRenderer<DracoArcanusArrowEntity> {
 
-    private static final Identifier LOCATION = new Identifier(ForbiddenArcanus.MOD_ID, "textures/entity/projectiles/draco_arcanus_arrow.png");
+    private static final Identifier LOCATION = new Identifier(ForbiddenArcanus.ID, "textures/entity/projectiles/draco_arcanus_arrow.png");
 
     public DracoArcanusArrowRenderer(EntityRendererFactory.Context context) {
         super(context);

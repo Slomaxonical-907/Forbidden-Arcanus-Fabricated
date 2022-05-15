@@ -14,7 +14,7 @@ import net.valhelsia.valhelsia_core.common.capability.counter.SimpleCounter;
 import java.util.Random;
 
 public class SoapItemEntity extends ItemEntity {
-    private static final SimpleCounter COUNTER = new SimpleCounter(new Identifier(ForbiddenArcanus.MOD_ID, "wet_timer"));
+    private static final SimpleCounter COUNTER = new SimpleCounter(new Identifier(ForbiddenArcanus.ID, "wet_timer"));
     int waitTime = 20 + (int)(new Random().nextFloat()*100);
 
     public SoapItemEntity(EntityType<? extends ItemEntity> entityType, World world) {

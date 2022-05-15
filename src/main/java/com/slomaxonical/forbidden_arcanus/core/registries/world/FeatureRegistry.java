@@ -18,10 +18,10 @@ public class FeatureRegistry {
     public static final Feature<BigFungyssConfig> MEGA_FUNGYSS =  new MegaFungyssFeature(BigFungyssConfig.CODEC);
 
     public static void register() {
-        Registry.register(Registry.FEATURE, new Identifier(ForbiddenArcanus.MOD_ID,"petrified_root"), PETRIFIED_ROOT);
-        Registry.register(Registry.FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "edelwood"), EDELWOOD);
-        Registry.register(Registry.FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "big_fungyss"), BIG_FUNGYSS);
-        Registry.register(Registry.FEATURE, new Identifier(ForbiddenArcanus.MOD_ID,"mega_fungyss"), MEGA_FUNGYSS);
+        Registry.register(Registry.FEATURE, new Identifier(ForbiddenArcanus.ID,"petrified_root"), PETRIFIED_ROOT);
+        Registry.register(Registry.FEATURE, new Identifier(ForbiddenArcanus.ID, "edelwood"), EDELWOOD);
+        Registry.register(Registry.FEATURE, new Identifier(ForbiddenArcanus.ID, "big_fungyss"), BIG_FUNGYSS);
+        Registry.register(Registry.FEATURE, new Identifier(ForbiddenArcanus.ID,"mega_fungyss"), MEGA_FUNGYSS);
     }
 }
 

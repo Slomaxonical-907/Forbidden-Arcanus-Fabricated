@@ -3,7 +3,6 @@ package com.slomaxonical.forbidden_arcanus.common.entity.item;
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
 import com.slomaxonical.forbidden_arcanus.common.item.WetPurifyingSoapItem;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.Item;
@@ -13,7 +12,7 @@ import net.minecraft.world.World;
 import net.valhelsia.valhelsia_core.common.capability.counter.SimpleCounter;
 
 public class WetSoapItemEntity extends ItemEntity {
-    private static final SimpleCounter COUNTER = new SimpleCounter(new Identifier(ForbiddenArcanus.MOD_ID, "dry_timer"));
+    private static final SimpleCounter COUNTER = new SimpleCounter(new Identifier(ForbiddenArcanus.ID, "dry_timer"));
 
     public WetSoapItemEntity(EntityType<? extends ItemEntity> entityType, World world) {
         super(entityType, world);

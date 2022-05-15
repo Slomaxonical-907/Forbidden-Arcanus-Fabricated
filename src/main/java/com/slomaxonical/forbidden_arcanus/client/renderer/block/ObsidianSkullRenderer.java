@@ -38,11 +38,11 @@ import javax.annotation.Nullable;
 @Environment(EnvType.CLIENT)
 public class ObsidianSkullRenderer implements BlockEntityRenderer<ObsidianSkullBlockEntity> {
 
-    public static final EntityModelLayer OBSIDIAN_SKULL_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.MOD_ID, "obsidian_skull"), "main");
-    public static final EntityModelLayer ETERNAL_OBSIDIAN_SKULL_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.MOD_ID, "eternal_obsidian_skull"), "main");
+    public static final EntityModelLayer OBSIDIAN_SKULL_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.ID, "obsidian_skull"), "main");
+    public static final EntityModelLayer ETERNAL_OBSIDIAN_SKULL_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.ID, "eternal_obsidian_skull"), "main");
 
-    private static final Identifier TEXTURE = new Identifier(ForbiddenArcanus.MOD_ID, "textures/block/obsidian_skull.png");
-    private static final Identifier ETERNAL_TEXTURE = new Identifier(ForbiddenArcanus.MOD_ID, "textures/block/eternal_obsidian_skull.png");
+    private static final Identifier TEXTURE = new Identifier(ForbiddenArcanus.ID, "textures/block/obsidian_skull.png");
+    private static final Identifier ETERNAL_TEXTURE = new Identifier(ForbiddenArcanus.ID, "textures/block/eternal_obsidian_skull.png");
 
     private final Pair<SkullEntityModel, SkullEntityModel> models;
 

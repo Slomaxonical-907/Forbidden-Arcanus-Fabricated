@@ -37,7 +37,7 @@ public enum FAArmorMaterials implements ArmorMaterial {
     private final Ingredient repairIngredient;
 
     FAArmorMaterials(String name, int durabilityMultiplier, int[] slotProtections, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Ingredient ingredient) {
-        this.name = new Identifier(ForbiddenArcanus.MOD_ID, name);
+        this.name = new Identifier(ForbiddenArcanus.ID, name);
         this.durabilityMultiplier = durabilityMultiplier;
         this.slotProtections = slotProtections;
         this.enchantmentValue = enchantmentValue;

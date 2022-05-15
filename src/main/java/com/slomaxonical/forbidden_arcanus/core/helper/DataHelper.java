@@ -1,9 +1,5 @@
 package com.slomaxonical.forbidden_arcanus.core.helper;
 
-import net.minecraft.scoreboard.Scoreboard;
-import net.minecraft.scoreboard.Team;
-import net.minecraft.text.LiteralText;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
@@ -13,7 +9,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static com.slomaxonical.forbidden_arcanus.ForbiddenArcanus.MOD_ID;
+import static com.slomaxonical.forbidden_arcanus.ForbiddenArcanus.ID;
 
 public class DataHelper {
     public static Vec3d randPos(BlockPos pos, Random rand, double min, double max) {
@@ -24,7 +20,7 @@ public class DataHelper {
     }
 
     public static Identifier prefix(String path) {
-        return new Identifier(MOD_ID, path);
+        return new Identifier(ID, path);
     }
 
     public static <T, K extends Collection<T>> K reverseOrder(Supplier<K> reversed, Collection<T> items) {

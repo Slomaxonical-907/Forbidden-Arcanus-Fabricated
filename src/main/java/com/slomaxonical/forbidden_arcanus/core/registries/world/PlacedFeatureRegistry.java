@@ -13,7 +13,6 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
@@ -45,26 +44,26 @@ public class PlacedFeatureRegistry {
     }
 
     public static void register() {
-        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "arcane_crystal_ore"), ARCANE_CRYSTAL_ORE);
-        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "runic_stone"), RUNIC_STONE);
-        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "darkstone"), DARKSTONE);
-        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "arcane_gilded_darkstone"), ARCANE_GILDED_DARKSTONE);
-        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "stella_arcanum"), STELLA_ARCANUM);
-        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "xpetrified_ore"), XPETRIFIED_ORE);
-        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "edelwood_trees"), EDELWOOD_TREES);
-        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "petrified_root"), PETRIFIED_ROOT);
-        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "yellow_orchid"), YELLOW_ORCHID);
+        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.ID, "arcane_crystal_ore"), ARCANE_CRYSTAL_ORE);
+        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.ID, "runic_stone"), RUNIC_STONE);
+        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.ID, "darkstone"), DARKSTONE);
+        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.ID, "arcane_gilded_darkstone"), ARCANE_GILDED_DARKSTONE);
+        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.ID, "stella_arcanum"), STELLA_ARCANUM);
+        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.ID, "xpetrified_ore"), XPETRIFIED_ORE);
+        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.ID, "edelwood_trees"), EDELWOOD_TREES);
+        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.ID, "petrified_root"), PETRIFIED_ROOT);
+        BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, new Identifier(ForbiddenArcanus.ID, "yellow_orchid"), YELLOW_ORCHID);
 
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "arcane_crystal_ore")));
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "runic_stone")));
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "darkstone")));
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "arcane_gilded_darkstone")));
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "stella_arcanum")));
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "xpetrified_ore")));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.ID, "arcane_crystal_ore")));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.ID, "runic_stone")));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.ID, "darkstone")));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.ID, "arcane_gilded_darkstone")));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.ID, "stella_arcanum")));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.ID, "xpetrified_ore")));
 
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.DARK_FOREST), GenerationStep.Feature.SURFACE_STRUCTURES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "edelwood_trees")));
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_DECORATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "petrified_root")));
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "yellow_orchid")));
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.DARK_FOREST), GenerationStep.Feature.SURFACE_STRUCTURES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.ID, "edelwood_trees")));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_DECORATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.ID, "petrified_root")));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(ForbiddenArcanus.ID, "yellow_orchid")));
 
     }
 }

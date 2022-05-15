@@ -28,7 +28,7 @@ public class FATags {
         }
 
         private static TagKey<Block> modTag(String name) {
-            return TagKey.of(Registry.BLOCK_KEY, new Identifier(ForbiddenArcanus.MOD_ID, name));
+            return TagKey.of(Registry.BLOCK_KEY, new Identifier(ForbiddenArcanus.ID, name));
         }
 
         private static TagKey<Block> vanillaTag(String name) {
@@ -61,7 +61,7 @@ public class FATags {
         }
 
         private static TagKey<Item> modTag(String name) {
-            return TagKey.of(Registry.ITEM_KEY, new Identifier(ForbiddenArcanus.MOD_ID, name));
+            return TagKey.of(Registry.ITEM_KEY, new Identifier(ForbiddenArcanus.ID, name));
         }
     }
 
@@ -70,7 +70,7 @@ public class FATags {
         public static final TagKey<EntityType<?>> BLACK_HOLE_AFFECTED = modTag("black_hole_affected");
 
         private static TagKey<EntityType<?>> modTag(String name) {
-            return TagKey.of(Registry.ENTITY_TYPE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, name));
+            return TagKey.of(Registry.ENTITY_TYPE_KEY, new Identifier(ForbiddenArcanus.ID, name));
         }
     }
 
@@ -81,7 +81,7 @@ public class FATags {
         public static final TagKey<Enchantment> FIERY_INCOMPATIBLE = modTag("modifier/fiery_incompatible");
 
         private static TagKey<Enchantment> modTag(String name) {
-            return TagKey.of(Registry.ENCHANTMENT_KEY, new Identifier(ForbiddenArcanus.MOD_ID, name));
+            return TagKey.of(Registry.ENCHANTMENT_KEY, new Identifier(ForbiddenArcanus.ID, name));
         }
     }
 
@@ -97,7 +97,7 @@ public class FATags {
         }
 
         private static TagKey<Biome> modTag(String name) {
-            return TagKey.of(Registry.BIOME_KEY, new Identifier(ForbiddenArcanus.MOD_ID, name));
+            return TagKey.of(Registry.BIOME_KEY, new Identifier(ForbiddenArcanus.ID, name));
         }
     }
 }

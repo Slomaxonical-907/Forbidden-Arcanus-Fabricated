@@ -29,20 +29,20 @@ public class StructureRegistry {
 
 
     static StructurePieceType createPiece(String name, StructurePieceType.ManagerAware type) {
-        return Registry.register(Registry.STRUCTURE_PIECE, new Identifier(ForbiddenArcanus.MOD_ID, name), type);
+        return Registry.register(Registry.STRUCTURE_PIECE, new Identifier(ForbiddenArcanus.ID, name), type);
     }
     static <F extends StructureFeature<?>> F createStructure(String name, F structureFeature) {
         return (F)Registry.register(Registry.STRUCTURE_FEATURE, name, structureFeature);
     }
 
     static RegistryEntry<ConfiguredStructureFeature<?, ?>> register(String name, ConfiguredStructureFeature<?, ?> configuredStructureFeature) {
-        RegistryKey<ConfiguredStructureFeature<?, ?>> resourceKey = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY, new Identifier(ForbiddenArcanus.MOD_ID, name));
+        RegistryKey<ConfiguredStructureFeature<?, ?>> resourceKey = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_KEY, new Identifier(ForbiddenArcanus.ID, name));
 
         return BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, resourceKey, configuredStructureFeature);
     }
 
     public static void setupStructures() {
-        RegistryKey<StructureSet> registryKey = RegistryKey.of(Registry.STRUCTURE_SET_KEY, new Identifier(ForbiddenArcanus.MOD_ID, "nipas"));
+        RegistryKey<StructureSet> registryKey = RegistryKey.of(Registry.STRUCTURE_SET_KEY, new Identifier(ForbiddenArcanus.ID, "nipas"));
         BuiltinRegistries.add(BuiltinRegistries.STRUCTURE_SET, registryKey, new StructureSet(List.of(StructureSet.createEntry(NIPA), StructureSet.createEntry(NIPA_ALWAYS_FLOATING)), new RandomSpreadStructurePlacement(WorldGenConfig.NIPA_SPACING.get(), WorldGenConfig.NIPA_SEPARATION.get(), SpreadType.LINEAR, 710359251)));
     }
 

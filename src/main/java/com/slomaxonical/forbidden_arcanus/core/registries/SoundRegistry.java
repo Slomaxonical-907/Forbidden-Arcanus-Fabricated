@@ -2,9 +2,7 @@ package com.slomaxonical.forbidden_arcanus.core.registries;
 
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
 import io.wispforest.owo.registration.reflect.AutoRegistryContainer;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -21,7 +19,7 @@ public class SoundRegistry implements AutoRegistryContainer<SoundEvent> {
 //    public static final BlockSoundGroup ETHER = new BlockSoundGroup(1.0F, 1.0F, ETHER_BREAK, SoundEvents.BLOCK_WOOL_STEP, ETHER_PLACE, SoundEvents.BLOCK_ANCIENT_DEBRIS_HIT, SoundEvents.BLOCK_WOOL_FALL);
 
     private static SoundEvent createSound(String key) {
-        Identifier id = new Identifier(ForbiddenArcanus.MOD_ID, key);
+        Identifier id = new Identifier(ForbiddenArcanus.ID, key);
         return new SoundEvent(id);
     }
     @Override

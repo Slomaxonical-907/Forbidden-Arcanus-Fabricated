@@ -2,49 +2,26 @@ package com.slomaxonical.forbidden_arcanus.common.item;
 
 import com.google.common.collect.ImmutableList;
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
-import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
-import com.slomaxonical.forbidden_arcanus.mixin.CombinedInventoryAccessor;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.dispenser.DispenserBehavior;
 import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.WallStandingBlockItem;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPointer;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.BlockSource;
 import net.valhelsia.valhelsia_core.common.capability.counter.CounterCapability;
-import net.valhelsia.valhelsia_core.common.capability.counter.CounterCreator;
-import net.valhelsia.valhelsia_core.common.capability.counter.CounterImpl;
 import net.valhelsia.valhelsia_core.common.capability.counter.SimpleCounter;
-import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nonnull;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ObsidianSkullItem extends WallStandingBlockItem {
 //WallStandingBlockItem
     public static final int OBSIDIAN_SKULL_PROTECTION_TIME = 600;
 
-    private static final Identifier COUNTER = new Identifier(ForbiddenArcanus.MOD_ID, "tick_counter");
+    private static final Identifier COUNTER = new Identifier(ForbiddenArcanus.ID, "tick_counter");
 
     public static final List<DamageSource> DAMAGE_SOURCES = ImmutableList.of(DamageSource.LAVA, DamageSource.IN_FIRE, DamageSource.ON_FIRE, DamageSource.HOT_FLOOR);
 

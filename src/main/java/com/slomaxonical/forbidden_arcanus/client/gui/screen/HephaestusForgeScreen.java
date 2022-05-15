@@ -10,10 +10,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -33,7 +30,7 @@ import java.util.List;
  */
 public class HephaestusForgeScreen extends HandledScreen<HephaestusForgeMenu> {
 
-    private static final Identifier TEXTURES = new Identifier(ForbiddenArcanus.MOD_ID, "textures/gui/container/hephaestus_forge.png");
+    private static final Identifier TEXTURES = new Identifier(ForbiddenArcanus.ID, "textures/gui/container/hephaestus_forge.png");
 
     public HephaestusForgeScreen(HephaestusForgeMenu container, PlayerInventory inventory, Text title) {
         super(container, inventory, title);

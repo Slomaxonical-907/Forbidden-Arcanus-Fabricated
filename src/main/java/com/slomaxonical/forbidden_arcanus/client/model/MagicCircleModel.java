@@ -8,8 +8,8 @@ import net.minecraft.util.Identifier;
 
 public class MagicCircleModel {
 
-    public static final EntityModelLayer OUTER_RING_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.MOD_ID, "magic_circle"), "outer_ring");
-    public static final EntityModelLayer INNER_RING_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.MOD_ID, "magic_circle"), "inner_ring");
+    public static final EntityModelLayer OUTER_RING_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.ID, "magic_circle"), "outer_ring");
+    public static final EntityModelLayer INNER_RING_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.ID, "magic_circle"), "inner_ring");
 
     private final ModelPart outerRing;
     private final ModelPart innerRing;

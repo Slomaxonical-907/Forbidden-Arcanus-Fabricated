@@ -7,8 +7,11 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ItemStackParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.scoreboard.Team;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.function.BooleanBiFunction;
@@ -45,6 +48,20 @@ public class FAHelper {
     public static void removeTeam(Scoreboard scoreboard, Team team) {
         if (scoreboard.getTeamNames().contains(team.getName())) {
             scoreboard.removeTeam(team);
+        }
+    }
+    public static void addItemParticles(World level, ItemStack stack, BlockPos pos, int count) {
+        Random random = level.getRandom();
+
+        for(int i = 0; i < count; i++) {
+            Vec3d offset = new Vec3d((random.nextFloat() - 0.5D) * 0.1D, random.nextFloat() * 0.1D + 0.1D, 0.0D);
+            Vec3d vector = new Vec3d((random.nextFloat() - 0.5D) * 0.3D, -random.nextFloat() * 0.6D - 0.3D, 0.6D).add(blockPosToVector(pos));
+
+            if (level instanceof ServerWorld serverWorld) {
+                serverWorld.spawnParticles(new ItemStackParticleEffect(ParticleTypes.ITEM, stack), vector.x, vector.y, vector.z, 1, offset.x, offset.y + 0.05D, offset.z, 0.0D);
+            } else {
+                level.addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, stack), vector.x, vector.y, vector.z, offset.x, offset.y + 0.05D, offset.z);
+            }
         }
     }
 //    //Item stack Helper

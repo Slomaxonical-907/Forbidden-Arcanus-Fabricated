@@ -25,8 +25,8 @@ import java.util.Random;
 
 public class NipaGenerator {
 
-    public static final Identifier NIPA = new Identifier(ForbiddenArcanus.MOD_ID, "nipa");
-    public static final Identifier NIPA_FLOATING = new Identifier(ForbiddenArcanus.MOD_ID, "nipa_floating");
+    public static final Identifier NIPA = new Identifier(ForbiddenArcanus.ID, "nipa");
+    public static final Identifier NIPA_FLOATING = new Identifier(ForbiddenArcanus.ID, "nipa_floating");
 
     public static class Piece extends SimpleStructurePiece {
 

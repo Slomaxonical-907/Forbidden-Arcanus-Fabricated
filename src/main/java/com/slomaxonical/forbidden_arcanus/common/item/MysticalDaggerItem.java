@@ -42,6 +42,6 @@ public class MysticalDaggerItem extends SwordItem {
     @Override
     public void appendTooltip(@Nonnull ItemStack stack, World worldIn, @Nonnull List<Text> tooltip, @Nonnull TooltipContext flag) {
         super.appendTooltip(stack, worldIn, tooltip, flag);
-        tooltip.add(new TranslatableText("tooltip." + ForbiddenArcanus.MOD_ID + ".mystical_dagger").formatted(Formatting.GRAY));
+        tooltip.add(new TranslatableText("tooltip." + ForbiddenArcanus.ID + ".mystical_dagger").formatted(Formatting.GRAY));
     }
 }

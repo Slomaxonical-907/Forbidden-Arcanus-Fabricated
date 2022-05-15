@@ -4,7 +4,6 @@ import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
 import com.slomaxonical.forbidden_arcanus.core.registries.ParticleRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -16,7 +15,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -122,7 +120,7 @@ public class SoulExtractorItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tooltip." + ForbiddenArcanus.MOD_ID + ".soul_extractor").formatted(Formatting.GRAY));
+        tooltip.add(new TranslatableText("tooltip." + ForbiddenArcanus.ID + ".soul_extractor").formatted(Formatting.GRAY));
         super.appendTooltip(stack, world, tooltip, context);
     }
 }

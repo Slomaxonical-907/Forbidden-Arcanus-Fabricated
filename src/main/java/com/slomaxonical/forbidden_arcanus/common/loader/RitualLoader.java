@@ -95,7 +95,7 @@ public class RitualLoader extends JsonDataLoader {
             System.out.println(StringNbtReader.parse(GSON.toJson(jsonObject.get("result"))));
             ItemStack result = getItemStack(JsonHelper.getObject(jsonObject, "result"));
 
-            return new Ritual(name, this.deserializeInputs(jsonObject), hephaestusForgeInput, result, this.deserializeEssences(jsonObject), new Identifier(ForbiddenArcanus.MOD_ID, "textures/effect/magic_circle/absolute.png"), new Identifier(ForbiddenArcanus.MOD_ID, "textures/effect/magic_circle/inner_protection.png"), 1200);
+            return new Ritual(name, this.deserializeInputs(jsonObject), hephaestusForgeInput, result, this.deserializeEssences(jsonObject), new Identifier(ForbiddenArcanus.ID, "textures/effect/magic_circle/absolute.png"), new Identifier(ForbiddenArcanus.ID, "textures/effect/magic_circle/inner_protection.png"), 1200);
         } catch (CommandSyntaxException e) {
             e.printStackTrace();
         }

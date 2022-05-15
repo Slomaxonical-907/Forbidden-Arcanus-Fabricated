@@ -7,9 +7,7 @@ import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherryt
 import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree.CherryTreeConfig;
 import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree.CherryTrunkPlacer;
 import com.slomaxonical.forbidden_arcanus.common.worldgen.feature.config.cherrytree.LeafCarpetDecorator;
-import com.slomaxonical.forbidden_arcanus.common.worldgen.structure.config.NipaConfig;
 import com.slomaxonical.forbidden_arcanus.core.config.WorldGenConfig;
-import com.slomaxonical.forbidden_arcanus.core.helper.FATags;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -20,7 +18,6 @@ import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
@@ -89,29 +86,29 @@ public class ConfiguredFeatureRegistry {
     public static final ConfiguredFeature<SingleStateFeatureConfig, ?> PETRIFIED_ROOT = new ConfiguredFeature<>(FeatureRegistry.PETRIFIED_ROOT, new SingleStateFeatureConfig(States.PETRIFIED_ROOT));
 
     public static void register() {
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "ore_arcane_crystal"), ARCANE_CRYSTAL_ORE);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "ore_rune"), RUNIC_STONE);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "ore_darkstone"), DARKSTONE);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "ore_arcane_gilded_darkstone"), ARCANE_GILDED_DARKSTONE);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "ore_stella_arcanum"), STELLA_ARCANUM);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "ore_xpetrified"), XPETRIFIED_ORE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "ore_arcane_crystal"), ARCANE_CRYSTAL_ORE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "ore_rune"), RUNIC_STONE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "ore_darkstone"), DARKSTONE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "ore_arcane_gilded_darkstone"), ARCANE_GILDED_DARKSTONE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "ore_stella_arcanum"), STELLA_ARCANUM);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "ore_xpetrified"), XPETRIFIED_ORE);
 
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "cherrywood"), CHERRYWOOD_TREE);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "fancy_cherrywood"), FANCY_CHERRYWOOD_TREE);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "mysterywood"), MYSTERYWOOD_TREE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "cherrywood"), CHERRYWOOD_TREE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "fancy_cherrywood"), FANCY_CHERRYWOOD_TREE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "mysterywood"), MYSTERYWOOD_TREE);
 
-        Registry.register(Registry.FOLIAGE_PLACER_TYPE, new Identifier(ForbiddenArcanus.MOD_ID, "cherry_foliage_placer"), CHERRY_FOLIAGE_PLACER);
-        Registry.register(Registry.TRUNK_PLACER_TYPE, new Identifier(ForbiddenArcanus.MOD_ID, "cherry_trunk_placer"), CHERRY_TRUNK_PLACER);
-        Registry.register(Registry.TREE_DECORATOR_TYPE, new Identifier(ForbiddenArcanus.MOD_ID, "leaf_carpet_decorator"), LEAF_CARPET_DECORATOR);
+        Registry.register(Registry.FOLIAGE_PLACER_TYPE, new Identifier(ForbiddenArcanus.ID, "cherry_foliage_placer"), CHERRY_FOLIAGE_PLACER);
+        Registry.register(Registry.TRUNK_PLACER_TYPE, new Identifier(ForbiddenArcanus.ID, "cherry_trunk_placer"), CHERRY_TRUNK_PLACER);
+        Registry.register(Registry.TREE_DECORATOR_TYPE, new Identifier(ForbiddenArcanus.ID, "leaf_carpet_decorator"), LEAF_CARPET_DECORATOR);
 
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "big_fungyss_0"), BIG_FUNGYSS_0);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "big_fungyss_1"), BIG_FUNGYSS_1);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "mega_fungyss_0"), MEGA_FUNGYSS_0);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "mega_fungyss_1"), MEGA_FUNGYSS_1);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "big_fungyss_0"), BIG_FUNGYSS_0);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "big_fungyss_1"), BIG_FUNGYSS_1);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "mega_fungyss_0"), MEGA_FUNGYSS_0);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "mega_fungyss_1"), MEGA_FUNGYSS_1);
 
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "flower_yellow_orchid"), YELLOW_ORCHID);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "edelwood"), EDELWOOD);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.MOD_ID, "petrified_root"), PETRIFIED_ROOT);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "flower_yellow_orchid"), YELLOW_ORCHID);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "edelwood"), EDELWOOD);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(ForbiddenArcanus.ID, "petrified_root"), PETRIFIED_ROOT);
 
     }
     private static final class States {

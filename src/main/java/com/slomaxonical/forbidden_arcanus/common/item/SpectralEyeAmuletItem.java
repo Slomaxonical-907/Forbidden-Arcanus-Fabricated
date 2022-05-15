@@ -2,12 +2,10 @@ package com.slomaxonical.forbidden_arcanus.common.item;
 
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
 import com.slomaxonical.forbidden_arcanus.core.registries.StatusEffectsRegistry;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -46,10 +44,10 @@ public class SpectralEyeAmuletItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        Text toggle = new TranslatableText("tooltip." + ForbiddenArcanus.MOD_ID + ".toggle").formatted(Formatting.GRAY);
+        Text toggle = new TranslatableText("tooltip." + ForbiddenArcanus.ID + ".toggle").formatted(Formatting.GRAY);
 
         boolean deactivated = this.isDeactivated(stack);
-        tooltip.add(new TranslatableText("tooltip." + ForbiddenArcanus.MOD_ID + (deactivated ? ".deactivated" : ".activated")).formatted(deactivated ? Formatting.RED : Formatting.GREEN).append(" ").append(toggle));
+        tooltip.add(new TranslatableText("tooltip." + ForbiddenArcanus.ID + (deactivated ? ".deactivated" : ".activated")).formatted(deactivated ? Formatting.RED : Formatting.GREEN).append(" ").append(toggle));
     }
 
     public boolean isDeactivated(ItemStack stack) {

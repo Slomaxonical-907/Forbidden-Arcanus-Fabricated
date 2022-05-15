@@ -2,7 +2,6 @@ package com.slomaxonical.forbidden_arcanus.common.item;
 
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -55,6 +54,6 @@ public class BloodTestTubeItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        tooltip.add(new TranslatableText(ForbiddenArcanus.MOD_ID + ".blood").append(": " + getBlood(stack) + "/" + MAX_BLOOD).formatted(Formatting.GRAY));
+        tooltip.add(new TranslatableText(ForbiddenArcanus.ID + ".blood").append(": " + getBlood(stack) + "/" + MAX_BLOOD).formatted(Formatting.GRAY));
     }
 }

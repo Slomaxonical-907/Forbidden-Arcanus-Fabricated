@@ -28,14 +28,14 @@ import net.minecraft.util.math.Vec3f;
 @Environment(EnvType.CLIENT)
 public class BlackHoleRenderer implements BlockEntityRenderer<BlackHoleBlockEntity> {
 
-    public static final EntityModelLayer BLACK_HOLE_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.MOD_ID, "black_hole"), "main");
-    public static final EntityModelLayer BLACK_HOLE_AURA_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.MOD_ID, "black_hole"), "aura");
+    public static final EntityModelLayer BLACK_HOLE_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.ID, "black_hole"), "main");
+    public static final EntityModelLayer BLACK_HOLE_AURA_LAYER = new EntityModelLayer(new Identifier(ForbiddenArcanus.ID, "black_hole"), "aura");
 
-    private static final Identifier BLACK_HOLE_TEXTURE = new Identifier(ForbiddenArcanus.MOD_ID, "textures/block/black_hole.png");
+    private static final Identifier BLACK_HOLE_TEXTURE = new Identifier(ForbiddenArcanus.ID, "textures/block/black_hole.png");
     private static final Identifier[] BLACK_HOLE_AURA = {
-            new Identifier(ForbiddenArcanus.MOD_ID, "textures/block/black_hole_aura_0.png"),
-            new Identifier(ForbiddenArcanus.MOD_ID, "textures/block/black_hole_aura_1.png"),
-            new Identifier(ForbiddenArcanus.MOD_ID, "textures/block/black_hole_aura_2.png")
+            new Identifier(ForbiddenArcanus.ID, "textures/block/black_hole_aura_0.png"),
+            new Identifier(ForbiddenArcanus.ID, "textures/block/black_hole_aura_1.png"),
+            new Identifier(ForbiddenArcanus.ID, "textures/block/black_hole_aura_2.png")
     };
 
     private static final RenderLayer RENDER_TYPE = RenderLayer.getEntityCutoutNoCull(BLACK_HOLE_TEXTURE);

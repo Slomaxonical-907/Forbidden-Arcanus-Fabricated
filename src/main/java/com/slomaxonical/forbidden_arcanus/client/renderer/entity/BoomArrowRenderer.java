@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 
 public class BoomArrowRenderer extends ProjectileEntityRenderer<BoomArrowEntity> {
 
-    private static final Identifier LOCATION = new Identifier(ForbiddenArcanus.MOD_ID, "textures/entity/projectiles/boom_arrow.png");
+    private static final Identifier LOCATION = new Identifier(ForbiddenArcanus.ID, "textures/entity/projectiles/boom_arrow.png");
 
     public BoomArrowRenderer(EntityRendererFactory.Context context) {
         super(context);

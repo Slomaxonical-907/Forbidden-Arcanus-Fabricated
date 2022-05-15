@@ -21,12 +21,12 @@ public class FARenderLayers extends RenderLayer {
 
     private static final Function<Identifier, RenderLayer> ENTITY_FULLBRIGHT_CUTOUT = Util.memoize(id -> {
         RenderPhase.Texture textureStateShard = new RenderPhase.Texture(id, false, false);
-        return RenderLayer.of(ForbiddenArcanus.MOD_ID + ":entity_fullbright_cutout", VertexFormats.POSITION_COLOR_TEXTURE_OVERLAY_LIGHT_NORMAL, VertexFormat.DrawMode.QUADS, 256, false, true, RenderLayer.MultiPhaseParameters.builder().shader(RENDERTYPE_ENTITY_FULLBRIGHT_CUTOUT_SHADER).texture(textureStateShard).transparency(NO_TRANSPARENCY).writeMaskState(COLOR_MASK).build(false));
+        return RenderLayer.of(ForbiddenArcanus.ID + ":entity_fullbright_cutout", VertexFormats.POSITION_COLOR_TEXTURE_OVERLAY_LIGHT_NORMAL, VertexFormat.DrawMode.QUADS, 256, false, true, RenderLayer.MultiPhaseParameters.builder().shader(RENDERTYPE_ENTITY_FULLBRIGHT_CUTOUT_SHADER).texture(textureStateShard).transparency(NO_TRANSPARENCY).writeMaskState(COLOR_MASK).build(false));
     });
 
     private static final Function<Identifier, RenderLayer> ENTITY_FULLBRIGHT_TRANSLUCENT = Util.memoize(id -> {
         RenderPhase.Texture textureStateShard = new RenderPhase.Texture(id, false, false);
-        return RenderLayer.of(ForbiddenArcanus.MOD_ID + ":entity_fullbright_translucent", VertexFormats.POSITION_COLOR_TEXTURE_OVERLAY_LIGHT_NORMAL, VertexFormat.DrawMode.QUADS, 256, false, true, RenderLayer.MultiPhaseParameters.builder().shader(RENDERTYPE_ENTITY_FULLBRIGHT_TRANSLUCENT_SHADER).texture(textureStateShard).transparency(TRANSLUCENT_TRANSPARENCY).writeMaskState(COLOR_MASK).build(false));
+        return RenderLayer.of(ForbiddenArcanus.ID + ":entity_fullbright_translucent", VertexFormats.POSITION_COLOR_TEXTURE_OVERLAY_LIGHT_NORMAL, VertexFormat.DrawMode.QUADS, 256, false, true, RenderLayer.MultiPhaseParameters.builder().shader(RENDERTYPE_ENTITY_FULLBRIGHT_TRANSLUCENT_SHADER).texture(textureStateShard).transparency(TRANSLUCENT_TRANSPARENCY).writeMaskState(COLOR_MASK).build(false));
     });
 
     public static RenderLayer entityFullbrightCutout(Identifier id) {

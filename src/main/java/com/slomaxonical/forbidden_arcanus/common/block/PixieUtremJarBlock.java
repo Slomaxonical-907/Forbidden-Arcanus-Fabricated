@@ -123,7 +123,7 @@ public class PixieUtremJarBlock extends Block implements Waterloggable {
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         super.appendTooltip(stack, world, tooltip, options);
         boolean corrupted = stack.isOf(BlockRegistry.CORRUPTED_PIXIE_UTREM_JAR.asItem());
-        tooltip.add(new TranslatableText("tooltip." + ForbiddenArcanus.MOD_ID + (corrupted ? ".corrupted_pixie" : ".pixie")).formatted(Formatting.GRAY));
+        tooltip.add(new TranslatableText("tooltip." + ForbiddenArcanus.ID + (corrupted ? ".corrupted_pixie" : ".pixie")).formatted(Formatting.GRAY));
     }
 
     @Override

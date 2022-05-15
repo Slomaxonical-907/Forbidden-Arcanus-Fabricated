@@ -2,10 +2,8 @@ package com.slomaxonical.forbidden_arcanus.common.item;
 
 import com.slomaxonical.forbidden_arcanus.ForbiddenArcanus;
 import com.slomaxonical.forbidden_arcanus.common.entity.item.FACustomEntityItem;
-import com.slomaxonical.forbidden_arcanus.common.entity.item.SoapItemEntity;
 import com.slomaxonical.forbidden_arcanus.common.entity.item.WetSoapItemEntity;
 import com.slomaxonical.forbidden_arcanus.core.registries.item.ItemRegistry;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,7 +19,7 @@ import net.valhelsia.valhelsia_core.common.capability.counter.SimpleCounter;
 import net.valhelsia.valhelsia_core.common.util.ItemStackUtils;
 
 public class WetPurifyingSoapItem extends Item implements FACustomEntityItem {
-    private static final SimpleCounter TIMER = new SimpleCounter(new Identifier(ForbiddenArcanus.MOD_ID, "dry_timer_inv"));
+    private static final SimpleCounter TIMER = new SimpleCounter(new Identifier(ForbiddenArcanus.ID, "dry_timer_inv"));
     private static final double CONSUME_CHANCE = 0.65D;
 
     public WetPurifyingSoapItem(Settings settings) {

@@ -7,7 +7,6 @@ import io.wispforest.owo.itemgroup.OwoItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.registry.Registry;
 
 public class ForbiddenItemGroup extends OwoItemGroup {
@@ -16,8 +15,8 @@ public class ForbiddenItemGroup extends OwoItemGroup {
     }
     @Override
     protected void setup() {
-        this.addTab(Icon.of(ItemRegistry.ARCANE_CRYSTAL),"wot",TagKey.of(Registry.ITEM_KEY, new Identifier(ForbiddenArcanus.MOD_ID,"items_tab")));
-        this.addTab(Icon.of(BlockRegistry.ARCANE_CHISELED_DARKSTONE),"wow",TagKey.of(Registry.ITEM_KEY, new Identifier(ForbiddenArcanus.MOD_ID,"blocks_tag")));
+        this.addTab(Icon.of(ItemRegistry.ARCANE_CRYSTAL),"wot",TagKey.of(Registry.ITEM_KEY, new Identifier(ForbiddenArcanus.ID,"items_tab")));
+        this.addTab(Icon.of(BlockRegistry.ARCANE_CHISELED_DARKSTONE),"wow",TagKey.of(Registry.ITEM_KEY, new Identifier(ForbiddenArcanus.ID,"blocks_tag")));
     }
 
     @Override
