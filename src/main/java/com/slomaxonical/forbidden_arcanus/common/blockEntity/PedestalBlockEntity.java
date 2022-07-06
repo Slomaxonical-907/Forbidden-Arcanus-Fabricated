@@ -1,13 +1,16 @@
 package com.slomaxonical.forbidden_arcanus.common.blockEntity;
 
+import com.slomaxonical.forbidden_arcanus.common.networking.ForbiddenS2CPacketSender;
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockEntityRegistry;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.valhelsia.valhelsia_core.common.network.NetworkHandler;
 
 public class PedestalBlockEntity extends BlockEntity {
 
@@ -34,10 +37,11 @@ public class PedestalBlockEntity extends BlockEntity {
 
     public void setStackAndSync(ItemStack stack, World world, BlockPos pos) {
         this.stack = stack;
-//
-//        if (!world.isClient()) {
-//            NetworkHandler.sentToTrackingChunk(world.getChunk(pos), new UpdatePedestalPacket(pos, stack, this.itemHeight));
-//        }
+        if (!world.isClient()) {
+            for (PlayerEntity trackingPlayer : PlayerLookup.tracking(this)) {
+                ForbiddenS2CPacketSender.send((ServerWorld) world, pos, stack, this.itemHeight);
+            }
+        }
     }
 
     public ItemStack getStack() {
@@ -51,7 +55,7 @@ public class PedestalBlockEntity extends BlockEntity {
     public void clearStack(World world, BlockPos pos) {
         this.setItemHeight(DEFAULT_ITEM_HEIGHT);
 
-//        this.setStackAndSync(ItemStack.EMPTY, world, pos);
+        this.setStackAndSync(ItemStack.EMPTY, world, pos);
     }
 
     public float getItemHover(float partialTicks) {
@@ -67,9 +71,14 @@ public class PedestalBlockEntity extends BlockEntity {
     }
 
     @Override
+    public NbtCompound toInitialChunkDataNbt() {
+        NbtCompound nbtCompound = new NbtCompound();
+        this.writeNbt(nbtCompound);
+        return nbtCompound;
+    }
+    @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-
         if (nbt.contains("Stack")) {
             this.stack = ItemStack.fromNbt(nbt.getCompound("Stack"));
             this.itemHeight = nbt.getInt("ItemHeight");

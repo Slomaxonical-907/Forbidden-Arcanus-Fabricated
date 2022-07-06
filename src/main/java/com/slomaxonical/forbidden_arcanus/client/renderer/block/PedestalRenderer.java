@@ -21,12 +21,13 @@ public class PedestalRenderer implements BlockEntityRenderer<PedestalBlockEntity
     @Override
     public void render(PedestalBlockEntity blockEntity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         ItemStack stack = blockEntity.getStack();
-        World world = MinecraftClient.getInstance().world;
+//        World world = MinecraftClient.getInstance().world;
         if (!stack.isEmpty()) {
             matrices.push();
 
             matrices.translate(0.5D, blockEntity.getItemHeight() / 100.0F, 0.5D);
-            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((world.getTime() + tickDelta) * 3));
+            matrices.multiply(Vec3f.POSITIVE_Y.getRadialQuaternion(blockEntity.getItemHover(tickDelta)));
+//            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((world.getTime() + tickDelta) * 3));
 
             matrices.scale(0.5F, 0.5F, 0.5F);
 

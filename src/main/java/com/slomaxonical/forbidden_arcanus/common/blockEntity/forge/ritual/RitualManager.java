@@ -5,9 +5,11 @@ import com.slomaxonical.forbidden_arcanus.common.blockEntity.forge.HephaestusFor
 import com.slomaxonical.forbidden_arcanus.common.entity.CrimsonLightningBoltEntity;
 import com.slomaxonical.forbidden_arcanus.common.item.util.RitualStarterItem;
 import com.slomaxonical.forbidden_arcanus.common.loader.RitualLoader;
+import com.slomaxonical.forbidden_arcanus.common.networking.ForbiddenS2CPacketSender;
 import com.slomaxonical.forbidden_arcanus.core.registries.EntityRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.POIRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.ParticleRegistry;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -121,8 +123,10 @@ public class RitualManager implements NeedsStoring {
             if (pedestalBlockEntity.getItemHeight() != 140) {
                 int height = pedestalBlockEntity.getItemHeight() + 1;
                 pedestalBlockEntity.setItemHeight(height);
-
-//                NetworkHandler.sentToTrackingChunk(world.getWorldChunk(pedestalPos), new UpdatePedestalPacket(pedestalPos, pedestalBlockEntity.getStack(), height)); todo
+                for (PlayerEntity trackingPlayer : PlayerLookup.tracking(pedestalBlockEntity)) {
+                    ForbiddenS2CPacketSender.send(world, pedestalPos,pedestalBlockEntity.getStack(),height);
+//                UpdatePedestalPacket.send(trackingPlayer,pedestalPos,pedestalBlockEntity.getStack(),height);
+                }
             }
 
             this.addItemParticles(world, pedestalPos, pedestalBlockEntity.getItemHeight(), pedestalBlockEntity.getStack());

@@ -84,33 +84,34 @@ public class PedestalBlock extends Block implements Waterloggable, BlockEntityPr
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack stack = player.getStackInHand(hand);
+            ItemStack stackInHand = player.getStackInHand(hand);
 
-        if (!(world.getBlockEntity(pos) instanceof PedestalBlockEntity blockEntity)) {
-            return ActionResult.PASS;
-        }
-
-        if (blockEntity.hasStack()) {
-            ItemStack pedestalStack = blockEntity.getStack();
-
-            if (stack.isEmpty()) {
-                player.setStackInHand(hand, pedestalStack);
-            } else if (!player.giveItemStack(pedestalStack)) {
-                player.dropItem(pedestalStack, false);
+            if (!(world.getBlockEntity(pos) instanceof PedestalBlockEntity blockEntity)) {
+                return ActionResult.PASS;
             }
 
-            blockEntity.clearStack(world, pos);
+            if (blockEntity.hasStack()) {
+                ItemStack pedestalStack = blockEntity.getStack();
+                blockEntity.markDirty();
 
-        } else if (!stack.isEmpty() && !blockEntity.hasStack()) {
-            blockEntity.setStackAndSync(stack.copy().split(1), world, pos);
+                if (stackInHand.isEmpty()) {
+                    player.setStackInHand(hand, pedestalStack);
+                } else if (!player.giveItemStack(pedestalStack)) {
+                    player.dropItem(pedestalStack, false);
+                }
 
-            ItemStackUtils.shrinkStack(player, stack);
+                blockEntity.clearStack(world, pos);
 
-        } else {
-            return ActionResult.PASS;
-        }
+            } else if (!stackInHand.isEmpty() && !blockEntity.hasStack()) {
+                blockEntity.setStackAndSync(stackInHand.copy().split(1), world, pos);
 
-        return ActionResult.success(world.isClient);
+                ItemStackUtils.shrinkStack(player, stackInHand);
+
+            } else {
+                return ActionResult.PASS;
+            }
+
+            return ActionResult.success(world.isClient);
     }
 
     @Override

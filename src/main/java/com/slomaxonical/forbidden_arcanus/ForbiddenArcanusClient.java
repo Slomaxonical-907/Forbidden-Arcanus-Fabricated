@@ -9,6 +9,8 @@ import com.slomaxonical.forbidden_arcanus.client.renderer.entity.BoomArrowRender
 import com.slomaxonical.forbidden_arcanus.client.renderer.entity.CrimsonLightningBoltRenderer;
 import com.slomaxonical.forbidden_arcanus.client.renderer.entity.DracoArcanusArrowRenderer;
 import com.slomaxonical.forbidden_arcanus.client.renderer.entity.EnergyBallRenderer;
+import com.slomaxonical.forbidden_arcanus.common.networking.ForbiddenS2CPacketReceiver;
+import com.slomaxonical.forbidden_arcanus.common.networking.ForbiddenS2CPackets;
 import com.slomaxonical.forbidden_arcanus.core.registries.EntityRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.ParticleRegistry;
 import com.slomaxonical.forbidden_arcanus.core.registries.ScreenHandlerTypeRegistry;
@@ -16,13 +18,16 @@ import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockEntityRegis
 import com.slomaxonical.forbidden_arcanus.core.registries.block.BlockRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.fabricmc.fabric.impl.client.container.ScreenProviderRegistryImpl;
+import net.fabricmc.fabric.impl.networking.ClientSidePacketRegistryImpl;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.particle.ExplosionLargeParticle;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.screen.ScreenHandlerType;
@@ -107,5 +112,7 @@ public class ForbiddenArcanusClient implements ClientModInitializer {
         EntityRendererRegistry.register(EntityRegistry.DRACO_ARCANUS_ARROW, DracoArcanusArrowRenderer::new);
 
         HandledScreens.register(ScreenHandlerTypeRegistry.HEPHAESTUS_FORGE, HephaestusForgeScreen::new);
+
+        ForbiddenS2CPacketReceiver.registerS2CReceivers();
     }
 }

@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.11-SNAPSHOT'
+	id 'fabric-loom' version '0.12-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -50,6 +50,7 @@ dependencies {
 	modImplementation "curse.maven:valhelsiaCore-416935:3746993"
 	modImplementation "com.electronwill.night-config:core:3.6.3"
 	modImplementation "com.electronwill.night-config:toml:3.6.3"
+
 	implementation 'com.github.Chocohead:Fabric-ASM:master-SNAPSHOT'
 }
 
